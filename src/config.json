@@ -1,0 +1,22 @@
+{
+  "domain": "tsalastudio.com",
+  "storage": "tsalastudio.com",
+  "service_url_us": "https://us-central1-tuc-shopping-dev.cloudfunctions.net/qa_tuc_shop_node_api/api/",
+  "service_url": "https://asia-south1-tuc-shopping-dev.cloudfunctions.net/qa_tuc_shop_node_api/api/",
+  "service_url_": "http://localhost:8000/api/",
+  "logo": "https://firebasestorage.googleapis.com/v0/b/tuc-shopping-dev.appspot.com/o/shop.eshope.com%2Flogo%2Fsamplelogo.png?alt=media&token=3dfc910c-f376-4c71-8320-9323ffc69a7e",
+  "slider": [
+    {
+      "title": "Welcome to tsalastudio",
+      "prefix": "shop type",
+      "description": "The Best Shop In Your Location",
+      "image_url": "https://firebasestorage.googleapis.com/v0/b/tuc-shopping-dev.appspot.com/o/shop.eshope.com%2Fslider%2Fslider1.jpg?alt=media&token=3fa2b249-163f-4bb2-a7b6-f2818d080511"
+    },
+    {
+      "title": "Occational Shopping",
+      "prefix": "shop type",
+      "description": "The Best Shop In Your Location",
+      "image_url": "https://firebasestorage.googleapis.com/v0/b/tuc-shopping-dev.appspot.com/o/shop.eshope.com%2Fslider%2Fslider2.jpg?alt=media&token=406006e0-d380-4e85-bfbb-ff8ea227df54"
+    }
+  ]
+}
