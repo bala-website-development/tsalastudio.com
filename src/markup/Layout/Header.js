@@ -42,9 +42,9 @@ const Header = (props) => {
       <div className="sticky-header main-bar-wraper navbar-expand-lg">
         <div className="main-bar clearfix ">
           <div className="container clearfix">
-            <div className="logo-header mostion mb-1">
+            <div className="logo-header mostion ">
               <Link to={"/"} className="dez-page">
-                <img src={config.logo} alt="" />
+                <img className="" src={config.logo} alt="" />
               </Link>
             </div>
             <button className="navbar-toggler collapsed navicon justify-content-end" type="button" onClick={toggle} data-toggle="collapse" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
