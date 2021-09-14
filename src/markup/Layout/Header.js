@@ -41,7 +41,7 @@ const Header = (props) => {
     <header className="site-header header center mo-left header-style-2">
       <div className="sticky-header main-bar-wraper navbar-expand-lg">
         <div className="main-bar clearfix ">
-          <div className="container clearfix">
+          <div className="container clearfix d-flex align-items-center justify-content-end">
             <div className="logo-header mostion ">
               <Link to={"/"} className="dez-page">
                 <img className="" src={config.logo} alt="" />
@@ -54,7 +54,7 @@ const Header = (props) => {
             </button>
 
             <div className={`header-nav navbar-collapse navbar myNavbar collapse justify-content-between ${toggleShow ? "show" : "hide"}`} id="navbarNavDropdown">
-              {toggleShow === false && (
+              {toggleShow === true && (
                 <div className="logo-header mostion">
                   <Link to={"/"} className="dez-page">
                     <img src={config.logo} alt="" />

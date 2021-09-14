@@ -3024,9 +3024,9 @@ td.fc-event-container {
     height: 450px;
   }
   .logo-header {
-    width: 120px;
+    width: 150px;
     left: 45% !important;
-    top: 10%;
+    /* top: 10%; */
   }
   .header-style-2 .main-bar:after {
     bottom: -5px;

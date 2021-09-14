@@ -3138,6 +3138,7 @@ blockquote cite {
 .logo-footer img {
   height: auto;
   width: 100%;
+  border-radius: 3px;
 }
 .logo-header span,
 .logo-footer span {
@@ -3537,7 +3538,7 @@ blockquote cite {
   -webkit-transform: translate(-50%);
   -o-transform: translate(-50%);
   position: absolute;
-  /* left: 50%; */
+   left: 10%; 
   margin-left: 5%;
   text-align: center;
   padding: 10px 0;
@@ -13175,11 +13176,12 @@ ol.commentlist li .star-rating {
     width: 100%;
     left: auto;
     position: relative;
-    transform: none;
+    /* transform: none; */
   }
   .mo-left .header-nav .logo-header img {
     max-width: unset;
     width: 150px;
+    border-radius: 3px;
     height: auto;
   }
   .mo-left .navbar-toggler.open span {
