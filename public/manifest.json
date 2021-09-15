@@ -1,19 +1,19 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "short_name": "Tsala Quilting Studio",
+  "name": "Tsala Quilting Studio",
   "icons": [
     {
-      "src": "favicon.ico",
+      "src": "https://firebasestorage.googleapis.com/v0/b/tucfbclouddb.appspot.com/o/tsalastudio.com%2Flogo%2Flogo.jpeg?alt=media&token=2a0ea36d-d6b0-4ad3-8701-a4daa8dda261",
       "sizes": "64x64 32x32 24x24 16x16",
       "type": "image/x-icon"
     },
     {
-      "src": "logo192.png",
+      "src": "https://firebasestorage.googleapis.com/v0/b/tucfbclouddb.appspot.com/o/tsalastudio.com%2Flogo%2Flogo.jpeg?alt=media&token=2a0ea36d-d6b0-4ad3-8701-a4daa8dda261",
       "type": "image/png",
       "sizes": "192x192"
     },
     {
-      "src": "logo512.png",
+      "src": "https://firebasestorage.googleapis.com/v0/b/tucfbclouddb.appspot.com/o/tsalastudio.com%2Flogo%2Flogo.jpeg?alt=media&token=2a0ea36d-d6b0-4ad3-8701-a4daa8dda261",
       "type": "image/png",
       "sizes": "512x512"
     }
@@ -23,3 +23,4 @@
   "theme_color": "#000000",
   "background_color": "#ffffff"
 }
+
