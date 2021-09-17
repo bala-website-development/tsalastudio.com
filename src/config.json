@@ -1,22 +1,22 @@
 {
   "domain": "tsalastudio.com",
   "storage": "tsalastudio.com",
-  "service_url_us": "https://us-central1-tuc-shopping-dev.cloudfunctions.net/qa_tuc_shop_node_api/api/",
-  "service_url": "https://asia-south1-tuc-shopping-dev.cloudfunctions.net/qa_tuc_shop_node_api/api/",
-  "service_url_": "http://localhost:8000/api/",
-  "logo": "https://firebasestorage.googleapis.com/v0/b/tuc-shopping-dev.appspot.com/o/shop.eshope.com%2Flogo%2Fsamplelogo.png?alt=media&token=3dfc910c-f376-4c71-8320-9323ffc69a7e",
+  "service_url_qa": "https://asia-south1-tuc-shopping-dev.cloudfunctions.net/tuc_shop_node_api/api/",
+  "service_url_prod": "https://asia-south1-tucfbclouddb.cloudfunctions.net/tuc_shop_node_api/api/",
+  "service_url": "http://localhost:8000/api/",
+  "logo": "https://firebasestorage.googleapis.com/v0/b/tucfbclouddb.appspot.com/o/tsalastudio.com%2Flogo%2Flogo.jpeg?alt=media&token=2a0ea36d-d6b0-4ad3-8701-a4daa8dda261",
   "slider": [
     {
-      "title": "Welcome to tsalastudio",
-      "prefix": "shop type",
-      "description": "The Best Shop In Your Location",
-      "image_url": "https://firebasestorage.googleapis.com/v0/b/tuc-shopping-dev.appspot.com/o/shop.eshope.com%2Fslider%2Fslider1.jpg?alt=media&token=3fa2b249-163f-4bb2-a7b6-f2818d080511"
+      "title": "TSALA Quilting Studio",
+      "prefix": "Bengaluru",
+      "description": "Quilting | Craft Classes | Hobby Studio | Studio Rent Out | Longarm Services",
+      "image_url": "https://firebasestorage.googleapis.com/v0/b/tucfbclouddb.appspot.com/o/tsalastudio.com%2Fslider%2Fslide1.jpg?alt=media&token=0e2cb2a5-d187-4086-ae43-52d92d417544"
     },
     {
-      "title": "Occational Shopping",
-      "prefix": "shop type",
-      "description": "The Best Shop In Your Location",
-      "image_url": "https://firebasestorage.googleapis.com/v0/b/tuc-shopping-dev.appspot.com/o/shop.eshope.com%2Fslider%2Fslider2.jpg?alt=media&token=406006e0-d380-4e85-bfbb-ff8ea227df54"
+      "title": "Join our Course",
+      "prefix": "Bengaluru",
+      "description": "Quilting | Craft Classes | Hobby Studio | Studio Rent Out | Longarm Services",
+      "image_url": "https://firebasestorage.googleapis.com/v0/b/tucfbclouddb.appspot.com/o/tsalastudio.com%2Fslider%2Fslide2.jpg?alt=media&token=3ecce1a6-e10a-4649-bac9-cc81d3a7e882"
     }
   ]
 }

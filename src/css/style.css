@@ -126,12 +126,81 @@
   border-radius: 3px;
 }
 .thumbnailimage {
-  height: 250px ;
-
+  height: 250px;
 }
 .postthumbnailimage {
   max-height: 350px !important;
- 
+}
+
+.container1 {
+  display: flex;
+
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+}
+.card {
+  margin: 10px;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+  width: 300px;
+}
+.card-header1 img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  padding: none !important;
+}
+.card-body1 {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 15px !important;
+  min-height: 250px;
+}
+
+.tag {
+  background: #cccccc;
+  border-radius: 50px;
+  font-size: 12px;
+  margin: 0;
+  color: #fff;
+  padding: 2px 10px;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+.tag-teal {
+  background-color: #47bcd4;
+}
+.tag-purple {
+  background-color: #5e76bf;
+}
+.tag-pink {
+  background-color: #cd5b9f;
+}
+
+.card-body p {
+  font-size: 13px;
+  margin: 0 0 40px;
+}
+.user {
+  display: flex;
+  margin-top: auto;
+}
+
+.user img {
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  margin-right: 10px;
+}
+.user-info h5 {
+  margin: 0;
+}
+.user-info small {
+  color: #545d7a;
 }
 
 body,
@@ -3138,6 +3207,7 @@ blockquote cite {
 .logo-footer img {
   height: auto;
   width: 100%;
+  border-radius: 3px;
 }
 .logo-header span,
 .logo-footer span {
@@ -3537,7 +3607,7 @@ blockquote cite {
   -webkit-transform: translate(-50%);
   -o-transform: translate(-50%);
   position: absolute;
-  /* left: 50%; */
+  left: 10%;
   margin-left: 5%;
   text-align: center;
   padding: 10px 0;
@@ -13140,7 +13210,7 @@ ol.commentlist li .star-rating {
     -moz-transition: all 0.8s;
     -o-transition: all 0.8s;
     margin: 0;
-    width: 280px;
+    width: 80%;
     border: 0;
   }
   .mo-left .is-fixed .header-nav .nav {
@@ -13175,11 +13245,12 @@ ol.commentlist li .star-rating {
     width: 100%;
     left: auto;
     position: relative;
-    transform: none;
+    /* transform: none; */
   }
   .mo-left .header-nav .logo-header img {
     max-width: unset;
     width: 150px;
+    border-radius: 3px;
     height: auto;
   }
   .mo-left .navbar-toggler.open span {
@@ -13417,7 +13488,7 @@ ol.commentlist li .star-rating {
 ================================================ */
 /* Header Box */
 .logo-header {
-  width: 170px;
+  width: 200px;
 }
 .header-full .main-bar {
   padding: 30px 0;
@@ -13647,7 +13718,9 @@ ol.commentlist li .star-rating {
   .header-nav .nav > li > a:hover,
   .header-nav .nav > li > a:active,
   .header-nav .nav > li > a:focus {
+    color: rgb(0, 0, 0) !important;
   }
+
   .header-nav .logo-header a {
     display: block;
     width: 100%;

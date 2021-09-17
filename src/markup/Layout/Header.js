@@ -41,10 +41,10 @@ const Header = (props) => {
     <header className="site-header header center mo-left header-style-2">
       <div className="sticky-header main-bar-wraper navbar-expand-lg">
         <div className="main-bar clearfix ">
-          <div className="container clearfix">
-            <div className="logo-header mostion mb-1">
+          <div className="container clearfix d-flex align-items-center justify-content-end">
+            <div className="logo-header mostion ">
               <Link to={"/"} className="dez-page">
-                <img src={config.logo} alt="" />
+                <img className="" src={config.logo} alt="" />
               </Link>
             </div>
             <button className="navbar-toggler collapsed navicon justify-content-end" type="button" onClick={toggle} data-toggle="collapse" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
@@ -54,7 +54,7 @@ const Header = (props) => {
             </button>
 
             <div className={`header-nav navbar-collapse navbar myNavbar collapse justify-content-between ${toggleShow ? "show" : "hide"}`} id="navbarNavDropdown">
-              {toggleShow === false && (
+              {toggleShow === true && (
                 <div className="logo-header mostion">
                   <Link to={"/"} className="dez-page">
                     <img src={config.logo} alt="" />
@@ -72,18 +72,6 @@ const Header = (props) => {
                       </>
                     )}
                   </li>
-                  <li className={props?.active === "home" ? `active${toggleShow ? "open" : ""}` : ""}>
-                    <Link to={"/"}>Home</Link>
-                  </li>
-                  <li className={props?.active === "about" ? "active" : ""}>
-                    <Link to={"/about-1"}>About Us</Link>
-                  </li>
-                  <li className={props?.active === "service" ? "active" : ""}>
-                    <Link to={"/our-services"}>Our Services</Link>
-                  </li>
-                  <li className={props?.active === "menu" ? "active" : ""}>
-                    <Link to={"/our-menu-1"}>Menu</Link>
-                  </li>
                   <li>
                     {localStorage.getItem("uuid") !== undefined && localStorage.getItem("uuid") !== null && (
                       <Link to={"/shop-cart"}>
@@ -92,7 +80,7 @@ const Header = (props) => {
                           <div className="text-small">
                             <span className="position-relative">
                               <img height="10" src={cart} alt="" />
-                              <span className="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">{cartDetails.length > 0 ? cartDetails.length : 0}</span>
+                              <span className="position-absolute top-0  translate-middle badge rounded-pill bg-danger">{cartDetails.length > 0 ? cartDetails.length : 0}</span>
                             </span>
                           </div>
                         </div>
@@ -100,11 +88,24 @@ const Header = (props) => {
                     )}
                   </li>
 
+                  <li className={props?.active === "home" ? `active${toggleShow ? "open" : ""}` : ""}>
+                    <Link to={"/"}>Home</Link>
+                  </li>
+                  <li className={props?.active === "about" ? "active" : ""}>
+                    <Link to={"/about-1"}>About Us</Link>
+                  </li>
+                  <li className={props?.active === "service" ? "active" : ""}>
+                    <Link to={"/our-services"}>Course</Link>
+                  </li>
+                  {/* <li className={props?.active === "menu" ? "active" : ""}>
+                    <Link to={"/our-menu-1"}>Menu</Link>
+                  </li> */}
+
                   <li className={props?.active === "shop" ? "active" : ""}>
                     <Link to={"/blog-half-img-sidebar"}>Blog</Link>
                   </li>
                   <li className={props?.active === "shop" ? "active" : ""}>
-                    <Link to={"/shop"}>Shop</Link>
+                    <Link to={"/shop"}>Products</Link>
                     {/* <ul className="sub-menu">
                       <li>
                         <Link to={"/shop"}>Shop</Link>
@@ -182,102 +183,17 @@ const Header = (props) => {
                   </ul> */}
                     </li>
                     <li className={props?.active === "service" ? "active" : ""}>
-                      <Link to={"/our-services"}>Our Services</Link>
+                      <Link to={"/our-services"}>Course</Link>
                     </li>
-                    <li className={props?.active === "menu" ? "active" : ""}>
+                    {/* <li className={props?.active === "menu" ? "active" : ""}>
                       <Link to={"/our-menu-1"}>Menu</Link>
-                      {/* <ul className="sub-menu">
-                    <li>
-                      <Link to={"/our-menu-1"}>Menu Style 1</Link>
-                    </li>
-                    <li>
-                      <Link to={"/our-menu-2"}>Menu Style 2</Link>
-                    </li>
-                    <li>
-                      <Link to={"/our-menu-3"}>Menu Style 3</Link>
-                    </li>
-                    <li>
-                      <Link to={"/our-menu-4"}>Menu Style 4</Link>
-                    </li>
-                </ul> */}
-                    </li>
-                    {/* </ul>
-                  <ul className="nav navbar-nav nav2"> */}
-                    {/* <li className="has-mega-menu">
-                  <Link to={""}>
-                    Blog<i className="fa fa-chevron-down"></i>
-                  </Link>
-                  <ul className="mega-menu">
-                    <li>
-                      {" "}
-                      <Link to={""}>Blog Grid</Link>
-                      <ul>
-                        <li>
-                          <Link to={"/blog-grid-2"}>Grid 2</Link>
-                        </li>
-                        <li>
-                          <Link to={"/blog-grid-2-sidebar"}>Grid 2 sidebar</Link>
-                        </li>
-                        <li>
-                          <Link to={"/blog-grid-2-sidebar-left"}>Grid 2 sidebar left</Link>
-                        </li>
-                        <li>
-                          <Link to={"/blog-grid-3"}>Grid 3</Link>
-                        </li>
-                      </ul>
-                    </li>
-                    <li>
-                      {" "}
-                      <Link to={""}>Blog Half Image</Link>
-                      <ul>
-                        <li>
-                          <Link to={"/blog-half-img"}>Half image</Link>
-                        </li>
-                        <li>
-                          <Link to={"/blog-half-img-sidebar"}>Half image sidebar</Link>
-                        </li>
-                        <li>
-                          <Link to={"/blog-half-img-left-sidebar"}>Half image sidebar left</Link>
-                        </li>
-                      </ul>
-                    </li>
-                    <li>
-                      {" "}
-                      <Link to={""}>Blog Large Image</Link>
-                      <ul>
-                        <li>
-                          <Link to={"/blog-large-img"}>Large image</Link>
-                        </li>
-                        <li>
-                          <Link to={"/blog-large-img-sidebar"}>Large image sidebar</Link>
-                        </li>
-                        <li>
-                          <Link to={"/blog-large-img-left-sidebar"}>Large image sidebar left</Link>
-                        </li>
-                      </ul>
-                    </li>
-                    <li>
-                      {" "}
-                      <Link to={""}>Blog Details</Link>
-                      <ul>
-                        <li>
-                          <Link to={"/blog-single"}>Single</Link>
-                        </li>
-                        <li>
-                          <Link to={"/blog-single-sidebar"}>Single sidebar</Link>
-                        </li>
-                        <li>
-                          <Link to={"/blog-single-left-sidebar"}>Single sidebar left</Link>
-                        </li>
-                      </ul>
-                    </li>
-                  </ul>
-                </li> */}
+                    </li> */}
+
                     <li className={props?.active === "blog" ? "active" : ""}>
                       <Link to={"/blog-half-img-sidebar"}>Blog</Link>
                     </li>
                     <li className={props?.active === "shop" ? "active" : ""}>
-                      <Link to={"/shop"}>Shop</Link>
+                      <Link to={"/shop"}>Products</Link>
                     </li>
                     {/* <li className={props?.active === "shop" ? "active" : ""}>
                       <Link to={""}>
