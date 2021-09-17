@@ -115,6 +115,9 @@
 1. GENERAL
 
 ---------------------------------------------------------------*/
+select.form-control:not([size]):not([multiple]) {
+  height: calc(2.25rem + 5px)!important;
+}
 
 .smallimage {
   height: 50px;
