@@ -13718,7 +13718,9 @@ ol.commentlist li .star-rating {
   .header-nav .nav > li > a:hover,
   .header-nav .nav > li > a:active,
   .header-nav .nav > li > a:focus {
+    color: rgb(0, 0, 0) !important;
   }
+
   .header-nav .logo-header a {
     display: block;
     width: 100%;
