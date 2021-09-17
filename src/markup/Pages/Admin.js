@@ -92,8 +92,9 @@ const Admin = (props) => {
         }
         else {
           setSuccessMsg(data.message);
-          history.push("/");
           handleVisible();
+          history.push("/");
+
         }
       })
       .catch((err) => {
@@ -463,40 +464,40 @@ const Admin = (props) => {
           </div>
         </div>
 
-       <div className="content-block">
-         <div className="section-full content-inner-1 bg-gray-light">
-           <div className="container woo-entry">
-             <div className="row">
-               <div className="col-lg-12">
-                 <div>
-                   <div className="dlab-tabs product-description p-3 tabs-site-button m-t30">
-                     <ul className="nav nav-tabs">
-                       <li>
-                         <Link className="nav-link active" id="pills-home-tab" data-bs-toggle="pill" data-bs-target="#pills-review">
-                           Add Product ({products.length > 0 ? products.length : 0})
-                         </Link>
-                       </li>
-                       <li>
-                         <Link className="nav-link" id="pills-profile-tab" data-bs-toggle="pill" data-bs-target="#admin-mange-orders">
-                           Manage Orders ({orderDetails.length > 0 ? orderDetails.length : 0})
-                         </Link>
-                       </li>
-                       <li>
-                         <Link className="nav-link" id="pills-profile-tab" data-bs-toggle="pill" data-bs-target="#pills-dashboard">
-                           Dashboard
-                         </Link>
-                       </li>
-                       <li>
-                         <Link className="nav-link" id="pills-post-tab" data-bs-toggle="pill" data-bs-target="#pills-blogpost">
-                           Manage Blog Posts
-                         </Link>
-                       </li>
-                       <li>
-                         <Link className="nav-link" id="pills-post-tab" data-bs-toggle="pill" data-bs-target="#pills-gallery">
-                           Manage Gallery
-                         </Link>
-                       </li>
-                     </ul>
+        <div className="content-block">
+          <div className="section-full content-inner-1 bg-gray-light">
+            <div className="container woo-entry">
+              <div className="row">
+                <div className="col-lg-12">
+                  <div>
+                    <div className="dlab-tabs product-description p-3 tabs-site-button m-t30">
+                      <ul className="nav nav-tabs">
+                        <li>
+                          <Link className="nav-link active" id="pills-home-tab" data-bs-toggle="pill" data-bs-target="#pills-review">
+                            Add Product ({products.length > 0 ? products.length : 0})
+                          </Link>
+                        </li>
+                        <li>
+                          <Link className="nav-link" id="pills-profile-tab" data-bs-toggle="pill" data-bs-target="#admin-mange-orders">
+                            Manage Orders ({orderDetails.length > 0 ? orderDetails.length : 0})
+                          </Link>
+                        </li>
+                        <li>
+                          <Link className="nav-link" id="pills-profile-tab" data-bs-toggle="pill" data-bs-target="#pills-dashboard">
+                            Dashboard
+                          </Link>
+                        </li>
+                        <li>
+                          <Link className="nav-link" id="pills-post-tab" data-bs-toggle="pill" data-bs-target="#pills-blogpost">
+                            Manage Blog Posts
+                          </Link>
+                        </li>
+                        <li>
+                          <Link className="nav-link" id="pills-post-tab" data-bs-toggle="pill" data-bs-target="#pills-gallery">
+                            Manage Gallery
+                          </Link>
+                        </li>
+                      </ul>
 
                       <div className="tab-content">
                         <div className="tab-pane" id="admin-mange-orders">
@@ -879,40 +880,40 @@ const Admin = (props) => {
                                         <td className="product-item-price">{product.p_price}</td>
                                         <td className="product-item-quantity">{product.p_quantity}</td>
 
-                                         <td>
-                                           <Link className="btn py-1" onClick={(e) => (setProduct_image(product.p_image), editData(e, product))}>
-                                             Edit
-                                           </Link>{" "}
-                                           <Link className={product.isactive === "1" ? "btn py-1" : "btn bg-danger py-1"} onClick={(e) => activateDeactivateProduct(product.p_id, product.isactive === "1" ? "0" : "1")}>
-                                             {product.isactive === "1" ? "Deactivate" : "Activate"}
-                                           </Link>
-                                         </td>
-                                         <td>
-                                           <Link className="btn bg-danger py-1" onClick={(e) => deleteProduct(product.p_id)}>
-                                             X
-                                           </Link>
-                                         </td>
-                                       </tr>
-                                     ))
-                                   : "No Product added"}
-                               </tbody>
-                             </table>
-                           </div>
-                         </div>
-                       </div>
-                       <div className="tab-pane" id="pills-blogpost">
-                         <AdminManagePosts />
-                       </div>
-                       <div className="tab-pane" id="pills-gallery">
-                         <AdminManageGallery/>
-                       </div>
-                     </div>
-                   </div>
-                 </div>
-               </div>
-             </div>
-           </div>
-         </div>
+                                        <td>
+                                          <Link className="btn py-1" onClick={(e) => (setProduct_image(product.p_image), editData(e, product))}>
+                                            Edit
+                                          </Link>{" "}
+                                          <Link className={product.isactive === "1" ? "btn py-1" : "btn bg-danger py-1"} onClick={(e) => activateDeactivateProduct(product.p_id, product.isactive === "1" ? "0" : "1")}>
+                                            {product.isactive === "1" ? "Deactivate" : "Activate"}
+                                          </Link>
+                                        </td>
+                                        <td>
+                                          <Link className="btn bg-danger py-1" onClick={(e) => deleteProduct(product.p_id)}>
+                                            X
+                                          </Link>
+                                        </td>
+                                      </tr>
+                                    ))
+                                    : "No Product added"}
+                                </tbody>
+                              </table>
+                            </div>
+                          </div>
+                        </div>
+                        <div className="tab-pane" id="pills-blogpost">
+                          <AdminManagePosts />
+                        </div>
+                        <div className="tab-pane" id="pills-gallery">
+                          <AdminManageGallery />
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
 
           {/* <Owl category={productDtl.p_category} /> */}
           <div class="section-full related-products content-inner bg-gray-light">

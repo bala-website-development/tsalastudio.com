@@ -25,11 +25,20 @@ const Blogsinglesidebar = (props) => {
     await fetch(config.service_url + `getpost/${id}`)
       .then((response) => response.json())
       .then((data) => {
-        setBlogpost(data);
-        getcomments(data[0].post_id);
-        setImage(data[0].post_image);
-        console.log("post image", image);
-        setLoading((loading) => !loading);
+        if (data.status === 200) {
+          let _filterData = data.data.filter((blog) => blog.posttypevalue === "Blog");
+          if (_filterData) {
+            setBlogpost(_filterData);
+            getcomments(_filterData[0].post_id);
+            setImage(_filterData[0].post_image);
+            console.log("post image", image);
+            setLoading((loading) => !loading);
+          }
+        }
+        else {
+          setLoading((loading) => !loading);
+          setSuccessMsg("No Posts")
+        }
       })
       .catch((err) => {
         console.log(err);

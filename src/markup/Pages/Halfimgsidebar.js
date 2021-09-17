@@ -1,4 +1,4 @@
-import React, { Component, useEffect,useState } from "react";
+import React, { Component, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import Header from "./../Layout/Header";
 import Footer from "./../Layout/Footer";
@@ -11,34 +11,34 @@ import img from "./../../images/blog/grid/pic1.jpg";
 
 const Halfimgsidebar = () => {
   const [posts, setPosts] = useState([]);
-    const [loading, setLoading] = useState(false);
-   const [networkError, setNetworkError] = useState("");
-    const getPostDetails = async () => {
-       setLoading((loading) => !loading);
-      await fetch(config.service_url + "getposts")
-        .then((response) => response.json())
-        .then((data) => {
-          let active = data
-            .filter((filter) => (filter.isactive === 1 && filter.published === 1))
-            .map((data) => {
-              return data;
-            });
-          setPosts(active);
-           setLoading((loading) => !loading);
-          console.log(data, "getposts");
-        })
-        .catch((err) => {
-          setNetworkError("Something went wrong, Please try again later!!");
-          // console.log(networkError);
-        });
-    };
+  const [loading, setLoading] = useState(false);
+  const [networkError, setNetworkError] = useState("");
+  const getPostDetails = async () => {
+    setLoading((loading) => !loading);
+    await fetch(config.service_url + "getposts")
+      .then((response) => response.json())
+      .then((data) => {
+        let active = data
+          .filter((filter) => (filter.isactive === 1 && filter.published === 1 && filter.posttypevalue === "Blog"))
+          .map((data) => {
+            return data;
+          });
+        setPosts(active);
+        setLoading((loading) => !loading);
+        console.log(data, "getposts");
+      })
+      .catch((err) => {
+        setNetworkError("Something went wrong, Please try again later!!");
+        // console.log(networkError);
+      });
+  };
 
-      useEffect(() => {
-    
-        getPostDetails();
+  useEffect(() => {
 
-        // eslint-disable-next-line react-hooks/exhaustive-deps
-      }, []);
+    getPostDetails();
+
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
   return (
     <div>
       <div>
