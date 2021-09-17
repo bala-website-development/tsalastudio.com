@@ -50,7 +50,7 @@ class Ourservices extends Component {
           </div>
 
           <div className="content-block">
-            <div className="bg-white " style={{ backgroundImage: "url(" + img2 + ")", backgroundSize: "100%" }}>
+            <div className="section-full bg-white content-inner" style={{ backgroundImage: "url(" + img2 + ")", backgroundSize: "100%" }}>
               <div className="container">
                 <div className="row">
                   <div className="col-lg-12">
@@ -64,7 +64,7 @@ class Ourservices extends Component {
                   </div>
                 </div>
 
-                <div className="row d-none">
+                <div className="row">
                   <div className="col-lg-3 col-md-6 col-sm-6 m-b30">
                     <div className="icon-bx-wraper bx-style-1 bg-white p-a30 center fly-box-ho">
                       <div className="icon-bx-md bg-primary radius m-b20">
@@ -172,9 +172,9 @@ class Ourservices extends Component {
                 </div>
               </div>
             </div>
-            <div class="container1 mb-5">
+            <div class="container1">
               <div class="card ">
-                <div class="card-header1">
+                <div class="card-header">
                   <img src="https://c0.wallpaperflare.com/preview/483/210/436/car-green-4x4-jeep.jpg" alt="rover" />
                 </div>
                 <div class="card-body">
@@ -183,13 +183,13 @@ class Ourservices extends Component {
                   <p className="mb-2">An exploration into the truck's polarising design</p>
                   <div className="user">
                     <button className="btn btnhover p-2 px-3" type="button">
-                      Learn more ...
+                      Learn more...
                     </button>
                   </div>
                 </div>
               </div>
               <div class="card ">
-                <div class="card-header1">
+                <div class="card-header">
                   <img src="https://c0.wallpaperflare.com/preview/483/210/436/car-green-4x4-jeep.jpg" alt="rover" />
                 </div>
                 <div class="card-body">
@@ -204,7 +204,7 @@ class Ourservices extends Component {
                 </div>
               </div>{" "}
               <div class="card ">
-                <div class="card-header1">
+                <div class="card-header">
                   <img src="https://c0.wallpaperflare.com/preview/483/210/436/car-green-4x4-jeep.jpg" alt="rover" />
                 </div>
                 <div class="card-body">
@@ -213,13 +213,13 @@ class Ourservices extends Component {
                   <p className="mb-2">An exploration into the truck's polarising design</p>
                   <div className="user">
                     <button className="btn btnhover p-2 px-3" type="button">
-                      Learn more ...
+                      Learn more...
                     </button>
                   </div>
                 </div>
               </div>{" "}
               <div class="card ">
-                <div class="card-header1">
+                <div class="card-header">
                   <img src="https://c0.wallpaperflare.com/preview/483/210/436/car-green-4x4-jeep.jpg" alt="rover" />
                 </div>
                 <div class="card-body">
@@ -228,22 +228,7 @@ class Ourservices extends Component {
                   <p className="mb-2">An exploration into the truck's polarising design</p>
                   <div className="user">
                     <button className="btn btnhover p-2 px-3" type="button">
-                      Learn more ...
-                    </button>
-                  </div>
-                </div>
-              </div>{" "}
-              <div class="card ">
-                <div class="card-header1">
-                  <img src="https://c0.wallpaperflare.com/preview/483/210/436/car-green-4x4-jeep.jpg" alt="rover" />
-                </div>
-                <div class="card-body">
-                  <span class="tag tag-teal">Sub Category name</span>
-                  <h5>Why is the Tesla Cybertruck designed the way it is?</h5>
-                  <p className="mb-2">An exploration into the truck's polarising design</p>
-                  <div className="user">
-                    <button className="btn btnhover p-2 px-3" type="button">
-                      Learn more ...
+                      Learn more...
                     </button>
                   </div>
                 </div>
