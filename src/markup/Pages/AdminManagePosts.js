@@ -22,9 +22,14 @@ const AdminManagePosts = (props) => {
   const [successMsg, setSuccessMsg] = useState("");
   const editor = useRef(null);
   const [content, setContent] = useState("");
+  const [postTypeValue, setPostTypeValue] = useState("");
+  const [allMasterCategory, setAllMasterCategory] = useState([]);
+  const [allSubMasterCategory, setAllSubMasterCategory] = useState([]);
+  const [flag, setFlag] = useState(false);
   const config_ = {
     readonly: false, // all options from https://xdsoft.net/jodit/doc/
   };
+  const postType = [{ "value": "Blog", "label": "Blog" }, { "value": "Course", "label": "Course" }]
   const handleVisible = () => {
     setSmShow(true);
     setTimeout(() => {
@@ -112,12 +117,14 @@ const AdminManagePosts = (props) => {
       });
   };
   const getPostCategory = async () => {
-    await fetch(config.service_url + "getpostcategory")
+    await fetch(config.service_url + "getcategory")
       .then((response) => response.json())
       .then((data) => {
         if (data.status === 200) {
           console.log("master category", data);
-          setMasterCategory(data.data);
+          let _filterData = data.data.filter((_d) => _d.type === "blog" || _d.type === "course");
+          setAllMasterCategory(_filterData);
+          setMasterCategory(_filterData);
         } else if (data.status === 400) {
           setSuccessMsg("No Data");
           handleVisible();
@@ -134,7 +141,9 @@ const AdminManagePosts = (props) => {
       .then((data) => {
         if (data.status === 200) {
           console.log("master sub category", data);
-          setMasterSubCategory(data.data);
+          let _filterData = data.data.filter((_d) => _d.type === "blog" || _d.type === "course")
+          setAllSubMasterCategory(_filterData)
+          setMasterSubCategory(_filterData);
         } else if (data.status === 400) {
           setSuccessMsg("No Data");
           handleVisible();
@@ -166,16 +175,25 @@ const AdminManagePosts = (props) => {
     }
   };
 
+  const onChange_PostType = (value) => {
+    const _masterCategory = allMasterCategory;
+    const _masterSubCategory = allSubMasterCategory;
+    setPostTypeValue(value);
+    setMasterCategory(_masterCategory.filter((filter) => (filter.type.toLowerCase() === value.toLowerCase())));
+    setMasterSubCategory(_masterSubCategory.filter((filter) => (filter.type.toLowerCase() === value.toLowerCase())));
+  }
+
   useEffect(() => {
     getPostCategory();
-    //getSubCategories();
+    getSubCategories();
     getPostDetails();
 
     // console.log("mobile view", isMobile);
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [flag]);
 
   const editPostData = (e, post) => {
+    setPost_image(post.post_image)
     setEditPost({});
     document.getElementById("frmPostadd").reset();
     setShowp((showp) => !showp);
@@ -183,6 +201,9 @@ const AdminManagePosts = (props) => {
     setContent(post.postcontent);
     setp_categorydrp(post.postcategory);
     setp_subcategorydrp(post.postsubcategory);
+    setPostTypeValue(post.posttypevalue);
+    setFlag(false);
+    console.log("editpost", post);
   };
   const {
     register,
@@ -202,9 +223,11 @@ const AdminManagePosts = (props) => {
       data.post_id = editPost.post_id;
       data.p_updateddate = new Date();
       methodname = "updatepost";
+      data.courselink = data.courselink !== "" ? data.courselink : editPost.courselink;
       data.posttitle = data.posttitle !== "" ? data.posttitle : editPost.posttitle;
       data.postcategory = data.postcategory !== "" ? data.postcategory : editPost.postcategory;
       data.postsubcategory = data.postsubcategory !== "" ? data.postsubcategory : editPost.postsubcategory;
+      data.posttypevalue = data.posttypevalue !== "" ? data.posttypevalue : editPost.posttypevalue
       data.postcontent = data.postcontent !== "" ? content : editPost.postcontent;
       data.post_image = post_image;
       data.slug = data.posttitle.replace(/\s/g, "-").toLowerCase();
@@ -230,6 +253,7 @@ const AdminManagePosts = (props) => {
         console.log("regitered user", data);
         if (data.status === 200) {
           e.target.reset();
+          reset({ posttitle: "" });
           setEditPost({});
           setSuccessMsg(data.message);
           setSmShow(false);
@@ -237,7 +261,9 @@ const AdminManagePosts = (props) => {
           setp_categorydrp("");
           setp_subcategorydrp("");
           setPost_image("");
+          setPostTypeValue("");
           getPostDetails();
+          setFlag(true);
         }
         else if (data?.status === 499) {
           history.push("/shop-login");
@@ -250,7 +276,7 @@ const AdminManagePosts = (props) => {
         setSuccessMsg("Something went wrong, Please try again later!!");
       });
   };
-  const { post_id, posttitle, postcategory, postsubcategory, postcontent } = Object.keys(editPost).length > 0 ? editPost : {};
+  const { post_id, posttitle, postcategory, postsubcategory, postcontent, courselink, posttypevalue } = Object.keys(editPost).length > 0 ? editPost : {};
 
   return (
     <div>
@@ -270,9 +296,20 @@ const AdminManagePosts = (props) => {
             <form className="comment-form" onSubmit={handleSubmit(onSubmit)} id="frmPostadd">
               <div className="comment-form-author">
                 <label>
+                  Post Type <span className="required">*</span>
+                </label>
+                <select value={postTypeValue} className="form-control" id="posttypevalue" {...register("posttypevalue")} name="posttypevalue" required onChange={(e) => onChange_PostType(e.target.value)}>
+                  <option value={""}>{""}</option>
+                  {postType.map((type) => (
+                    <option value={type.value}>{type.label}</option>
+                  ))}
+                </select>
+              </div>
+              <div className="comment-form-author">
+                <label>
                   Post Title <span className="required">*</span>
                 </label>
-                <input type="text" defaultValue={posttitle} required aria-required="true" size="30" name="posttitle" {...register("posttitle")} id="posttitle" />
+                <input type="textarea" className="form-control" defaultValue={posttitle} required name="posttitle" {...register("posttitle")} id="posttitle" />
                 {/* {errors.p_name && "Product name is required"} */}
               </div>
               <div className="comment-form-author">
@@ -298,8 +335,8 @@ const AdminManagePosts = (props) => {
                     </label>
                     <select value={p_subcategorydrp} className="postsubcategory" id="postsubcategory" {...register("postsubcategory")} className="form-control" onChange={(e) => setp_subcategorydrp(e.target.value)}>
                       <option value={""}>{""}</option>
-                      {masterCategory.map((cat) => (
-                        <option value={cat.category}>{cat.category}</option>
+                      {masterSubCategory.map((cat) => (
+                        <option value={cat.subcategory}>{cat.subcategory}</option>
                       ))}
                     </select>
                     {/* <input type="text" defaultValue={p_subcategory} required aria-required="true" size="30" name="p_subcategory" {...register("p_subcategory")} id="p_subcategory" /> */}
@@ -336,13 +373,23 @@ const AdminManagePosts = (props) => {
                       tabIndex={2} // tabIndex of textarea
                       rows="8"
                       onBlur={(newContent) => setContent(newContent)} // preferred to use only this option to update the content for performance reasons
-                      onChange={(newContent) => {}}
+                      onChange={(newContent) => { }}
                     />
                   </div>{" "}
                 </div>
                 {/* {errors.p_description && "Product Description is required"} */}
               </div>
+              {
+                postTypeValue === "Course" &&
 
+                <div className="comment-form-author">
+                  <label>
+                    Course Link <span className="required">*</span>
+                  </label>
+                  <input type="url" defaultValue={courselink} required={postTypeValue === "Course"} aria-required="true" size="30" name="courselink" {...register("courselink")} id="courselink" />
+
+                </div>
+              }
               <div className="form-submit">
                 {Object.keys(editPost).length === 0 && (
                   <button type="submit" className="btn btnhover">
@@ -358,13 +405,14 @@ const AdminManagePosts = (props) => {
             </form>
           </div>
         </div>
-        <div id="product" className={showp ? "table check-tbl" : "d-none"}>
+        <div id="post" className={showp ? "table check-tbl" : "d-none"}>
           <button
             className="btn my-2"
             onClick={(e) => {
               setEditPost({});
               setShowp((showp) => !showp);
               setPost_image("");
+              setFlag(false);
             }}
           >
             Add Post
@@ -384,32 +432,32 @@ const AdminManagePosts = (props) => {
             <tbody>
               {posts.length > 0
                 ? posts.map((post, key) => (
-                    <tr>
-                      <td className="product-item-img">
-                        <img className="smallimage" src={post.post_image} height="15" alt="" />
-                      </td>
-                      <td className="product-item-name font-weight-normal">{post.posttitle}</td>
-                      <td className="product-item-name font-weight-normal">{post.postcategory}</td>
-                      <td className="product-item-price font-weight-normal">{Moment(post.createddate).format("DD-MMM-YYYY hh:mm A")}</td>
+                  <tr>
+                    <td className="product-item-img">
+                      <img className="smallimage" src={post.post_image} height="15" alt="" />
+                    </td>
+                    <td className="product-item-name font-weight-normal">{post.posttitle}</td>
+                    <td className="product-item-name font-weight-normal">{post.postcategory}</td>
+                    <td className="product-item-price font-weight-normal">{Moment(post.createddate).format("DD-MMM-YYYY hh:mm A")}</td>
 
-                      <td>
-                        <Link className="btn py-1" onClick={(e) => (setPost_image(post.post_image), editPostData(e, post))}>
-                          Edit
-                        </Link>{" "}
-                        <Link className={post.published === 0 ? "btn bg-success py-1" : "btn  py-1"} onClick={(e) => activateDeactivatePost("publish", post.post_id, post.published === 1 ? 0 : 1)}>
-                          {post.published === 0 ? "Publish" : "UnPublish"}
-                        </Link>{" "}
-                        <Link className={post.isactive === 0 ? "btn py-1 bg-success" : "btn bg-danger py-1"} onClick={(e) => activateDeactivatePost("activate", post.post_id, post.isactive === 1 ? 0 : 1)}>
-                          {post.isactive === 1 ? "Deactivate" : "Activate"}
-                        </Link>
-                      </td>
-                      <td>
-                        <Link className="btn bg-danger py-1" onClick={(e) => deletePost(post.post_id)}>
-                          X
-                        </Link>
-                      </td>
-                    </tr>
-                  ))
+                    <td>
+                      <Link className="btn py-1" onClick={(e) => (editPostData(e, post))}>
+                        Edit
+                      </Link>{" "}
+                      <Link className={post.published === 0 ? "btn bg-success py-1" : "btn  py-1"} onClick={(e) => activateDeactivatePost("publish", post.post_id, post.published === 1 ? 0 : 1)}>
+                        {post.published === 0 ? "Publish" : "UnPublish"}
+                      </Link>{" "}
+                      <Link className={post.isactive === 0 ? "btn py-1 bg-success" : "btn bg-danger py-1"} onClick={(e) => activateDeactivatePost("activate", post.post_id, post.isactive === 1 ? 0 : 1)}>
+                        {post.isactive === 1 ? "Deactivate" : "Activate"}
+                      </Link>
+                    </td>
+                    <td>
+                      <Link className="btn bg-danger py-1" onClick={(e) => deletePost(post.post_id)}>
+                        X
+                      </Link>
+                    </td>
+                  </tr>
+                ))
                 : "No Post added"}
             </tbody>
           </table>

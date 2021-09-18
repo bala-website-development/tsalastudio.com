@@ -17,7 +17,7 @@ import member4 from "./../../images/our-team/member4.jpg";
 import cake1 from "./../../images/cake1.jpg";
 import pic5 from "./../../images/about/pic5.jpg";
 import pic6 from "./../../images/about/pic6.jpg";
-
+import config from "../../config.json";
 const teamInfo = [
   {
     image: member1,
@@ -73,23 +73,80 @@ class About extends Component {
                 <div className="row">
                   <div className="col-lg-12">
                     <div className="section-head text-center">
-                      <div className="icon-bx icon-bx-xl">
-                        <img src={cake1} alt="" />
+                      <div className="my-4">
+                        <img src={config.logo} width="250px" className="rounded" alt="tsalastudio" />
                       </div>
-                      <h3>About Our Restaurant King</h3>
-                      <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
+                      <h3>About Our tsalastudio</h3>
+                      <p>{config.aboutus_aboutpage}</p>
                     </div>
                   </div>
                 </div>
                 <div className="row sp30">
                   <div className="col-lg-6 col-md-6 m-b30">
                     <div className="about-thumb">
-                      <img src={pic5} alt="" />
+                      <img src={config.aboutus_imageurl1} alt="" />
                     </div>
                   </div>
                   <div className="col-lg-6 col-md-6 m-b30">
                     <div className="about-thumb">
-                      <img src={pic6} alt="" />
+                      <img src={config.aboutus_imageurl2} alt="" />
+                    </div>
+                  </div>
+                </div>
+                <div className="row">
+                  <div className="col-lg-12">
+                    <div className="section-head">
+                      <h3 className="text-primary">Tsala Studio Offerings:</h3>
+                      <div>
+                        <blockquote>
+                          <p>
+                            <ul className="list-check mb-0 primary">
+                              <li>
+                                Regular in-house <strong>quilting &amp; hobby classes</strong>
+                              </li>
+                              <li>Hobby Classes &amp; Workshops are held periodically by well known artisans, quilters, crochet, embroidery and knitting experts from across the country&nbsp;</li>
+                              <li>
+                                The store also sells and services Swiss-based Bernina &amp; Bernette <strong>sewing machines</strong>
+                              </li>
+                              <li>We undertake orders for quilts, bags, home decor and almost any fabric that you might want to custom make</li>
+                              <li>
+                                Studio <strong>rent out</strong> option available
+                              </li>
+                              <li>We sell various kinds of quilt fabrics, batting, thread, bobbins, needles, cutting mats, rotary cutters, scissors, rulers, basting pins, tapes, buttons. We also sell supplies such as zippers, bag feet, D rings, magnetic buttons, bag handles (leather and faux leather), bag straps and much more..</li>
+                            </ul>
+                          </p>
+                        </blockquote>
+                        <Link to="/our-services" className="btn btnhover">
+                          Click here for more Hobby Clases
+                        </Link>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div className="row">
+                  <div className="col-lg-12">
+                    <div className="section-head">
+                      <div className="my-4 d-none">
+                        <img src={config.logo} width="250px" className="rounded" alt="tsalastudio" />
+                      </div>
+                      <h3 className="title text-primary">ABOUT Vatsala Kamat</h3>
+                      <div>
+                        <blockquote>
+                          <p>
+                            Hi..! I am <strong>Vatsala Kamat</strong> and Crafting is my Art of Living. It all started during my childhood at <strong>Mysore</strong>, I observed my mother engrossed in various handicrafts and picked up her artistic traits.
+                          </p>
+                          <p>
+                            Although I studied life science for my graduation followed by a course in law and interior designing, the law of destiny always <string>directed my life towards crafting</string>. Knitting ,Tatting, Sewing, Patchwork, Macrame Art, Various types of Hand Embroidery, English Paper Piecing, Crochet, Tasselling and Hand Applique are some of the art forms that I enjoy handcrafting for more than <strong>40 years.</strong>
+                          </p>
+                          <p>Travelling around the globe introduced me to varied local crafts and also influenced my urge to try something different leading to Quilting. My Family, Friends, Gardening and Music are the other captivating aspects of my life that keeps me young at heart.</p>
+                          <p>
+                            <strong>Tsala Studio </strong>is my brain child, It is an exclusive creative space for all women like me who have experienced or would like to experience the <strong>magic of our own handmade creations</strong>.
+                          </p>
+                          <p>
+                            Email : <a href="mailto:tsalastudio@gmail.com">tsalastudio@gmail.com</a>
+                          </p>
+                        </blockquote>
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -111,7 +168,7 @@ class About extends Component {
                     <div className="counter-style-1 text-white text-center">
                       <div className="counter-num">
                         <span className="counter">
-                          <CountUp end={53} />
+                          <CountUp end={15} />
                         </span>
                         <small>+</small>
                       </div>
@@ -122,7 +179,7 @@ class About extends Component {
                     <div className="counter-style-1 text-white text-center">
                       <div className="counter-num">
                         <span className="counter">
-                          <CountUp end={102} />
+                          <CountUp end={10} />
                         </span>
                       </div>
                       <span className="counter-text">Awards Wins</span>
@@ -132,9 +189,9 @@ class About extends Component {
                     <div className="counter-style-1 text-white text-center">
                       <div className="counter-num">
                         <span className="counter">
-                          <CountUp end={36} />
+                          <CountUp end={30} />
                         </span>
-                        <small>k</small>
+                        <small>+</small>
                       </div>
                       <span className="counter-text">Happy Clients</span>
                     </div>
@@ -145,6 +202,7 @@ class About extends Component {
                         <span className="counter">
                           <CountUp end={99} />
                         </span>
+                        <small>+</small>
                       </div>
                       <span className="counter-text">Perfect Products</span>
                     </div>
@@ -154,7 +212,7 @@ class About extends Component {
             </div>
 
             <div className="section-full content-inner-1 bg-white" style={{ backgroundImage: "url(" + img2 + ")" }}>
-              <div className="container">
+              <div className="container d-none">
                 <div className="row">
                   <div className="col-lg-12">
                     <div className="section-head text-center">
@@ -197,13 +255,16 @@ class About extends Component {
                   <div class="row">
                     <div class="col-lg-12">
                       <div class="section-head text-center">
-                        <h3>Our PARTNERS</h3>
-                        <p>famous companies trusted us, why you are not</p>
+                        <h3>Thanks for reaching us</h3>
+                        <p>Better yet, see us in person! We love our customers, so feel free to visit during normal business hours.</p>
+                        <Link to={"contact-1"} className="btn-secondry   btn btnhover btn-md">
+                          <i className="fas fas-cart"></i>Contact us
+                        </Link>
                       </div>
                     </div>
                   </div>
                 </div>
-                <OurPartners />
+                {/* <OurPartners /> */}
               </div>
             </div>
           </div>

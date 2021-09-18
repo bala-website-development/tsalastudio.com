@@ -18,7 +18,6 @@ import Moment from "moment";
 import Chart from "./Chart";
 import AdminManagePosts from "./AdminManagePosts";
 import AdminManageGallery from "./AdminManageGallery";
-;
 //import Camera, { FACING_MODES } from "react-html5-camera-photo";
 //import "react-html5-camera-photo/build/css/index.css";
 // import ImagePreview from './ImagePreview';
@@ -45,7 +44,7 @@ const Admin = (props) => {
   //const [dataUri, setDataUri] = useState("");
   const [showCamera, setShowCamera] = useState(false);
   const [ownerNotes, setownerNotes] = useState("");
-
+  const [flag, setFlag] = useState(false);
   const handleVisible = () => {
     setSmShow(true);
     setTimeout(() => {
@@ -73,7 +72,6 @@ const Admin = (props) => {
     }
   };
 
-
   const getAdminOrderHistory = async (e) => {
     await fetch(config.service_url + "getAdminOrderHistory", { method: "POST", headers: { "Content-Type": "application/json", authorization: localStorage.getItem("accessToken") }, body: JSON.stringify({ userid: localStorage.getItem("uuid") }) })
       .then((response) => response.json())
@@ -86,14 +84,12 @@ const Admin = (props) => {
         } else if (data.status === 500) {
           setSuccessMsg(data.message);
           handleVisible();
-        }
-        else if (data.status === 499) {
+        } else if (data.status === 499) {
           history.push("/shop-login");
-        }
-        else {
+        } else {
           setSuccessMsg(data.message);
-          history.push("/");
           handleVisible();
+          history.push("/");
         }
       })
       .catch((err) => {
@@ -174,11 +170,9 @@ const Admin = (props) => {
           setSuccessMsg(data.message);
           handleVisible();
           getProductDetails();
-        }
-        else if (data.status === 499) {
-          history.push("/shop-login")
-        }
-        else {
+        } else if (data.status === 499) {
+          history.push("/shop-login");
+        } else {
           setSuccessMsg(data.message);
           handleVisible();
         }
@@ -202,11 +196,9 @@ const Admin = (props) => {
           setSuccessMsg(data.message);
           handleVisible();
           getProductDetails();
-        }
-        else if (data?.status === 499) {
-          history.push("/shop-login")
-        }
-        else {
+        } else if (data?.status === 499) {
+          history.push("/shop-login");
+        } else {
           setSuccessMsg(data.message);
           handleVisible();
         }
@@ -246,11 +238,9 @@ const Admin = (props) => {
           setSuccessMsg(data.message);
           handleVisible();
           getAdminOrderHistory();
-        }
-        else if (data?.status === 499) {
-          history.push("/shop-login")
-        }
-        else {
+        } else if (data?.status === 499) {
+          history.push("/shop-login");
+        } else {
           setSuccessMsg(data.message);
           handleVisible();
         }
@@ -297,11 +287,9 @@ const Admin = (props) => {
           setSuccessMsg(data.message);
           handleVisible();
           getAdminOrderHistory();
-        }
-        else if (data?.status === 499) {
-          history.push("/shop-login")
-        }
-        else {
+        } else if (data?.status === 499) {
+          history.push("/shop-login");
+        } else {
           setSuccessMsg(data.message);
           handleVisible();
         }
@@ -317,7 +305,8 @@ const Admin = (props) => {
       .then((data) => {
         if (data.status === 200) {
           console.log("master category", data);
-          setMasterCategory(data.data);
+          let _filterData = data.data.filter((_d) => _d.type === "product");
+          setMasterCategory(_filterData);
         } else if (data.status === 400) {
           setSuccessMsg("No Data");
           handleVisible();
@@ -333,8 +322,9 @@ const Admin = (props) => {
       .then((response) => response.json())
       .then((data) => {
         if (data.status === 200) {
+          let _filterData = data.data.filter((_d) => _d.type === "product");
           console.log("master sub category", data);
-          setMasterSubCategory(data.data);
+          setMasterSubCategory(_filterData);
         } else if (data.status === 400) {
           setSuccessMsg("No Data");
           handleVisible();
@@ -353,7 +343,7 @@ const Admin = (props) => {
     getAdminOrderHistory();
     // console.log("mobile view", isMobile);
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [flag]);
   // const uploadimage = () => {
   //   service to upload setProduct_image
   // };
@@ -363,7 +353,7 @@ const Admin = (props) => {
     handleSubmit,
     formState: { errors },
     reset,
-  } = useForm({ defaultValues: {}, mode: "blur" });
+  } = useForm({ defaultValues: {} });
   const onSubmit = (data, e) => {
     let methodname = "products";
     setSuccessMsg("Please wait");
@@ -376,6 +366,7 @@ const Admin = (props) => {
       // data.createddate = new Date();
       // data.createduserid = localStorage.getItem("uuid");
       // data.createdby = localStorage.getItem("name");
+      console.log("update before", data);
       data.isactive = "1";
       data.p_updateddate = new Date();
       methodname = "updateproduct";
@@ -386,6 +377,7 @@ const Admin = (props) => {
       data.p_description = data.p_description !== "" ? data.p_description : editProduct.p_description;
       data.p_price = data.p_price !== "" ? data.p_price : editProduct.p_price;
       data.p_image = product_image;
+      data.p_actual_price = data.p_actual_price !== "" ? data.p_actual_price : editProduct.p_actual_price;
     } else {
       data.p_id = uuid();
       data.createddate = new Date();
@@ -396,6 +388,7 @@ const Admin = (props) => {
       data.isactive = "1";
       data.p_updateddate = new Date();
       data.p_image = product_image;
+      data.p_price = data.p_price === "" || data.p_price <= 0 ? data.p_actual_price : data.p_price;
     }
     console.log("add products", data);
     fetch(config.service_url + methodname, { method: "POST", headers: { "Content-Type": "application/json", authorization: localStorage.getItem("accessToken") }, body: JSON.stringify({ data }) })
@@ -404,6 +397,7 @@ const Admin = (props) => {
         console.log("regitered user", data);
         if (data.status === 200) {
           e.target.reset();
+          reset({ p_name: "" });
           setEditProduct({});
           setSuccessMsg(data.message);
           setSmShow(false);
@@ -413,12 +407,10 @@ const Admin = (props) => {
           setp_categorydrp("");
           setp_subcategorydrp("");
           setProduct_image("");
-          getProductDetails();
-        }
-        else if (data?.status === 499) {
+          setFlag(true);
+        } else if (data?.status === 499) {
           history.push("/shop-login");
-        }
-        else {
+        } else {
           setSuccessMsg(data.message);
         }
       })
@@ -428,6 +420,7 @@ const Admin = (props) => {
   };
 
   const editData = (e, product) => {
+    setFlag(false);
     setEditProduct({});
     document.getElementById("frmProductadd").reset();
     setShow((show) => !show);
@@ -436,7 +429,7 @@ const Admin = (props) => {
     setp_subcategorydrp(product.p_subcategory);
   };
 
-  const { p_name, p_price, p_quantity, p_description } = Object.keys(editProduct).length > 0 ? editProduct : {};
+  const { p_name, p_actual_price, p_price, p_quantity, p_description } = Object.keys(editProduct).length > 0 ? editProduct : {};
   return (
     <div>
       <Modal size="sm" show={smShow} onHide={() => setSmShow(false)}>
@@ -463,40 +456,40 @@ const Admin = (props) => {
           </div>
         </div>
 
-       <div className="content-block">
-         <div className="section-full content-inner-1 bg-gray-light">
-           <div className="container woo-entry">
-             <div className="row">
-               <div className="col-lg-12">
-                 <div>
-                   <div className="dlab-tabs product-description p-3 tabs-site-button m-t30">
-                     <ul className="nav nav-tabs">
-                       <li>
-                         <Link className="nav-link active" id="pills-home-tab" data-bs-toggle="pill" data-bs-target="#pills-review">
-                           Add Product ({products.length > 0 ? products.length : 0})
-                         </Link>
-                       </li>
-                       <li>
-                         <Link className="nav-link" id="pills-profile-tab" data-bs-toggle="pill" data-bs-target="#admin-mange-orders">
-                           Manage Orders ({orderDetails.length > 0 ? orderDetails.length : 0})
-                         </Link>
-                       </li>
-                       <li>
-                         <Link className="nav-link" id="pills-profile-tab" data-bs-toggle="pill" data-bs-target="#pills-dashboard">
-                           Dashboard
-                         </Link>
-                       </li>
-                       <li>
-                         <Link className="nav-link" id="pills-post-tab" data-bs-toggle="pill" data-bs-target="#pills-blogpost">
-                           Manage Blog Posts
-                         </Link>
-                       </li>
-                       <li>
-                         <Link className="nav-link" id="pills-post-tab" data-bs-toggle="pill" data-bs-target="#pills-gallery">
-                           Manage Gallery
-                         </Link>
-                       </li>
-                     </ul>
+        <div className="content-block">
+          <div className="section-full content-inner-1 bg-gray-light">
+            <div className="container woo-entry">
+              <div className="row">
+                <div className="col-lg-12">
+                  <div>
+                    <div className="dlab-tabs product-description p-3 tabs-site-button m-t30">
+                      <ul className="nav nav-tabs">
+                        <li>
+                          <Link className="nav-link active" id="pills-home-tab" data-bs-toggle="pill" data-bs-target="#pills-review">
+                            Add Product ({products.length > 0 ? products.length : 0})
+                          </Link>
+                        </li>
+                        <li>
+                          <Link className="nav-link" id="pills-profile-tab" data-bs-toggle="pill" data-bs-target="#admin-mange-orders">
+                            Manage Orders ({orderDetails.length > 0 ? orderDetails.length : 0})
+                          </Link>
+                        </li>
+                        <li>
+                          <Link className="nav-link" id="pills-profile-tab" data-bs-toggle="pill" data-bs-target="#pills-dashboard">
+                            Dashboard
+                          </Link>
+                        </li>
+                        <li>
+                          <Link className="nav-link" id="pills-post-tab" data-bs-toggle="pill" data-bs-target="#pills-blogpost">
+                            Manage Blog Posts
+                          </Link>
+                        </li>
+                        <li>
+                          <Link className="nav-link" id="pills-post-tab" data-bs-toggle="pill" data-bs-target="#pills-gallery">
+                            Manage Gallery
+                          </Link>
+                        </li>
+                      </ul>
 
                       <div className="tab-content">
                         <div className="tab-pane" id="admin-mange-orders">
@@ -665,7 +658,7 @@ const Admin = (props) => {
                                                 <>
                                                   <b> {user.name} </b>
                                                   <span>
-                                                    {user.address + ", " + user.city + ", " + user.state + ", " + user.pincode + "(Phone: " + user.phonenumber + ")"}, { } <br></br>
+                                                    {user.address + ", " + user.city + ", " + user.state + ", " + user.pincode + "(Phone: " + user.phonenumber + ")"}, {} <br></br>
                                                   </span>
 
                                                   <span> {user.email} </span>
@@ -751,7 +744,7 @@ const Admin = (props) => {
                                     <label>
                                       Name <span className="required">*</span>
                                     </label>
-                                    <input type="text" defaultValue={p_name} required aria-required="true" size="30" name="p_name" {...register("p_name")} id="p_name" />
+                                    <input type="text" required aria-required="true" defaultValue={p_name} size="30" name="p_name" {...register("p_name")} id="p_name" />
                                     {/* {errors.p_name && "Product name is required"} */}
                                   </div>
                                   <div className="comment-form-author">
@@ -805,14 +798,22 @@ const Admin = (props) => {
                                       <div className="col">
                                         {" "}
                                         <label>
-                                          Price <span className="required">*</span>
+                                          Actual Price <span className="required">*</span>
                                         </label>
-                                        <input type="text" required aria-required="true" defaultValue={p_price} size="30" name="p_price" {...register("p_price")} id="p_price" />
+                                        <input type="text" required aria-required="true" defaultValue={p_actual_price} size="30" name="p_actual_price" {...register("p_actual_price")} id="p_actual_price" />
                                         {/* {errors.p_price && "Price is required"} */}
                                       </div>
                                       <div className="col">
                                         {" "}
                                         <label>
+                                          Price / Offer Price <span></span>
+                                        </label>
+                                        <input type="text" defaultValue={p_price} size="30" name="p_price" {...register("p_price")} id="p_price" />
+                                        {/* {errors.p_price && "Price is required"} */}
+                                      </div>
+                                      <div className="col">
+                                        {" "}
+                                        <label className="text-nowrap">
                                           Avaliable Quantity <span className="required">*</span>
                                         </label>
                                         <input type="text" defaultValue={p_quantity} required aria-required="true" size="30" name="p_quantity" {...register("p_quantity")} id="p_quantity" />
@@ -851,6 +852,7 @@ const Admin = (props) => {
                                   setEditProduct({});
                                   setShow((show) => !show);
                                   setProduct_image("");
+                                  setFlag(false);
                                 }}
                               >
                                 Add Product
@@ -861,7 +863,8 @@ const Admin = (props) => {
                                     <th>Product</th>
                                     <th>Product name</th>
                                     <th>Category</th>
-                                    <th>Unit Price</th>
+                                    <th>Actual Price</th>
+                                    <th>Offer Price</th>
                                     <th>Quantity</th>
                                     <th>Action</th>
                                     <th>Delete</th>
@@ -870,49 +873,50 @@ const Admin = (props) => {
                                 <tbody>
                                   {products.length > 0
                                     ? products.map((product, key) => (
-                                      <tr>
-                                        <td className="product-item-img">
-                                          <img className="smallimage" src={product.p_image} height="15" alt="" />
-                                        </td>
-                                        <td className="product-item-name">{product.p_name}</td>
-                                        <td className="product-item-name">{product.p_category}</td>
-                                        <td className="product-item-price">{product.p_price}</td>
-                                        <td className="product-item-quantity">{product.p_quantity}</td>
+                                        <tr>
+                                          <td className="product-item-img">
+                                            <img className="smallimage" src={product.p_image} height="15" alt="" />
+                                          </td>
+                                          <td className="product-item-name">{product.p_name}</td>
+                                          <td className="product-item-name">{product.p_category}</td>
+                                          <td className="product-item-price">{product.p_actual_price}</td>
+                                          <td className="product-item-price">{product.p_price}</td>
+                                          <td className="product-item-quantity">{product.p_quantity}</td>
 
-                                         <td>
-                                           <Link className="btn py-1" onClick={(e) => (setProduct_image(product.p_image), editData(e, product))}>
-                                             Edit
-                                           </Link>{" "}
-                                           <Link className={product.isactive === "1" ? "btn py-1" : "btn bg-danger py-1"} onClick={(e) => activateDeactivateProduct(product.p_id, product.isactive === "1" ? "0" : "1")}>
-                                             {product.isactive === "1" ? "Deactivate" : "Activate"}
-                                           </Link>
-                                         </td>
-                                         <td>
-                                           <Link className="btn bg-danger py-1" onClick={(e) => deleteProduct(product.p_id)}>
-                                             X
-                                           </Link>
-                                         </td>
-                                       </tr>
-                                     ))
-                                   : "No Product added"}
-                               </tbody>
-                             </table>
-                           </div>
-                         </div>
-                       </div>
-                       <div className="tab-pane" id="pills-blogpost">
-                         <AdminManagePosts />
-                       </div>
-                       <div className="tab-pane" id="pills-gallery">
-                         <AdminManageGallery/>
-                       </div>
-                     </div>
-                   </div>
-                 </div>
-               </div>
-             </div>
-           </div>
-         </div>
+                                          <td>
+                                            <Link className="btn py-1" onClick={(e) => (setProduct_image(product.p_image), editData(e, product))}>
+                                              Edit
+                                            </Link>{" "}
+                                            <Link className={product.isactive === "1" ? "btn py-1" : "btn bg-danger py-1"} onClick={(e) => activateDeactivateProduct(product.p_id, product.isactive === "1" ? "0" : "1")}>
+                                              {product.isactive === "1" ? "Deactivate" : "Activate"}
+                                            </Link>
+                                          </td>
+                                          <td>
+                                            <Link className="btn bg-danger py-1" onClick={(e) => deleteProduct(product.p_id)}>
+                                              X
+                                            </Link>
+                                          </td>
+                                        </tr>
+                                      ))
+                                    : "No Product added"}
+                                </tbody>
+                              </table>
+                            </div>
+                          </div>
+                        </div>
+                        <div className="tab-pane" id="pills-blogpost">
+                          <AdminManagePosts />
+                        </div>
+                        <div className="tab-pane" id="pills-gallery">
+                          <AdminManageGallery />
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
 
           {/* <Owl category={productDtl.p_category} /> */}
           <div class="section-full related-products content-inner bg-gray-light">

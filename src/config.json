@@ -1,9 +1,9 @@
 {
   "domain": "tsalastudio.com",
   "storage": "tsalastudio.com",
-  "service_url_qa": "https://asia-south1-tuc-shopping-dev.cloudfunctions.net/tuc_shop_node_api/api/",
-  "service_url": "https://asia-south1-tucfbclouddb.cloudfunctions.net/tuc_shop_node_api/api/",
-  "service_url_": "http://localhost:8000/api/",
+  "service_url__": "https://asia-south1-tuc-shopping-dev.cloudfunctions.net/tuc_shop_node_api/api/",
+  "service_url_": "https://asia-south1-tucfbclouddb.cloudfunctions.net/tuc_shop_node_api/api/",
+  "service_url": "http://localhost:8000/api/",
   "logo": "https://firebasestorage.googleapis.com/v0/b/tucfbclouddb.appspot.com/o/tsalastudio.com%2Flogo%2Flogo.jpeg?alt=media&token=2a0ea36d-d6b0-4ad3-8701-a4daa8dda261",
   "slider": [
     {
@@ -18,5 +18,19 @@
       "description": "Quilting | Craft Classes | Hobby Studio | Studio Rent Out | Longarm Services",
       "image_url": "https://firebasestorage.googleapis.com/v0/b/tucfbclouddb.appspot.com/o/tsalastudio.com%2Fslider%2Fslide2.jpg?alt=media&token=3ecce1a6-e10a-4649-bac9-cc81d3a7e882"
     }
-  ]
+  ],
+  "aboutustitle": "About TSALA Studio",
+  "aboutus1": "Quilting | Craft Classes | Hobby Studio | Studio Rent Out | Longarm Services",
+  "aboutus2": "Join us to learn the craft of Quilting, Stitching, Tailoring, Bag Making, Knitting, Crocheting, Hand Embroidery, Tatting and many other craft classes in Bengaluru.",
+  "aboutus_aboutpage": "Set up in Dec 2015 by Vatsala Kamat, Tsala literally means F.R.I.E.N.D.S…! And thats what Tsala Studio is for, an idealistic adda located in the heart of Bengaluru for all hobby enthusiasts & quilting friends to get together!",
+  "aboutus_imageurl1": "https://firebasestorage.googleapis.com/v0/b/tucfbclouddb.appspot.com/o/tsalastudio.com%2Fsiteimages%2FTsala%20Quilting%20Studio2.jpg?alt=media&token=fdcb2fda-ca34-4ffb-8a64-8d6dfb911970",
+  "aboutus_imageurl2": "https://firebasestorage.googleapis.com/v0/b/tucfbclouddb.appspot.com/o/tsalastudio.com%2Fsiteimages%2FVatsala%20Kamat-0001.jpg?alt=media&token=bb74ce7e-2c7f-4074-bd11-f5d1c5a7d4d9",
+  "about_ABOUTQUILTING1": "Quilting is the process of sewing three or more layers of fabric together to create bed spreads, wall hangings, bags, clothing, and a variety of accessories as per ones imagination. ",
+  "about_ABOUTQUILTING2": "The whole process also involves designing, piecing, appliqué, and binding. A person who quilts is termed a quilter.",
+  "about_ABOUTQUILTING3": "Quilting can be done by hand, or by sewing machine, or by a specialised longarm quilting machine.",
+  "contact_phone1": "+91-9880062266",
+  "contact_phone2": "+91-9880062266",
+  "contact_address": "301, Vespers, Eagle Street,Langford Town, Bengaluru, KA 560025",
+  "contact_email": "tsalastudio@gmail.com",
+  "contact_name": "Vatsala Kamat"
 }

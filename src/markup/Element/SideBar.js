@@ -9,12 +9,12 @@ const SideBar = () => {
   const [galleryimage, setGalleryImage] = useState([]);
   const [networkError, setNetworkError] = useState("");
   const getPostDetails = async () => {
-	   console.log("recentpost", posts);
+    console.log("recentpost", posts);
     await fetch(config.service_url + "getrecentposts")
       .then((response) => response.json())
       .then((data) => {
         let active = data
-          .filter((filter) => filter.isactive === 1 && filter.published === 1)
+          .filter((filter) => filter.isactive === 1 && filter.published === 1 && filter.posttypevalue === "Blog")
           .map((data) => {
             return data;
           });
@@ -26,27 +26,27 @@ const SideBar = () => {
         // console.log(networkError);
       });
   };
-const getGalleryDetails = async () => {
+  const getGalleryDetails = async () => {
 
-  await fetch(config.service_url + "getgallery")
-    .then((response) => response.json())
-    .then((data1) => {
-      let active1 = data1
-        .filter((filter1) => filter1.viewingallery === 1)
-        .map((data1) => {
-          return data1;
-        });
-      setGalleryImage(active1);
-      console.log("galleryimages", galleryimage);
-    })
-    .catch((err) => {
-      setNetworkError("Something went wrong, Please try again later!!");
-      // console.log(networkError);
-    });
-};
+    await fetch(config.service_url + "getgallery")
+      .then((response) => response.json())
+      .then((data1) => {
+        let active1 = data1
+          .filter((filter1) => filter1.viewingallery === 1)
+          .map((data1) => {
+            return data1;
+          });
+        setGalleryImage(active1);
+        console.log("galleryimages", galleryimage);
+      })
+      .catch((err) => {
+        setNetworkError("Something went wrong, Please try again later!!");
+        // console.log(networkError);
+      });
+  };
   useEffect(() => {
     getPostDetails();
-	getGalleryDetails();
+    getGalleryDetails();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
