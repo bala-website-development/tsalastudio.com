@@ -174,24 +174,31 @@ const Index1 = () => {
                       <div className="dlab-separator style1 bg-primary"></div>
                     </div>
                     <div className="clearfix">
-                      <div className="text">
-                        <ul className="list-check mb-0 primary">
-                          <li>Quilting</li>
-                          <li>Stitching &amp; Tailoring</li>
-                          <li>Bag Making</li>
-                          <li>Kids Sewing Workshop</li>
-                          <li>Knitting</li>
-                          <li>Crochet</li>
-                          <li>Tatting</li>
-                          <li>Hand Embroidery</li>
-                          <li>Weaving</li>
-                          <li>Natural Dying</li>
-                          <li>Paper Crafts</li>
-                          <li>Quilling</li>
-                          <li>Macrame</li>
-                          <li>Decoupage and many more...</li>
-                        </ul>{" "}
+                      <div className="row">
+                        <div className="col">
+                          <ul className="list-check mb-0 primary">
+                            <li>Quilting</li>
+                            <li>Stitching &amp; Tailoring</li>
+                            <li>Bag Making</li>
+                            <li>Kids Sewing Workshop</li>
+                            <li>Knitting</li>
+                            <li>Crochet</li>
+                            <li>Tatting</li>
+                          </ul>{" "}
+                        </div>
+                        <div className="col">
+                          <ul className="list-check mb-0 primary">
+                            <li>Hand Embroidery</li>
+                            <li>Weaving</li>
+                            <li>Natural Dying</li>
+                            <li>Paper Crafts</li>
+                            <li>Quilling</li>
+                            <li>Macrame</li>
+                            <li>Decoupage and many more...</li>
+                          </ul>{" "}
+                        </div>
                       </div>
+
                       <Link to={"/our-services"} className="btn btn-md btnhover shadow m-t30">
                         <i className="fa fa-angle-right m-r10"></i>Get Started
                       </Link>
@@ -250,12 +257,33 @@ const Index1 = () => {
               </div>
             </div>
           </div>
+
+          <div className="section-full content-inner service-area2 bg-img-fix bg-line-top " style={{ backgroundImage: "url(" + +")", backgroundSize: "cover" }}>
+            <div className="">
+              <div className="row">
+                <div className="col-lg-6">
+                  <div className="text-center">
+                    <div className="icon-bx icon-bx-lg">
+                      <img src={cake1} alt="" />
+                    </div>
+                    <h3>From The Blog</h3>
+                    <p>Latest news and updates</p>
+                    <Link to="blog-half-img-sidebar" className="btn btnhover">
+                      Latest Blog
+                    </Link>
+                  </div>
+                </div>
+                <SideBar></SideBar>
+              </div>
+            </div>
+          </div>
+
           <div className="section-full bg-white" style={{ backgroundImage: "url(" + img3 + ")", backgroundSize: "100%" }}>
             <div className="container content-inner">
               <div className="row">
                 <div className="col-lg-12">
                   <div className="section-head text-center">
-                    <div className="icon-bx icon-bx-xl">
+                    <div className="icon-bx icon-bx-lg">
                       <img src={cake1} alt="" />
                     </div>
                     <h3>We Are Professional at Our Skills</h3>
@@ -318,7 +346,7 @@ const Index1 = () => {
                     <div className="section-head text-center text-white">
                       <h4 className="text-white">Limited Time Offer</h4>
                       <p>Join our course</p>
-                      <div className="icon-bx">
+                      <div className="icon-bx icon-bx-lg">
                         <img src={icon2} alt="" />
                       </div>
                     </div>
@@ -330,24 +358,17 @@ const Index1 = () => {
                 </div>
               </div>
             </div>
-            <div className="container">
-              <div className="row client-area1 p-t10">{/* <OurPartners /> */}</div>
-            </div>
-            <div className="container content-inner ">
+            <div className="container content-inner">
+              {/* <OurPartners /> */}
               <div className="row">
-                <div className="col-lg-6">
+                <div className="col-lg-12">
                   <div className="section-head text-center">
-                    <div className="icon-bx icon-bx-xl">
+                    <div className="icon-bx icon-bx-lg">
                       <img src={cake1} alt="" />
                     </div>
-                    <h3>From The Blog</h3>
-                    <p>Latest news and updates</p>
-                    <Link to="blog-half-img-sidebar" className="btn btnhover">
-                      Latest Blog
-                    </Link>
+                    <h3>Thanks for reaching us.</h3>
                   </div>
                 </div>
-                <SideBar></SideBar>
               </div>
             </div>
           </div>
