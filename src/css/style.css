@@ -116,10 +116,10 @@
 
 ---------------------------------------------------------------*/
 select.form-control:not([size]):not([multiple]) {
-  height: calc(2.25rem + 5px)!important;
+  height: calc(2.25rem + 5px) !important;
 }
-.dangerous p{
-  margin: 0 0 5px 0!important;
+.dangerous p {
+  margin: 0 0 5px 0 !important;
 }
 
 .smallimage {
@@ -12902,6 +12902,10 @@ ol.commentlist li .star-rating {
   object-fit: cover;
   width: 100%;
   height: 100%;
+}
+.img-cover1 {
+  object-fit: cover;
+  width: 100%;
 }
 /* sp */
 .row.sp30,

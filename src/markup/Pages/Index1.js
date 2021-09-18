@@ -12,7 +12,7 @@ import img2 from "./../../images/background/bg1.jpg";
 import img3 from "./../../images/background/bg5.jpg";
 import img4 from "./../../images/background/bg4.jpg";
 import cake1 from "./../../images/cake1.jpg";
-import pic1 from "./../../images/about/pic1.jpg";
+import pic1 from "./../../images/about/picbanket.png";
 import icon2 from "./../../images/icons/service-icon/icon2.png";
 import icon3 from "./../../images/icons/service-icon/icon3.png";
 import icon4 from "./../../images/icons/service-icon/icon4.png";
@@ -107,15 +107,14 @@ const Index1 = () => {
               <div className="row">
                 <div className="col-lg-12">
                   <div className="section-head text-center">
-                    <h2 className="text-white">What Do We Offer For You?</h2>
-                    <p className="text-bold">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s</p>
+                    <h2 className="text-white">ABOUT QUILTING?</h2>
                     <div className="dlab-separator style1 bg-primary"></div>
                   </div>
                 </div>
               </div>
               <div className="row">
                 <div className="col-lg-4 m-b30">
-                  <img src={pic1} className="img-cover radius-sm" alt="" />
+                  <img src={pic1} className="img-cover1 radius-sm" alt="tsalastudio" />
                 </div>
                 <div className="col-lg-8">
                   <div className="row p-l30">
@@ -127,8 +126,8 @@ const Index1 = () => {
                           </Link>
                         </div>
                         <div className="icon-content">
-                          <h5 className="dlab-tilte">Pancakes</h5>
-                          <p>Lorem Ipsum is dummy</p>
+                          <h5 className="dlab-tilte">QUILTING</h5>
+                          <p>{config.about_ABOUTQUILTING1}</p>
                         </div>
                       </div>
                     </div>
@@ -140,8 +139,8 @@ const Index1 = () => {
                           </Link>
                         </div>
                         <div className="icon-content">
-                          <h5 className="dlab-tilte">Muffin</h5>
-                          <p>Lorem Ipsum is dummy</p>
+                          <h5 className="dlab-tilte">QUILTING</h5>
+                          <p>{config.about_ABOUTQUILTING2}</p>
                         </div>
                       </div>
                     </div>
@@ -153,47 +152,8 @@ const Index1 = () => {
                           </Link>
                         </div>
                         <div className="icon-content">
-                          <h5 className="dlab-tilte">Pumpkin cakes</h5>
-                          <p>Lorem Ipsum is dummy</p>
-                        </div>
-                      </div>
-                    </div>
-                    <div className="col-lg-6 col-sm-6 m-b30">
-                      <div className="icon-bx-wraper text-white service-box2">
-                        <div className="icon-bx">
-                          <Link to={""} className="icon-cell">
-                            <img src={icon5} alt="" />
-                          </Link>
-                        </div>
-                        <div className="icon-content">
-                          <h5 className="dlab-tilte">Pumpkin Cupcakes</h5>
-                          <p>Lorem Ipsum is dummy</p>
-                        </div>
-                      </div>
-                    </div>
-                    <div className="col-lg-6 col-sm-6 m-b30">
-                      <div className="icon-bx-wraper text-white service-box2">
-                        <div className="icon-bx">
-                          <Link to={""} className="icon-cell">
-                            <img src={icon5} alt="" />
-                          </Link>
-                        </div>
-                        <div className="icon-content">
-                          <h5 className="dlab-tilte">Cake Services</h5>
-                          <p>Lorem Ipsum is dummy</p>
-                        </div>
-                      </div>
-                    </div>
-                    <div className="col-lg-6 col-sm-6 m-b30">
-                      <div className="icon-bx-wraper text-white service-box2">
-                        <div className="icon-bx">
-                          <Link to={""} className="icon-cell">
-                            <img src={icon1} alt="" />
-                          </Link>
-                        </div>
-                        <div className="icon-content">
-                          <h5 className="dlab-tilte">Birthday Cake</h5>
-                          <p>Lorem Ipsum is dummy</p>
+                          <h5 className="dlab-tilte">QUILTING</h5>
+                          <p>{config.about_ABOUTQUILTING3}</p>
                         </div>
                       </div>
                     </div>
