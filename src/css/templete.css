@@ -312,12 +312,12 @@
 .dlab-bnr-inr:before {
   content: "";
   position: absolute;
-  bottom: 0;
+  bottom: -6px;
   left: 0;
   right: 0;
   width: 100%;
   background-image: url(../images/bg1.png);
-  background-size: 80px;
+  background-size: 99px;
   height: 20px;
   background-position: top;
   background-repeat: repeat-x;
@@ -331,24 +331,24 @@
 .bg-line-top:before {
   content: "";
   position: absolute;
-  top: 0;
+  top: -5px;
   left: 0;
   width: 100%;
   background-image: url(../images/bg1.png);
   height: 20px;
   background-position: top;
   background-repeat: repeat-x;
-  background-size: 80px;
+  background-size: 95px;
 }
 .bg-line-bottom:after {
   content: "";
   position: absolute;
-  bottom: 0;
+  bottom: -6px;
   left: 0;
   right: 0;
   width: 100%;
   background-image: url(../images/bg1.png);
-  background-size: 80px;
+  background-size: 95px;
   height: 20px;
   background-position: top;
   background-repeat: repeat-x;
