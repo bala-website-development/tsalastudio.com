@@ -23,7 +23,6 @@ const A_Newsletter = (props) => {
     }, 1000);
   };
 
-
   useEffect(() => {
     // getGalleryDetails();
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -36,7 +35,7 @@ const A_Newsletter = (props) => {
     let _data = {};
     _data.email = data.subscribe_email;
     _data.createddate = new Date();
-    console.log("newsletter", _data)
+    console.log("newsletter", _data);
     fetch(config.service_url + "newsletter", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ data: _data }) })
       .then((response) => response.json())
       .then((data) => {
@@ -55,8 +54,8 @@ const A_Newsletter = (props) => {
       })
       .catch((error) => {
         setSuccessMsg("Something went wrong, Please try again later!!");
-      })
-  }
+      });
+  };
 
   const {
     register,
@@ -77,7 +76,7 @@ const A_Newsletter = (props) => {
         <form id="newslettersubscription" onSubmit={handleSubmit(onSubmit)}>
           <div className=" d-flex ">
             <div class="input-group mb-3 justify-content-center w-100">
-              <input type="email" className="px-3 " placeholder="Enter your email" required name="subscribe_email" {...register("subscribe_email")} />
+              <input type="email" className="px-3 border-primary rounded" placeholder="Enter your email" required name="subscribe_email" {...register("subscribe_email")} />
               <div class="input-group-append">
                 <button class="btn btnhover" type="submit">
                   Join us
