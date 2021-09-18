@@ -11,10 +11,11 @@ import Footer from "./../Layout/Footer";
 import img1 from "./../../images/banner/bnr4.jpg";
 import img2 from "./../../images/background/bg5.jpg";
 import img3 from "./../../images/background/bg4.jpg";
-import img4 from "./../../images/background/bg1.jpg";
+import img4 from "./../../images/background/bg4.jpg";
+import pic1 from "./../../images/about/picbanket.png";
 import cake1 from "./../../images/cake1.jpg";
-import pic1 from "./../../images/about/pic1.jpg";
-import serv_icon2 from "./../../images/icons/service-icon/icon2.png";
+//import pic1 from "./../../images/about/pic1.jpg";
+import icon2 from "./../../images/icons/service-icon/icon2.png";
 import icon3 from "./../../images/icons/service-icon/icon3.png";
 import serv_icon4 from "./../../images/icons/service-icon/icon4.png";
 import serv_icon5 from "./../../images/icons/service-icon/icon5.png";
@@ -201,7 +202,7 @@ const Ourservices = () => {
               </div>
             </div>
           </div>
-          <div class="container1 mb-5">
+          <div class="container1 mb-5" style={{ backgroundImage: "url(" + img2 + ")" }}>
             {courses &&
               courses.map((course) => (
                 <div class="card ">
@@ -223,20 +224,19 @@ const Ourservices = () => {
                 </div>
               ))}
           </div>
-          <div className="section-full content-inner service-area2 bg-img-fix bg-line-top bg-line-bottom" style={{ backgroundImage: "url(" + img3 + ")", backgroundSize: "cover" }}>
+          <div className="section-full content-inner service-area2 bg-img-fix bg-line-top bg-line-bottom" style={{ backgroundImage: "url(" + img4 + ")", backgroundSize: "cover" }}>
             <div className="container">
               <div className="row">
                 <div className="col-lg-12">
                   <div className="section-head text-center">
-                    <h2 className="text-white">What Do We Offer For You?</h2>
-                    <p className="text-bold">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s</p>
+                    <h2 className="text-white">ABOUT QUILTING?</h2>
                     <div className="dlab-separator style1 bg-primary"></div>
                   </div>
                 </div>
               </div>
               <div className="row">
                 <div className="col-lg-4 m-b30">
-                  <img src={pic1} className="img-cover radius-sm" alt="" />
+                  <img src={pic1} className="img-cover1 radius-sm" alt="tsalastudio" />
                 </div>
                 <div className="col-lg-8">
                   <div className="row p-l30">
@@ -244,12 +244,12 @@ const Ourservices = () => {
                       <div className="icon-bx-wraper text-white service-box2">
                         <div className="icon-bx">
                           <Link to={""} className="icon-cell">
-                            <img src={serv_icon2} alt="" />
+                            <img src={icon2} alt="" />
                           </Link>
                         </div>
                         <div className="icon-content">
-                          <h5 className="dlab-tilte">Pancakes</h5>
-                          <p>Lorem Ipsum is dummy</p>
+                          <h5 className="dlab-tilte">QUILTING</h5>
+                          <p>{config.about_ABOUTQUILTING1}</p>
                         </div>
                       </div>
                     </div>
@@ -261,8 +261,8 @@ const Ourservices = () => {
                           </Link>
                         </div>
                         <div className="icon-content">
-                          <h5 className="dlab-tilte">Muffin</h5>
-                          <p>Lorem Ipsum is dummy</p>
+                          <h5 className="dlab-tilte">QUILTING</h5>
+                          <p>{config.about_ABOUTQUILTING2}</p>
                         </div>
                       </div>
                     </div>
@@ -270,51 +270,12 @@ const Ourservices = () => {
                       <div className="icon-bx-wraper text-white service-box2">
                         <div className="icon-bx">
                           <Link to={""} className="icon-cell">
-                            <img src={serv_icon4} alt="" />
+                            <img src={icon4} alt="" />
                           </Link>
                         </div>
                         <div className="icon-content">
-                          <h5 className="dlab-tilte">Pumpkin cakes</h5>
-                          <p>Lorem Ipsum is dummy</p>
-                        </div>
-                      </div>
-                    </div>
-                    <div className="col-lg-6 col-sm-6 m-b30">
-                      <div className="icon-bx-wraper text-white service-box2">
-                        <div className="icon-bx">
-                          <Link to={""} className="icon-cell">
-                            <img src={serv_icon5} alt="" />
-                          </Link>
-                        </div>
-                        <div className="icon-content">
-                          <h5 className="dlab-tilte">Pumpkin Cupcakes</h5>
-                          <p>Lorem Ipsum is dummy</p>
-                        </div>
-                      </div>
-                    </div>
-                    <div className="col-lg-6 col-sm-6 m-b30">
-                      <div className="icon-bx-wraper text-white service-box2">
-                        <div className="icon-bx">
-                          <Link to={""} className="icon-cell">
-                            <img src={serv_icon5} alt="" />
-                          </Link>
-                        </div>
-                        <div className="icon-content">
-                          <h5 className="dlab-tilte">Cake Services</h5>
-                          <p>Lorem Ipsum is dummy</p>
-                        </div>
-                      </div>
-                    </div>
-                    <div className="col-lg-6 col-sm-6 m-b30">
-                      <div className="icon-bx-wraper text-white service-box2">
-                        <div className="icon-bx">
-                          <Link to={""} className="icon-cell">
-                            <img src={serv_icon1} alt="" />
-                          </Link>
-                        </div>
-                        <div className="icon-content">
-                          <h5 className="dlab-tilte">Birthday Cake</h5>
-                          <p>Lorem Ipsum is dummy</p>
+                          <h5 className="dlab-tilte">QUILTING</h5>
+                          <p>{config.about_ABOUTQUILTING3}</p>
                         </div>
                       </div>
                     </div>
@@ -324,21 +285,25 @@ const Ourservices = () => {
             </div>
           </div>
 
-          <div className="section-full content-inner-1 bg-white" style={{ backgroundImage: "url(" + img4 + ")" }}>
-            <PriceTable />
+          <div className="section-full content-inner-1 bg-white" style={{ backgroundImage: "url(" + img2 + ")" }}>
+            {/* <PriceTable /> */}
 
             <div className="content-inner">
               <div className="container">
                 <div className="row">
                   <div className="col-lg-12">
                     <div className="section-head text-center">
-                      <h3>Our PARTNERS</h3>
-                      <p>famous companies trusted us, why you are not</p>
+                      <h3>CRAFT & HOBBY CLASSES AT TSALA STUDIO</h3>
+                      <p>Do you want to learn stitching, quilting, pursue a hobby from basics or would like to fine tune your creative skills..?</p>
+                      <p>Then..Firstly thank yourself for taking some time out of your routine schedule to showcase your creativity and also finding a fun way to meet new people. Join our Art and Craft classes in Bangalore coz... #hobbyisfun</p>
+                      <Link to="/our-services" className="btn btnhover">
+                        Click here for more Hobby Clases
+                      </Link>
                     </div>
                   </div>
                 </div>
               </div>
-              <OurPartners />
+              {/* <OurPartners /> */}
             </div>
           </div>
         </div>

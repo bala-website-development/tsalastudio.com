@@ -100,7 +100,7 @@ class About extends Component {
                       <div>
                         <blockquote>
                           <p>
-                            <ul className="font-weight-light">
+                            <ul className="list-check mb-0 primary">
                               <li>
                                 Regular in-house <strong>quilting &amp; hobby classes</strong>
                               </li>

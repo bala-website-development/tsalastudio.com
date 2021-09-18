@@ -168,17 +168,30 @@ const Index1 = () => {
                 <div className="col-lg-6 m-b30">
                   <div className="m-r20">
                     <div className="section-head text-left">
-                      <h2>Sale And Delivery Points</h2>
-                      <p className="text-bold">Where to buy our high quality Cake</p>
+                      <h2>Why Tsala..?</h2>
+                      <p className="text-bold">At Tsala, we conduct classes for the craft enthusiasts to learn:</p>
                       <div className="dlab-separator style1 bg-primary"></div>
                     </div>
                     <div className="clearfix">
-                      <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley.</p>
-                      <p className="text">
-                        First and foremost I am a chef, whether behind the stove at one of my Northern California restaurants or for the past 15 years in front of the Lorem Ipsum is simply <strong>Bakery</strong> dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took.
-                      </p>
-                      <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley.</p>
-                      <Link to={"/faq"} className="btn btn-md btnhover shadow m-t30">
+                      <div className="text">
+                        <ul className="list-check mb-0 primary">
+                          <li>Quilting</li>
+                          <li>Stitching &amp; Tailoring</li>
+                          <li>Bag Making</li>
+                          <li>Kids Sewing Workshop</li>
+                          <li>Knitting</li>
+                          <li>Crochet</li>
+                          <li>Tatting</li>
+                          <li>Hand Embroidery</li>
+                          <li>Weaving</li>
+                          <li>Natural Dying</li>
+                          <li>Paper Crafts</li>
+                          <li>Quilling</li>
+                          <li>Macrame</li>
+                          <li>Decoupage and many more...</li>
+                        </ul>{" "}
+                      </div>
+                      <Link to={"/our-services"} className="btn btn-md btnhover shadow m-t30">
                         <i className="fa fa-angle-right m-r10"></i>Get Started
                       </Link>
                     </div>
@@ -245,7 +258,7 @@ const Index1 = () => {
                       <img src={cake1} alt="" />
                     </div>
                     <h3>We Are Professional at Our Skills</h3>
-                    <p>More than 2000+ customers trusted us</p>
+                    <p>More than 1000+ customers trusted us</p>
                   </div>
                 </div>
               </div>
@@ -254,7 +267,7 @@ const Index1 = () => {
                   <div className="counter-style-1 text-center">
                     <div className="counter-num text-primary">
                       <span className="counter">
-                        <CountUp end={53} />
+                        <CountUp end={15} />
                       </span>
                       <small>+</small>
                     </div>
@@ -265,7 +278,7 @@ const Index1 = () => {
                   <div className="counter-style-1 text-center">
                     <div className="counter-num text-primary">
                       <span className="counter">
-                        <CountUp end={102} />
+                        <CountUp end={10} />
                       </span>
                     </div>
                     <span className="counter-text">Awards Wins</span>
@@ -275,9 +288,9 @@ const Index1 = () => {
                   <div className="counter-style-1 text-center">
                     <div className="counter-num text-primary">
                       <span className="counter">
-                        <CountUp end={36} />
+                        <CountUp end={30} />
                       </span>
-                      <small>k</small>
+                      <small>+</small>
                     </div>
                     <span className="counter-text">Happy Clients</span>
                   </div>

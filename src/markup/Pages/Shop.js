@@ -92,8 +92,7 @@ const Shop = (props) => {
       slicedPosts = mcatFilterProd.slice(start, end);
       setEnd(end);
       console.log("sliced products inside apply", products);
-    }
-    else {
+    } else {
       slicedPosts = filter.slice(start, end);
       setEnd(end);
     }
@@ -101,7 +100,6 @@ const Shop = (props) => {
     setProducts(arrayForHoldingPosts);
     console.log("sliced products", arrayForHoldingPosts);
   };
-
 
   const LoadMoreForFilteredProducts = (IsFiltered, FilteredProduct) => {
     console.log("slice", IsFiltered, FilteredProduct, mcatFilterProd);
@@ -117,15 +115,14 @@ const Shop = (props) => {
       setNext(0 + postsPerPage);
       setEnd(end);
       console.log("inside check", products, next, end);
-    }
-    else {
+    } else {
       slicedPosts = filter.slice(0, end);
       setEnd(end);
     }
     arrayForHoldingPosts = [...arrayForHoldingPosts, ...slicedPosts];
     setProducts(arrayForHoldingPosts);
     console.log("sliced products", products);
-  }
+  };
 
   useEffect(() => {
     getProductDetails();
@@ -204,7 +201,7 @@ const Shop = (props) => {
       .then((data) => {
         if (data.status === 200) {
           console.log("master category", data);
-          let _filter = data.data.filter((_d) => _d.type === "product")
+          let _filter = data.data.filter((_d) => _d.type === "product");
           setMasterCategory(_filter);
           localStorage.setItem("cartUpdated", true);
         } else if (data.status === 400) {
@@ -299,8 +296,6 @@ const Shop = (props) => {
       setProducts(filter);
       LoadMoreForFilteredProducts(true, filter);
     }
-
-
   };
 
   return (
@@ -399,17 +394,20 @@ const Shop = (props) => {
                             <div className="item-box shop-item">
                               <div className="item-img">
                                 <img className="thumbnailimage" src={product.p_image} alt="" />
-                                {
-                                  (product.p_actual_price !== product.p_price)
-                                    ?
-                                    (<div className="price bg-white">
-                                      <span style={{ "text-decoration": "line-through" }}> <i class="fa fa-inr"></i> {product.p_actual_price || 0} </span>
-                                      <span>{" "} <i class="fa fa-inr"></i> {product.p_price}</span>
-                                    </div>)
-                                    :
-                                    (<div className="price bg-white">Rs.{product.p_price}</div>)
-                                }
-
+                                {product.p_actual_price !== product.p_price ? (
+                                  <div className="price bg-white">
+                                    <span style={{ "text-decoration": "line-through" }}>
+                                      {" "}
+                                      <i class="fa fa-inr"></i> {product.p_actual_price || 0}{" "}
+                                    </span>
+                                    {"   |  "}
+                                    <span>
+                                      {"   "} <i class="fa fa-inr"></i> {product.p_price}
+                                    </span>
+                                  </div>
+                                ) : (
+                                  <div className="price bg-white">Rs.{product.p_price}</div>
+                                )}
                               </div>
                               <div className="item-info text-center">
                                 <h4 className="item-title">
