@@ -4,7 +4,7 @@ import SimpleReactLightbox from "simple-react-lightbox";
 import { SRLWrapper } from "simple-react-lightbox";
 import bgimg2 from "./../../images/blog/grid/pic1.jpg";
 import config from "../../config.json";
-const SideBar = () => {
+const SideBar = (props) => {
   const [posts, setPosts] = useState([]);
   const [galleryimage, setGalleryImage] = useState([]);
   const [networkError, setNetworkError] = useState("");
@@ -27,7 +27,6 @@ const SideBar = () => {
       });
   };
   const getGalleryDetails = async () => {
-
     await fetch(config.service_url + "getgallery")
       .then((response) => response.json())
       .then((data1) => {
@@ -67,7 +66,7 @@ const SideBar = () => {
             </form>
           </div>
         </div>
-        <div className="widget widget_gallery gallery-grid-4">
+        <div className={props?.fromhome ? "d-none" : "widget widget_gallery gallery-grid-4"}>
           <h5 className="widget-title style-1">Our Gallery</h5>
           <SimpleReactLightbox>
             <SRLWrapper>

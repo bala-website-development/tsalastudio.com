@@ -87,7 +87,7 @@ const Index1 = () => {
                   ))}
               </div>
               <div className="row">
-                <div className="col-lg-12">
+                <div className="col-lg-8">
                   <div className="section-head mb-0 text-center">
                     <div className="my-4">
                       <img className="rounded" width="200px" src={config.logo} alt="" />
@@ -100,6 +100,8 @@ const Index1 = () => {
                     </div>
                   </div>
                 </div>
+
+                <SideBar fromhome={true}></SideBar>
               </div>
             </div>
           </div>
