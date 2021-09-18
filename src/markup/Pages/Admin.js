@@ -375,7 +375,15 @@ const Admin = (props) => {
       data.p_subcategory = data.p_subcategory !== "" ? data.p_subcategory : editProduct.p_subcategory;
       data.p_quantity = data.p_quantity !== "" ? data.p_quantity : editProduct.p_quantity;
       data.p_description = data.p_description !== "" ? data.p_description : editProduct.p_description;
-      data.p_price = data.p_price !== "" ? data.p_price : editProduct.p_price;
+      if (data.p_price === "" || data.p_price <= 0 || data.p_price === "0") {
+        if (editProduct.p_price === "" || editProduct.p_price <= 0 || editProduct.p_price === "0") {
+          data.p_price = data.p_actual_price;
+        }
+        else {
+          data.p_price = editProduct.p_price;
+        }
+      }
+
       data.p_image = product_image;
       data.p_actual_price = data.p_actual_price !== "" ? data.p_actual_price : editProduct.p_actual_price;
     } else {
@@ -658,7 +666,7 @@ const Admin = (props) => {
                                                 <>
                                                   <b> {user.name} </b>
                                                   <span>
-                                                    {user.address + ", " + user.city + ", " + user.state + ", " + user.pincode + "(Phone: " + user.phonenumber + ")"}, {} <br></br>
+                                                    {user.address + ", " + user.city + ", " + user.state + ", " + user.pincode + "(Phone: " + user.phonenumber + ")"}, { } <br></br>
                                                   </span>
 
                                                   <span> {user.email} </span>
@@ -800,7 +808,7 @@ const Admin = (props) => {
                                         <label>
                                           Actual Price <span className="required">*</span>
                                         </label>
-                                        <input type="text" required aria-required="true" defaultValue={p_actual_price} size="30" name="p_actual_price" {...register("p_actual_price")} id="p_actual_price" />
+                                        <input type="number" required aria-required="true" defaultValue={p_actual_price} size="30" name="p_actual_price" {...register("p_actual_price")} id="p_actual_price" />
                                         {/* {errors.p_price && "Price is required"} */}
                                       </div>
                                       <div className="col">
@@ -808,7 +816,7 @@ const Admin = (props) => {
                                         <label>
                                           Price / Offer Price <span></span>
                                         </label>
-                                        <input type="text" defaultValue={p_price} size="30" name="p_price" {...register("p_price")} id="p_price" />
+                                        <input type="number" defaultValue={p_price} size="30" name="p_price" {...register("p_price")} id="p_price" />
                                         {/* {errors.p_price && "Price is required"} */}
                                       </div>
                                       <div className="col">
@@ -873,31 +881,31 @@ const Admin = (props) => {
                                 <tbody>
                                   {products.length > 0
                                     ? products.map((product, key) => (
-                                        <tr>
-                                          <td className="product-item-img">
-                                            <img className="smallimage" src={product.p_image} height="15" alt="" />
-                                          </td>
-                                          <td className="product-item-name">{product.p_name}</td>
-                                          <td className="product-item-name">{product.p_category}</td>
-                                          <td className="product-item-price">{product.p_actual_price}</td>
-                                          <td className="product-item-price">{product.p_price}</td>
-                                          <td className="product-item-quantity">{product.p_quantity}</td>
+                                      <tr>
+                                        <td className="product-item-img">
+                                          <img className="smallimage" src={product.p_image} height="15" alt="" />
+                                        </td>
+                                        <td className="product-item-name">{product.p_name}</td>
+                                        <td className="product-item-name">{product.p_category}</td>
+                                        <td className="product-item-price">{product.p_actual_price}</td>
+                                        <td className="product-item-price">{product.p_price}</td>
+                                        <td className="product-item-quantity">{product.p_quantity}</td>
 
-                                          <td>
-                                            <Link className="btn py-1" onClick={(e) => (setProduct_image(product.p_image), editData(e, product))}>
-                                              Edit
-                                            </Link>{" "}
-                                            <Link className={product.isactive === "1" ? "btn py-1" : "btn bg-danger py-1"} onClick={(e) => activateDeactivateProduct(product.p_id, product.isactive === "1" ? "0" : "1")}>
-                                              {product.isactive === "1" ? "Deactivate" : "Activate"}
-                                            </Link>
-                                          </td>
-                                          <td>
-                                            <Link className="btn bg-danger py-1" onClick={(e) => deleteProduct(product.p_id)}>
-                                              X
-                                            </Link>
-                                          </td>
-                                        </tr>
-                                      ))
+                                        <td>
+                                          <Link className="btn py-1" onClick={(e) => (setProduct_image(product.p_image), editData(e, product))}>
+                                            Edit
+                                          </Link>{" "}
+                                          <Link className={product.isactive === "1" ? "btn py-1" : "btn bg-danger py-1"} onClick={(e) => activateDeactivateProduct(product.p_id, product.isactive === "1" ? "0" : "1")}>
+                                            {product.isactive === "1" ? "Deactivate" : "Activate"}
+                                          </Link>
+                                        </td>
+                                        <td>
+                                          <Link className="btn bg-danger py-1" onClick={(e) => deleteProduct(product.p_id)}>
+                                            X
+                                          </Link>
+                                        </td>
+                                      </tr>
+                                    ))
                                     : "No Product added"}
                                 </tbody>
                               </table>

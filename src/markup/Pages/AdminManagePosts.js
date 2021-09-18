@@ -29,7 +29,10 @@ const AdminManagePosts = (props) => {
   const config_ = {
     readonly: false, // all options from https://xdsoft.net/jodit/doc/
   };
-  const postType = [{ "value": "Blog", "label": "Blog" }, { "value": "Course", "label": "Course" }]
+  const postType = [
+    { value: "Blog", label: "Blog" },
+    { value: "Course", label: "Course" },
+  ];
   const handleVisible = () => {
     setSmShow(true);
     setTimeout(() => {
@@ -68,11 +71,9 @@ const AdminManagePosts = (props) => {
           setSuccessMsg(data.message);
           handleVisible();
           getPostDetails();
-        }
-        else if (data?.status === 499) {
-          history.push("/shop-login")
-        }
-        else {
+        } else if (data?.status === 499) {
+          history.push("/shop-login");
+        } else {
           setSuccessMsg(data.message);
           handleVisible();
         }
@@ -84,7 +85,7 @@ const AdminManagePosts = (props) => {
   };
   const activateDeactivatePost = (type, pid, id) => {
     console.log(id);
-    let post = {}
+    let post = {};
     post.post_id = pid;
     post.updateddate = new Date();
     if (type === "activate") post.isactive = id;
@@ -102,11 +103,9 @@ const AdminManagePosts = (props) => {
           setSuccessMsg(data.message);
           handleVisible();
           getPostDetails();
-        }
-        else if (data?.status === 499) {
-          history.push("/shop-login")
-        }
-        else {
+        } else if (data?.status === 499) {
+          history.push("/shop-login");
+        } else {
           setSuccessMsg(data.message);
           handleVisible();
         }
@@ -141,8 +140,8 @@ const AdminManagePosts = (props) => {
       .then((data) => {
         if (data.status === 200) {
           console.log("master sub category", data);
-          let _filterData = data.data.filter((_d) => _d.type === "blog" || _d.type === "course")
-          setAllSubMasterCategory(_filterData)
+          let _filterData = data.data.filter((_d) => _d.type === "blog" || _d.type === "course");
+          setAllSubMasterCategory(_filterData);
           setMasterSubCategory(_filterData);
         } else if (data.status === 400) {
           setSuccessMsg("No Data");
@@ -179,9 +178,9 @@ const AdminManagePosts = (props) => {
     const _masterCategory = allMasterCategory;
     const _masterSubCategory = allSubMasterCategory;
     setPostTypeValue(value);
-    setMasterCategory(_masterCategory.filter((filter) => (filter.type.toLowerCase() === value.toLowerCase())));
-    setMasterSubCategory(_masterSubCategory.filter((filter) => (filter.type.toLowerCase() === value.toLowerCase())));
-  }
+    setMasterCategory(_masterCategory.filter((filter) => filter.type.toLowerCase() === value.toLowerCase()));
+    setMasterSubCategory(_masterSubCategory.filter((filter) => filter.type.toLowerCase() === value.toLowerCase()));
+  };
 
   useEffect(() => {
     getPostCategory();
@@ -193,7 +192,7 @@ const AdminManagePosts = (props) => {
   }, [flag]);
 
   const editPostData = (e, post) => {
-    setPost_image(post.post_image)
+    setPost_image(post.post_image);
     setEditPost({});
     document.getElementById("frmPostadd").reset();
     setShowp((showp) => !showp);
@@ -227,7 +226,7 @@ const AdminManagePosts = (props) => {
       data.posttitle = data.posttitle !== "" ? data.posttitle : editPost.posttitle;
       data.postcategory = data.postcategory !== "" ? data.postcategory : editPost.postcategory;
       data.postsubcategory = data.postsubcategory !== "" ? data.postsubcategory : editPost.postsubcategory;
-      data.posttypevalue = data.posttypevalue !== "" ? data.posttypevalue : editPost.posttypevalue
+      data.posttypevalue = data.posttypevalue !== "" ? data.posttypevalue : editPost.posttypevalue;
       data.postcontent = data.postcontent !== "" ? content : editPost.postcontent;
       data.post_image = post_image;
       data.slug = data.posttitle.replace(/\s/g, "-").toLowerCase();
@@ -264,11 +263,9 @@ const AdminManagePosts = (props) => {
           setPostTypeValue("");
           getPostDetails();
           setFlag(true);
-        }
-        else if (data?.status === 499) {
+        } else if (data?.status === 499) {
           history.push("/shop-login");
-        }
-        else {
+        } else {
           setSuccessMsg(data.message);
         }
       })
@@ -373,23 +370,20 @@ const AdminManagePosts = (props) => {
                       tabIndex={2} // tabIndex of textarea
                       rows="8"
                       onBlur={(newContent) => setContent(newContent)} // preferred to use only this option to update the content for performance reasons
-                      onChange={(newContent) => { }}
+                      onChange={(newContent) => {}}
                     />
                   </div>{" "}
                 </div>
                 {/* {errors.p_description && "Product Description is required"} */}
               </div>
-              {
-                postTypeValue === "Course" &&
-
+              {postTypeValue === "Course" && (
                 <div className="comment-form-author">
                   <label>
                     Course Link <span className="required">*</span>
                   </label>
                   <input type="url" defaultValue={courselink} required={postTypeValue === "Course"} aria-required="true" size="30" name="courselink" {...register("courselink")} id="courselink" />
-
                 </div>
-              }
+              )}
               <div className="form-submit">
                 {Object.keys(editPost).length === 0 && (
                   <button type="submit" className="btn btnhover">
@@ -422,6 +416,7 @@ const AdminManagePosts = (props) => {
               <tr>
                 <th>Image</th>
                 <th>Post Title</th>
+                <th>Type</th>
                 <th>Category</th>
                 <th>Create Date</th>
 
@@ -432,32 +427,34 @@ const AdminManagePosts = (props) => {
             <tbody>
               {posts.length > 0
                 ? posts.map((post, key) => (
-                  <tr>
-                    <td className="product-item-img">
-                      <img className="smallimage" src={post.post_image} height="15" alt="" />
-                    </td>
-                    <td className="product-item-name font-weight-normal">{post.posttitle}</td>
-                    <td className="product-item-name font-weight-normal">{post.postcategory}</td>
-                    <td className="product-item-price font-weight-normal">{Moment(post.createddate).format("DD-MMM-YYYY hh:mm A")}</td>
+                    <tr>
+                      <td className="product-item-img">
+                        <img className="smallimage" src={post.post_image} height="15" alt="" />
+                      </td>
+                      <td className="product-item-name font-weight-normal">{post.posttitle}</td>
+                      <td className="product-item-name font-weight-normal">{post.posttypevalue}</td>
+                      <td className="product-item-name font-weight-normal">{post.postcategory}</td>
 
-                    <td>
-                      <Link className="btn py-1" onClick={(e) => (editPostData(e, post))}>
-                        Edit
-                      </Link>{" "}
-                      <Link className={post.published === 0 ? "btn bg-success py-1" : "btn  py-1"} onClick={(e) => activateDeactivatePost("publish", post.post_id, post.published === 1 ? 0 : 1)}>
-                        {post.published === 0 ? "Publish" : "UnPublish"}
-                      </Link>{" "}
-                      <Link className={post.isactive === 0 ? "btn py-1 bg-success" : "btn bg-danger py-1"} onClick={(e) => activateDeactivatePost("activate", post.post_id, post.isactive === 1 ? 0 : 1)}>
-                        {post.isactive === 1 ? "Deactivate" : "Activate"}
-                      </Link>
-                    </td>
-                    <td>
-                      <Link className="btn bg-danger py-1" onClick={(e) => deletePost(post.post_id)}>
-                        X
-                      </Link>
-                    </td>
-                  </tr>
-                ))
+                      <td className="product-item-price font-weight-normal">{Moment(post.createddate).format("DD-MMM-YYYY hh:mm A")}</td>
+
+                      <td>
+                        <Link className="btn py-1" onClick={(e) => editPostData(e, post)}>
+                          Edit
+                        </Link>{" "}
+                        <Link className={post.published === 0 ? "btn bg-success py-1" : "btn  py-1"} onClick={(e) => activateDeactivatePost("publish", post.post_id, post.published === 1 ? 0 : 1)}>
+                          {post.published === 0 ? "Publish" : "UnPublish"}
+                        </Link>{" "}
+                        <Link className={post.isactive === 0 ? "btn py-1 bg-success" : "btn bg-danger py-1"} onClick={(e) => activateDeactivatePost("activate", post.post_id, post.isactive === 1 ? 0 : 1)}>
+                          {post.isactive === 1 ? "Deactivate" : "Activate"}
+                        </Link>
+                      </td>
+                      <td>
+                        <Link className="btn bg-danger py-1" onClick={(e) => deletePost(post.post_id)}>
+                          X
+                        </Link>
+                      </td>
+                    </tr>
+                  ))
                 : "No Post added"}
             </tbody>
           </table>
@@ -467,4 +464,4 @@ const AdminManagePosts = (props) => {
   );
 };
 
-export default AdminManagePosts
+export default AdminManagePosts;

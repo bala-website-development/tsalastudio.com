@@ -23,7 +23,6 @@ const AdminManagePosts = (props) => {
     }, 1000);
   };
   const getGalleryDetails = async () => {
-    
     await fetch(config.service_url + "getgallery")
       .then((response) => response.json())
       .then((data) => {
@@ -33,7 +32,6 @@ const AdminManagePosts = (props) => {
             return data;
           });
         setGallery(active);
-        
       })
       .catch((err) => {
         setNetworkError("Something went wrong, Please try again later!!");
@@ -133,7 +131,6 @@ const AdminManagePosts = (props) => {
       data.isactive = 1;
       data.displaydate = Moment().format("LL");
       data.imageurl = gallery_image;
-      
     }
     console.log("add gallery", data);
     fetch(config.service_url + methodname, { method: "POST", headers: { "Content-Type": "application/json", authorization: localStorage.getItem("accessToken") }, body: JSON.stringify({ data }) })
@@ -155,7 +152,7 @@ const AdminManagePosts = (props) => {
         setSuccessMsg("Something went wrong, Please try again later!!");
       });
   };
-  
+
   return (
     <div>
       <Modal size="sm" show={smShow} onHide={() => setSmShow(false)}>
@@ -236,7 +233,16 @@ const AdminManagePosts = (props) => {
                         <img className="smallimage" src={post.imageurl} height="15" alt="" />
                       </td>
                       <td className="product-item-name font-weight-normal">{post.title}</td>
-                      <td className="product-item-name font-weight-light text-small">{post.imageurl}</td>
+                      <td className="product-item-name font-weight-light text-small">
+                        <Link
+                          onClick={() => {
+                            navigator.clipboard.writeText(post.imageurl);
+                          }}
+                          className="btn btnhove p-2"
+                        >
+                          Copy URL
+                        </Link>
+                      </td>
                       <td className="product-item-price font-weight-normal text-no-wrap">{Moment(post.createddate).format("DD-MMM-YYYY")}</td>
 
                       <td>
@@ -255,4 +261,4 @@ const AdminManagePosts = (props) => {
   );
 };
 
-export default AdminManagePosts
+export default AdminManagePosts;

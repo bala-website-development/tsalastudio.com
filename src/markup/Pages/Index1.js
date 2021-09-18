@@ -67,7 +67,7 @@ const Index1 = () => {
       <div className="page-content bg-white">
         <div className="content-block">
           <Slider />
-          <div className="section-full content-inner-3" style={{ backgroundImage: "url(" + img1 + ")", backgroundSize: "100%" }}>
+          <div className="section-full mb-5" style={{ backgroundImage: "url(" + img1 + ")", backgroundSize: "100%" }}>
             <div className="container">
               <div className="row service-area1">
                 {latestCat &&
@@ -87,7 +87,7 @@ const Index1 = () => {
                   ))}
               </div>
               <div className="row">
-                <div className="col-lg-12">
+                <div className="col-lg-8">
                   <div className="section-head mb-0 text-center">
                     <div className="my-4">
                       <img className="rounded" width="200px" src={config.logo} alt="" />
@@ -100,6 +100,8 @@ const Index1 = () => {
                     </div>
                   </div>
                 </div>
+
+                <SideBar fromhome={true}></SideBar>
               </div>
             </div>
           </div>
@@ -121,7 +123,7 @@ const Index1 = () => {
                   <div className="row p-l30">
                     <div className="col-lg-6 col-sm-6 m-b30">
                       <div className="icon-bx-wraper text-white service-box2">
-                        <div className="icon-bx">
+                        <div className="icon-bx icon-bx-lg">
                           <Link to={""} className="icon-cell">
                             <img src={icon2} alt="" />
                           </Link>
@@ -163,7 +165,7 @@ const Index1 = () => {
               </div>
             </div>
           </div>
-          <div className="section-full content-inner bg-gray" style={{ backgroundImage: "url(" + img2 + ")", backgroundSize: "100%" }}>
+          <div className="section-full my-5 bg-gray" style={{ backgroundImage: "url(" + img2 + ")", backgroundSize: "100%" }}>
             <div className="container">
               <div className="row faq-area1">
                 <div className="col-lg-6 m-b20">
@@ -174,24 +176,31 @@ const Index1 = () => {
                       <div className="dlab-separator style1 bg-primary"></div>
                     </div>
                     <div className="clearfix">
-                      <div className="text">
-                        <ul className="list-check mb-0 primary">
-                          <li>Quilting</li>
-                          <li>Stitching &amp; Tailoring</li>
-                          <li>Bag Making</li>
-                          <li>Kids Sewing Workshop</li>
-                          <li>Knitting</li>
-                          <li>Crochet</li>
-                          <li>Tatting</li>
-                          <li>Hand Embroidery</li>
-                          <li>Weaving</li>
-                          <li>Natural Dying</li>
-                          <li>Paper Crafts</li>
-                          <li>Quilling</li>
-                          <li>Macrame</li>
-                          <li>Decoupage and many more...</li>
-                        </ul>{" "}
+                      <div className="row">
+                        <div className="col">
+                          <ul className="list-check mb-0 primary">
+                            <li>Quilting</li>
+                            <li>Stitching &amp; Tailoring</li>
+                            <li>Bag Making</li>
+                            <li>Kids Sewing Workshop</li>
+                            <li>Knitting</li>
+                            <li>Crochet</li>
+                            <li>Tatting</li>
+                          </ul>{" "}
+                        </div>
+                        <div className="col">
+                          <ul className="list-check mb-0 primary">
+                            <li>Hand Embroidery</li>
+                            <li>Weaving</li>
+                            <li>Natural Dying</li>
+                            <li>Paper Crafts</li>
+                            <li>Quilling</li>
+                            <li>Macrame</li>
+                            <li>Decoupage and many more...</li>
+                          </ul>{" "}
+                        </div>
                       </div>
+
                       <Link to={"/our-services"} className="btn btn-md btnhover shadow m-t30">
                         <i className="fa fa-angle-right m-r10"></i>Get Started
                       </Link>
@@ -250,12 +259,13 @@ const Index1 = () => {
               </div>
             </div>
           </div>
+
           <div className="section-full bg-white" style={{ backgroundImage: "url(" + img3 + ")", backgroundSize: "100%" }}>
-            <div className="container content-inner">
+            <div className="container ">
               <div className="row">
                 <div className="col-lg-12">
                   <div className="section-head text-center">
-                    <div className="icon-bx icon-bx-xl">
+                    <div className="icon-bx icon-bx-lg">
                       <img src={cake1} alt="" />
                     </div>
                     <h3>We Are Professional at Our Skills</h3>
@@ -318,7 +328,7 @@ const Index1 = () => {
                     <div className="section-head text-center text-white">
                       <h4 className="text-white">Limited Time Offer</h4>
                       <p>Join our course</p>
-                      <div className="icon-bx">
+                      <div className="icon-bx icon-bx-xxl">
                         <img src={icon2} alt="" />
                       </div>
                     </div>
@@ -330,24 +340,17 @@ const Index1 = () => {
                 </div>
               </div>
             </div>
-            <div className="container">
-              <div className="row client-area1 p-t10">{/* <OurPartners /> */}</div>
-            </div>
-            <div className="container content-inner ">
+            <div className="container my-4">
+              {/* <OurPartners /> */}
               <div className="row">
-                <div className="col-lg-6">
+                <div className="col-lg-12">
                   <div className="section-head text-center">
-                    <div className="icon-bx icon-bx-xl">
+                    <div className="icon-bx icon-bx-lg">
                       <img src={cake1} alt="" />
                     </div>
-                    <h3>From The Blog</h3>
-                    <p>Latest news and updates</p>
-                    <Link to="blog-half-img-sidebar" className="btn btnhover">
-                      Latest Blog
-                    </Link>
+                    <h3>Thanks for reaching us.</h3>
                   </div>
                 </div>
-                <SideBar></SideBar>
               </div>
             </div>
           </div>
