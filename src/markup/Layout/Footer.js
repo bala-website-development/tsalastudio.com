@@ -111,7 +111,7 @@ class Footer extends Component {
                 <span>
                   Developed/Maintained by{" "}
                   <a href="https://www.theuniquecreations.com" className="font-weight-bold" target="blank">
-                    https://www.theuniquecreations.com
+                    www.theuniquecreations.com
                   </a>{" "}
                   Copyright © 2021 Unique Creations. All rights are reserved.
                 </span>{" "}
