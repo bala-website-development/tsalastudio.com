@@ -118,6 +118,9 @@
 select.form-control:not([size]):not([multiple]) {
   height: calc(2.25rem + 5px)!important;
 }
+.dangerous p{
+  margin: 0 0 5px 0!important;
+}
 
 .smallimage {
   height: 50px;
