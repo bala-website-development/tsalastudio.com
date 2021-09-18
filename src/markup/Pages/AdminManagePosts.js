@@ -25,6 +25,7 @@ const AdminManagePosts = (props) => {
   const [postTypeValue, setPostTypeValue] = useState("");
   const [allMasterCategory, setAllMasterCategory] = useState([]);
   const [allSubMasterCategory, setAllSubMasterCategory] = useState([]);
+  const [flag, setFlag] = useState(false);
   const config_ = {
     readonly: false, // all options from https://xdsoft.net/jodit/doc/
   };
@@ -189,9 +190,10 @@ const AdminManagePosts = (props) => {
 
     // console.log("mobile view", isMobile);
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [flag]);
 
   const editPostData = (e, post) => {
+    setPost_image(post.post_image)
     setEditPost({});
     document.getElementById("frmPostadd").reset();
     setShowp((showp) => !showp);
@@ -199,7 +201,9 @@ const AdminManagePosts = (props) => {
     setContent(post.postcontent);
     setp_categorydrp(post.postcategory);
     setp_subcategorydrp(post.postsubcategory);
-    setPostTypeValue(post.posttypevalue)
+    setPostTypeValue(post.posttypevalue);
+    setFlag(false);
+    console.log("editpost", post);
   };
   const {
     register,
@@ -249,6 +253,7 @@ const AdminManagePosts = (props) => {
         console.log("regitered user", data);
         if (data.status === 200) {
           e.target.reset();
+          reset({ posttitle: "" });
           setEditPost({});
           setSuccessMsg(data.message);
           setSmShow(false);
@@ -258,6 +263,7 @@ const AdminManagePosts = (props) => {
           setPost_image("");
           setPostTypeValue("");
           getPostDetails();
+          setFlag(true);
         }
         else if (data?.status === 499) {
           history.push("/shop-login");
@@ -303,7 +309,7 @@ const AdminManagePosts = (props) => {
                 <label>
                   Post Title <span className="required">*</span>
                 </label>
-                <input type="text" defaultValue={posttitle} required aria-required="true" size="30" name="posttitle" {...register("posttitle")} id="posttitle" />
+                <input type="textarea" className="form-control" defaultValue={posttitle} required name="posttitle" {...register("posttitle")} id="posttitle" />
                 {/* {errors.p_name && "Product name is required"} */}
               </div>
               <div className="comment-form-author">
@@ -399,13 +405,14 @@ const AdminManagePosts = (props) => {
             </form>
           </div>
         </div>
-        <div id="product" className={showp ? "table check-tbl" : "d-none"}>
+        <div id="post" className={showp ? "table check-tbl" : "d-none"}>
           <button
             className="btn my-2"
             onClick={(e) => {
               setEditPost({});
               setShowp((showp) => !showp);
               setPost_image("");
+              setFlag(false);
             }}
           >
             Add Post
@@ -434,7 +441,7 @@ const AdminManagePosts = (props) => {
                     <td className="product-item-price font-weight-normal">{Moment(post.createddate).format("DD-MMM-YYYY hh:mm A")}</td>
 
                     <td>
-                      <Link className="btn py-1" onClick={(e) => (setPost_image(post.post_image), editPostData(e, post))}>
+                      <Link className="btn py-1" onClick={(e) => (editPostData(e, post))}>
                         Edit
                       </Link>{" "}
                       <Link className={post.published === 0 ? "btn bg-success py-1" : "btn  py-1"} onClick={(e) => activateDeactivatePost("publish", post.post_id, post.published === 1 ? 0 : 1)}>

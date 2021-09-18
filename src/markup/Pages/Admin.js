@@ -45,7 +45,7 @@ const Admin = (props) => {
   //const [dataUri, setDataUri] = useState("");
   const [showCamera, setShowCamera] = useState(false);
   const [ownerNotes, setownerNotes] = useState("");
-
+  const [flag, setFlag] = useState(false);
   const handleVisible = () => {
     setSmShow(true);
     setTimeout(() => {
@@ -356,7 +356,7 @@ const Admin = (props) => {
     getAdminOrderHistory();
     // console.log("mobile view", isMobile);
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [flag]);
   // const uploadimage = () => {
   //   service to upload setProduct_image
   // };
@@ -366,7 +366,7 @@ const Admin = (props) => {
     handleSubmit,
     formState: { errors },
     reset,
-  } = useForm({ defaultValues: {}, mode: "blur" });
+  } = useForm({ defaultValues: {} });
   const onSubmit = (data, e) => {
     let methodname = "products";
     setSuccessMsg("Please wait");
@@ -379,6 +379,7 @@ const Admin = (props) => {
       // data.createddate = new Date();
       // data.createduserid = localStorage.getItem("uuid");
       // data.createdby = localStorage.getItem("name");
+      console.log("update before", data);
       data.isactive = "1";
       data.p_updateddate = new Date();
       methodname = "updateproduct";
@@ -409,6 +410,7 @@ const Admin = (props) => {
         console.log("regitered user", data);
         if (data.status === 200) {
           e.target.reset();
+          reset({ p_name: "" });
           setEditProduct({});
           setSuccessMsg(data.message);
           setSmShow(false);
@@ -418,7 +420,7 @@ const Admin = (props) => {
           setp_categorydrp("");
           setp_subcategorydrp("");
           setProduct_image("");
-          getProductDetails();
+          setFlag(true);
         }
         else if (data?.status === 499) {
           history.push("/shop-login");
@@ -433,6 +435,7 @@ const Admin = (props) => {
   };
 
   const editData = (e, product) => {
+    setFlag(false);
     setEditProduct({});
     document.getElementById("frmProductadd").reset();
     setShow((show) => !show);
@@ -756,7 +759,7 @@ const Admin = (props) => {
                                     <label>
                                       Name <span className="required">*</span>
                                     </label>
-                                    <input type="text" defaultValue={p_name} required aria-required="true" size="30" name="p_name" {...register("p_name")} id="p_name" />
+                                    <input type="text" required aria-required="true" defaultValue={p_name} size="30" name="p_name" {...register("p_name")} id="p_name" />
                                     {/* {errors.p_name && "Product name is required"} */}
                                   </div>
                                   <div className="comment-form-author">
@@ -864,6 +867,7 @@ const Admin = (props) => {
                                   setEditProduct({});
                                   setShow((show) => !show);
                                   setProduct_image("");
+                                  setFlag(false);
                                 }}
                               >
                                 Add Product
