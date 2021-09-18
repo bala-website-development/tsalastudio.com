@@ -54,6 +54,7 @@ const Index1 = () => {
       await fetch(config.service_url + "getHomePageCategory")
         .then((response) => response.json())
         .then((data) => setLatestCat(data));
+      console.log("latestCat", latestCat);
     };
     fetchCategories();
   }, []);
@@ -89,13 +90,19 @@ const Index1 = () => {
                     <div className="icon-bx icon-bx-xl">
                       <img src={cake1} alt="" />
                     </div>
-                    <h3 className="text-primary">It’s a party and you’re invited</h3>
-                    <p className="main-text">
-                      Join DexignZone <strong>Bakery</strong>™ to earn Gold level benefits like free Cakes and food, get free refills, pay and order with your phone, and more.
-                    </p>
-                    <p>
-                      Exclusive deals on Cakes, delivered straight to your inbox <Link to={""}>Join Now</Link>
-                    </p>
+                    <h3 className="text-primary">{config.aboutustitle}</h3>
+                    <p className="main-text">{config.aboutus1} </p>
+                    <p>{config.aboutus2}</p>
+                    <div className=" d-flex ">
+                      <div class="input-group mb-3 justify-content-center w-100">
+                        <input type="text" className="px-3 " placeholder="Enter your email" />
+                        <div class="input-group-append">
+                          <button class="btn btnhover" type="button">
+                            Join us
+                          </button>
+                        </div>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>

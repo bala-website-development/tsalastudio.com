@@ -5,9 +5,7 @@ import Footer from "./../Layout/Footer";
 import config from "../../config.json";
 import SideBar from "./../Element/SideBar";
 import bgimg2 from "./../../images/blog/grid/pic1.jpg";
-import img from "./../../images/blog/grid/pic1.jpg";
-
-
+import img from "./../../images/banner/bnr1.jpg";
 
 const Halfimgsidebar = () => {
   const [posts, setPosts] = useState([]);
@@ -19,7 +17,7 @@ const Halfimgsidebar = () => {
       .then((response) => response.json())
       .then((data) => {
         let active = data
-          .filter((filter) => (filter.isactive === 1 && filter.published === 1 && filter.posttypevalue === "Blog"))
+          .filter((filter) => filter.isactive === 1 && filter.published === 1 && filter.posttypevalue === "Blog")
           .map((data) => {
             return data;
           });
@@ -34,7 +32,6 @@ const Halfimgsidebar = () => {
   };
 
   useEffect(() => {
-
     getPostDetails();
 
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -142,7 +139,6 @@ const Halfimgsidebar = () => {
       </div>
     </div>
   );
-}
+};
 
-export default Halfimgsidebar
-
+export default Halfimgsidebar;

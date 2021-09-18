@@ -1,9 +1,9 @@
 {
   "domain": "tsalastudio.com",
   "storage": "tsalastudio.com",
-  "service_url_qa": "https://asia-south1-tuc-shopping-dev.cloudfunctions.net/tuc_shop_node_api/api/",
-  "service_url": "https://asia-south1-tucfbclouddb.cloudfunctions.net/tuc_shop_node_api/api/",
-  "service_url_": "http://localhost:8000/api/",
+  "service_url__": "https://asia-south1-tuc-shopping-dev.cloudfunctions.net/tuc_shop_node_api/api/",
+  "service_url_": "https://asia-south1-tucfbclouddb.cloudfunctions.net/tuc_shop_node_api/api/",
+  "service_url": "http://localhost:8000/api/",
   "logo": "https://firebasestorage.googleapis.com/v0/b/tucfbclouddb.appspot.com/o/tsalastudio.com%2Flogo%2Flogo.jpeg?alt=media&token=2a0ea36d-d6b0-4ad3-8701-a4daa8dda261",
   "slider": [
     {
@@ -18,5 +18,8 @@
       "description": "Quilting | Craft Classes | Hobby Studio | Studio Rent Out | Longarm Services",
       "image_url": "https://firebasestorage.googleapis.com/v0/b/tucfbclouddb.appspot.com/o/tsalastudio.com%2Fslider%2Fslide2.jpg?alt=media&token=3ecce1a6-e10a-4649-bac9-cc81d3a7e882"
     }
-  ]
+  ],
+  "aboutustitle": "About TSALA Studio",
+  "aboutus1": "Quilting | Craft Classes | Hobby Studio | Studio Rent Out | Longarm Services",
+  "aboutus2": "Join us to learn the craft of Quilting, Stitching, Tailoring, Bag Making, Knitting, Crocheting, Hand Embroidery, Tatting and many other craft classes in Bengaluru."
 }

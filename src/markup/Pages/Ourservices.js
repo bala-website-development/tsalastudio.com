@@ -8,7 +8,7 @@ import PriceTable from "./../Element/PriceTable";
 import Header from "./../Layout/Header";
 import Footer from "./../Layout/Footer";
 
-import img1 from "./../../images/banner/bnr1.jpg";
+import img1 from "./../../images/banner/bnr4.jpg";
 import img2 from "./../../images/background/bg5.jpg";
 import img3 from "./../../images/background/bg4.jpg";
 import img4 from "./../../images/background/bg1.jpg";
@@ -35,7 +35,7 @@ const Ourservices = () => {
       .then((response) => response.json())
       .then((data) => {
         let active = data
-          .filter((filter) => (filter.isactive === 1 && filter.published === 1 && filter.posttypevalue === "Course"))
+          .filter((filter) => filter.isactive === 1 && filter.published === 1 && filter.posttypevalue === "Course")
           .map((data) => {
             return data;
           });
@@ -51,7 +51,7 @@ const Ourservices = () => {
 
   useEffect(() => {
     getPostDetails();
-  }, [])
+  }, []);
 
   return (
     <div>
@@ -60,7 +60,7 @@ const Ourservices = () => {
         <div class="dlab-bnr-inr overlay-black-middle" style={{ backgroundImage: "url(" + img1 + ")", backgroundSize: "cover" }}>
           <div class="container">
             <div class="dlab-bnr-inr-entry">
-              <h1 class="text-white">Our Services</h1>
+              <h1 class="text-white">Our Courses</h1>
 
               <div class="breadcrumb-row">
                 <ul class="list-inline">
@@ -69,7 +69,7 @@ const Ourservices = () => {
                       <i class="fa fa-home"></i>
                     </Link>
                   </li>
-                  <li>Our Services</li>
+                  <li>Our Courses</li>
                 </ul>
               </div>
             </div>
@@ -200,8 +200,8 @@ const Ourservices = () => {
             </div>
           </div>
           <div class="container1 mb-5">
-            {
-              courses && courses.map((course) => (
+            {courses &&
+              courses.map((course) => (
                 <div class="card ">
                   <div class="card-header1">
                     <img src={course.post_image} alt="rover" />
@@ -219,10 +219,7 @@ const Ourservices = () => {
                     </div>
                   </div>
                 </div>
-
-              ))
-            }
-
+              ))}
           </div>
           <div className="section-full content-inner service-area2 bg-img-fix bg-line-top bg-line-bottom" style={{ backgroundImage: "url(" + img3 + ")", backgroundSize: "cover" }}>
             <div className="container">
@@ -348,6 +345,6 @@ const Ourservices = () => {
       </div>
     </div>
   );
-}
+};
 
 export default Ourservices;

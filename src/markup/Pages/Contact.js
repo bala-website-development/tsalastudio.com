@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 //import GoogleMaps from "simple-react-google-maps";
 import Header from "./../Layout/Header";
 import Footer from "./../Layout/Footer";
-import bgimg1 from "./../../images/banner/bnr1.jpg";
+import bgimg1 from "./../../images/banner/bnr3.jpg";
 import bgimg2 from "./../../images/background/bg5.jpg";
 
 class Contact extends Component {
