@@ -67,7 +67,7 @@ const Index1 = () => {
       <div className="page-content bg-white">
         <div className="content-block">
           <Slider />
-          <div className="section-full content-inner-3" style={{ backgroundImage: "url(" + img1 + ")", backgroundSize: "100%" }}>
+          <div className="section-full mb-5" style={{ backgroundImage: "url(" + img1 + ")", backgroundSize: "100%" }}>
             <div className="container">
               <div className="row service-area1">
                 {latestCat &&
@@ -123,7 +123,7 @@ const Index1 = () => {
                   <div className="row p-l30">
                     <div className="col-lg-6 col-sm-6 m-b30">
                       <div className="icon-bx-wraper text-white service-box2">
-                        <div className="icon-bx">
+                        <div className="icon-bx icon-bx-lg">
                           <Link to={""} className="icon-cell">
                             <img src={icon2} alt="" />
                           </Link>
@@ -165,7 +165,7 @@ const Index1 = () => {
               </div>
             </div>
           </div>
-          <div className="section-full content-inner bg-gray" style={{ backgroundImage: "url(" + img2 + ")", backgroundSize: "100%" }}>
+          <div className="section-full my-5 bg-gray" style={{ backgroundImage: "url(" + img2 + ")", backgroundSize: "100%" }}>
             <div className="container">
               <div className="row faq-area1">
                 <div className="col-lg-6 m-b20">
@@ -260,28 +260,8 @@ const Index1 = () => {
             </div>
           </div>
 
-          <div className="section-full content-inner service-area2 bg-img-fix bg-line-top " style={{ backgroundImage: "url(" + +")", backgroundSize: "cover" }}>
-            <div className="">
-              <div className="row">
-                <div className="col-lg-6">
-                  <div className="text-center">
-                    <div className="icon-bx icon-bx-lg">
-                      <img src={cake1} alt="" />
-                    </div>
-                    <h3>From The Blog</h3>
-                    <p>Latest news and updates</p>
-                    <Link to="blog-half-img-sidebar" className="btn btnhover">
-                      Latest Blog
-                    </Link>
-                  </div>
-                </div>
-                <SideBar></SideBar>
-              </div>
-            </div>
-          </div>
-
           <div className="section-full bg-white" style={{ backgroundImage: "url(" + img3 + ")", backgroundSize: "100%" }}>
-            <div className="container content-inner">
+            <div className="container ">
               <div className="row">
                 <div className="col-lg-12">
                   <div className="section-head text-center">
@@ -348,7 +328,7 @@ const Index1 = () => {
                     <div className="section-head text-center text-white">
                       <h4 className="text-white">Limited Time Offer</h4>
                       <p>Join our course</p>
-                      <div className="icon-bx icon-bx-lg">
+                      <div className="icon-bx icon-bx-xxl">
                         <img src={icon2} alt="" />
                       </div>
                     </div>
@@ -360,7 +340,7 @@ const Index1 = () => {
                 </div>
               </div>
             </div>
-            <div className="container content-inner">
+            <div className="container my-4">
               {/* <OurPartners /> */}
               <div className="row">
                 <div className="col-lg-12">
