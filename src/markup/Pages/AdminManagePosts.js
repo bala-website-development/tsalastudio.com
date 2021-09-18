@@ -23,6 +23,8 @@ const AdminManagePosts = (props) => {
   const editor = useRef(null);
   const [content, setContent] = useState("");
   const [postTypeValue, setPostTypeValue] = useState("");
+  const [allMasterCategory, setAllMasterCategory] = useState([]);
+  const [allSubMasterCategory, setAllSubMasterCategory] = useState([]);
   const config_ = {
     readonly: false, // all options from https://xdsoft.net/jodit/doc/
   };
@@ -114,12 +116,14 @@ const AdminManagePosts = (props) => {
       });
   };
   const getPostCategory = async () => {
-    await fetch(config.service_url + "getpostcategory")
+    await fetch(config.service_url + "getcategory")
       .then((response) => response.json())
       .then((data) => {
         if (data.status === 200) {
           console.log("master category", data);
-          setMasterCategory(data.data);
+          let _filterData = data.data.filter((_d) => _d.type === "blog" || _d.type === "course");
+          setAllMasterCategory(_filterData);
+          setMasterCategory(_filterData);
         } else if (data.status === 400) {
           setSuccessMsg("No Data");
           handleVisible();
@@ -136,7 +140,9 @@ const AdminManagePosts = (props) => {
       .then((data) => {
         if (data.status === 200) {
           console.log("master sub category", data);
-          setMasterSubCategory(data.data);
+          let _filterData = data.data.filter((_d) => _d.type === "blog" || _d.type === "course")
+          setAllSubMasterCategory(_filterData)
+          setMasterSubCategory(_filterData);
         } else if (data.status === 400) {
           setSuccessMsg("No Data");
           handleVisible();
@@ -168,9 +174,17 @@ const AdminManagePosts = (props) => {
     }
   };
 
+  const onChange_PostType = (value) => {
+    const _masterCategory = allMasterCategory;
+    const _masterSubCategory = allSubMasterCategory;
+    setPostTypeValue(value);
+    setMasterCategory(_masterCategory.filter((filter) => (filter.type.toLowerCase() === value.toLowerCase())));
+    setMasterSubCategory(_masterSubCategory.filter((filter) => (filter.type.toLowerCase() === value.toLowerCase())));
+  }
+
   useEffect(() => {
     getPostCategory();
-    //getSubCategories();
+    getSubCategories();
     getPostDetails();
 
     // console.log("mobile view", isMobile);
@@ -278,7 +292,7 @@ const AdminManagePosts = (props) => {
                 <label>
                   Post Type <span className="required">*</span>
                 </label>
-                <select value={postTypeValue} className="form-control" id="posttypevalue" {...register("posttypevalue")} name="posttypevalue" required onChange={(e) => setPostTypeValue(e.target.value)}>
+                <select value={postTypeValue} className="form-control" id="posttypevalue" {...register("posttypevalue")} name="posttypevalue" required onChange={(e) => onChange_PostType(e.target.value)}>
                   <option value={""}>{""}</option>
                   {postType.map((type) => (
                     <option value={type.value}>{type.label}</option>
@@ -315,8 +329,8 @@ const AdminManagePosts = (props) => {
                     </label>
                     <select value={p_subcategorydrp} className="postsubcategory" id="postsubcategory" {...register("postsubcategory")} className="form-control" onChange={(e) => setp_subcategorydrp(e.target.value)}>
                       <option value={""}>{""}</option>
-                      {masterCategory.map((cat) => (
-                        <option value={cat.category}>{cat.category}</option>
+                      {masterSubCategory.map((cat) => (
+                        <option value={cat.subcategory}>{cat.subcategory}</option>
                       ))}
                     </select>
                     {/* <input type="text" defaultValue={p_subcategory} required aria-required="true" size="30" name="p_subcategory" {...register("p_subcategory")} id="p_subcategory" /> */}

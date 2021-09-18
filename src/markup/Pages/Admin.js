@@ -318,7 +318,8 @@ const Admin = (props) => {
       .then((data) => {
         if (data.status === 200) {
           console.log("master category", data);
-          setMasterCategory(data.data);
+          let _filterData = data.data.filter((_d) => _d.type === "product")
+          setMasterCategory(_filterData);
         } else if (data.status === 400) {
           setSuccessMsg("No Data");
           handleVisible();
@@ -334,8 +335,9 @@ const Admin = (props) => {
       .then((response) => response.json())
       .then((data) => {
         if (data.status === 200) {
+          let _filterData = data.data.filter((_d) => _d.type === "product")
           console.log("master sub category", data);
-          setMasterSubCategory(data.data);
+          setMasterSubCategory(_filterData);
         } else if (data.status === 400) {
           setSuccessMsg("No Data");
           handleVisible();
