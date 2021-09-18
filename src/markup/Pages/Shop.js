@@ -399,7 +399,17 @@ const Shop = (props) => {
                             <div className="item-box shop-item">
                               <div className="item-img">
                                 <img className="thumbnailimage" src={product.p_image} alt="" />
-                                <div className="price bg-white">Rs.{product.p_price || 0}</div>
+                                {
+                                  (product.p_actual_price !== product.p_price)
+                                    ?
+                                    (<div className="price bg-white">
+                                      <span style={{ "text-decoration": "line-through" }}> <i class="fa fa-inr"></i> {product.p_actual_price || 0} </span>
+                                      <span>{" "} <i class="fa fa-inr"></i> {product.p_price}</span>
+                                    </div>)
+                                    :
+                                    (<div className="price bg-white">Rs.{product.p_price}</div>)
+                                }
+
                               </div>
                               <div className="item-info text-center">
                                 <h4 className="item-title">

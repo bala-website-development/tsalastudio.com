@@ -389,6 +389,7 @@ const Admin = (props) => {
       data.p_description = data.p_description !== "" ? data.p_description : editProduct.p_description;
       data.p_price = data.p_price !== "" ? data.p_price : editProduct.p_price;
       data.p_image = product_image;
+      data.p_actual_price = data.p_actual_price !== "" ? data.p_actual_price : editProduct.p_actual_price;
     } else {
       data.p_id = uuid();
       data.createddate = new Date();
@@ -399,6 +400,7 @@ const Admin = (props) => {
       data.isactive = "1";
       data.p_updateddate = new Date();
       data.p_image = product_image;
+      data.p_price = data.p_price === "" || data.p_price <= 0 ? data.p_actual_price : data.p_price;
     }
     console.log("add products", data);
     fetch(config.service_url + methodname, { method: "POST", headers: { "Content-Type": "application/json", authorization: localStorage.getItem("accessToken") }, body: JSON.stringify({ data }) })
@@ -439,7 +441,7 @@ const Admin = (props) => {
     setp_subcategorydrp(product.p_subcategory);
   };
 
-  const { p_name, p_price, p_quantity, p_description } = Object.keys(editProduct).length > 0 ? editProduct : {};
+  const { p_name, p_actual_price, p_price, p_quantity, p_description } = Object.keys(editProduct).length > 0 ? editProduct : {};
   return (
     <div>
       <Modal size="sm" show={smShow} onHide={() => setSmShow(false)}>
@@ -808,9 +810,17 @@ const Admin = (props) => {
                                       <div className="col">
                                         {" "}
                                         <label>
-                                          Price <span className="required">*</span>
+                                          Actual Price <span className="required">*</span>
                                         </label>
-                                        <input type="text" required aria-required="true" defaultValue={p_price} size="30" name="p_price" {...register("p_price")} id="p_price" />
+                                        <input type="text" required aria-required="true" defaultValue={p_actual_price} size="30" name="p_actual_price" {...register("p_actual_price")} id="p_actual_price" />
+                                        {/* {errors.p_price && "Price is required"} */}
+                                      </div>
+                                      <div className="col">
+                                        {" "}
+                                        <label>
+                                          Price / Offer Price <span></span>
+                                        </label>
+                                        <input type="text" defaultValue={p_price} size="30" name="p_price" {...register("p_price")} id="p_price" />
                                         {/* {errors.p_price && "Price is required"} */}
                                       </div>
                                       <div className="col">
@@ -864,7 +874,8 @@ const Admin = (props) => {
                                     <th>Product</th>
                                     <th>Product name</th>
                                     <th>Category</th>
-                                    <th>Unit Price</th>
+                                    <th>Actual Price</th>
+                                    <th>Offer Price</th>
                                     <th>Quantity</th>
                                     <th>Action</th>
                                     <th>Delete</th>
@@ -879,6 +890,7 @@ const Admin = (props) => {
                                         </td>
                                         <td className="product-item-name">{product.p_name}</td>
                                         <td className="product-item-name">{product.p_category}</td>
+                                        <td className="product-item-price">{product.p_actual_price}</td>
                                         <td className="product-item-price">{product.p_price}</td>
                                         <td className="product-item-quantity">{product.p_quantity}</td>
 
