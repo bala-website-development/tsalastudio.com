@@ -208,8 +208,8 @@ const Ourservices = () => {
                   <div class="card-header1">
                     <img src={course.post_image} alt="rover" />
                   </div>
-                  <div class="card-body">
-                    <span class="tag tag-teal">Sub Category name</span>
+                  <div class="card-body dangerous">
+                    <span class="tag tag-teal">{course.postsubcategory}</span>
                     <h5>{course.posttitle}</h5>
                     <p className="mb-2">
                       <div dangerouslySetInnerHTML={{ __html: course.postcontent.substring(0, 150) }} />
