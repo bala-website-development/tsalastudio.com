@@ -3,19 +3,9 @@
   "name": "Tsala Quilting Studio",
   "icons": [
     {
-      "src": "https://firebasestorage.googleapis.com/v0/b/tucfbclouddb.appspot.com/o/tsalastudio.com%2Flogo%2Flogo.jpeg?alt=media&token=2a0ea36d-d6b0-4ad3-8701-a4daa8dda261",
-      "sizes": "64x64 32x32 24x24 16x16",
-      "type": "image/x-icon"
-    },
-    {
-      "src": "https://firebasestorage.googleapis.com/v0/b/tucfbclouddb.appspot.com/o/tsalastudio.com%2Flogo%2Flogo.jpeg?alt=media&token=2a0ea36d-d6b0-4ad3-8701-a4daa8dda261",
-      "type": "image/png",
-      "sizes": "192x192"
-    },
-    {
-      "src": "https://firebasestorage.googleapis.com/v0/b/tucfbclouddb.appspot.com/o/tsalastudio.com%2Flogo%2Flogo.jpeg?alt=media&token=2a0ea36d-d6b0-4ad3-8701-a4daa8dda261",
-      "type": "image/png",
-      "sizes": "512x512"
+      "src": "favicon.ico",
+      "sizes": "32x32",
+      "type": "image/png"
     }
   ],
   "start_url": ".",
@@ -23,4 +13,3 @@
   "theme_color": "#000000",
   "background_color": "#ffffff"
 }
-

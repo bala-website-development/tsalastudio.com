@@ -18,7 +18,6 @@ import Moment from "moment";
 import Chart from "./Chart";
 import AdminManagePosts from "./AdminManagePosts";
 import AdminManageGallery from "./AdminManageGallery";
-;
 //import Camera, { FACING_MODES } from "react-html5-camera-photo";
 //import "react-html5-camera-photo/build/css/index.css";
 // import ImagePreview from './ImagePreview';
@@ -73,7 +72,6 @@ const Admin = (props) => {
     }
   };
 
-
   const getAdminOrderHistory = async (e) => {
     await fetch(config.service_url + "getAdminOrderHistory", { method: "POST", headers: { "Content-Type": "application/json", authorization: localStorage.getItem("accessToken") }, body: JSON.stringify({ userid: localStorage.getItem("uuid") }) })
       .then((response) => response.json())
@@ -86,15 +84,12 @@ const Admin = (props) => {
         } else if (data.status === 500) {
           setSuccessMsg(data.message);
           handleVisible();
-        }
-        else if (data.status === 499) {
+        } else if (data.status === 499) {
           history.push("/shop-login");
-        }
-        else {
+        } else {
           setSuccessMsg(data.message);
           handleVisible();
           history.push("/");
-
         }
       })
       .catch((err) => {
@@ -175,11 +170,9 @@ const Admin = (props) => {
           setSuccessMsg(data.message);
           handleVisible();
           getProductDetails();
-        }
-        else if (data.status === 499) {
-          history.push("/shop-login")
-        }
-        else {
+        } else if (data.status === 499) {
+          history.push("/shop-login");
+        } else {
           setSuccessMsg(data.message);
           handleVisible();
         }
@@ -203,11 +196,9 @@ const Admin = (props) => {
           setSuccessMsg(data.message);
           handleVisible();
           getProductDetails();
-        }
-        else if (data?.status === 499) {
-          history.push("/shop-login")
-        }
-        else {
+        } else if (data?.status === 499) {
+          history.push("/shop-login");
+        } else {
           setSuccessMsg(data.message);
           handleVisible();
         }
@@ -247,11 +238,9 @@ const Admin = (props) => {
           setSuccessMsg(data.message);
           handleVisible();
           getAdminOrderHistory();
-        }
-        else if (data?.status === 499) {
-          history.push("/shop-login")
-        }
-        else {
+        } else if (data?.status === 499) {
+          history.push("/shop-login");
+        } else {
           setSuccessMsg(data.message);
           handleVisible();
         }
@@ -298,11 +287,9 @@ const Admin = (props) => {
           setSuccessMsg(data.message);
           handleVisible();
           getAdminOrderHistory();
-        }
-        else if (data?.status === 499) {
-          history.push("/shop-login")
-        }
-        else {
+        } else if (data?.status === 499) {
+          history.push("/shop-login");
+        } else {
           setSuccessMsg(data.message);
           handleVisible();
         }
@@ -318,7 +305,7 @@ const Admin = (props) => {
       .then((data) => {
         if (data.status === 200) {
           console.log("master category", data);
-          let _filterData = data.data.filter((_d) => _d.type === "product")
+          let _filterData = data.data.filter((_d) => _d.type === "product");
           setMasterCategory(_filterData);
         } else if (data.status === 400) {
           setSuccessMsg("No Data");
@@ -335,7 +322,7 @@ const Admin = (props) => {
       .then((response) => response.json())
       .then((data) => {
         if (data.status === 200) {
-          let _filterData = data.data.filter((_d) => _d.type === "product")
+          let _filterData = data.data.filter((_d) => _d.type === "product");
           console.log("master sub category", data);
           setMasterSubCategory(_filterData);
         } else if (data.status === 400) {
@@ -421,11 +408,9 @@ const Admin = (props) => {
           setp_subcategorydrp("");
           setProduct_image("");
           setFlag(true);
-        }
-        else if (data?.status === 499) {
+        } else if (data?.status === 499) {
           history.push("/shop-login");
-        }
-        else {
+        } else {
           setSuccessMsg(data.message);
         }
       })
@@ -673,7 +658,7 @@ const Admin = (props) => {
                                                 <>
                                                   <b> {user.name} </b>
                                                   <span>
-                                                    {user.address + ", " + user.city + ", " + user.state + ", " + user.pincode + "(Phone: " + user.phonenumber + ")"}, { } <br></br>
+                                                    {user.address + ", " + user.city + ", " + user.state + ", " + user.pincode + "(Phone: " + user.phonenumber + ")"}, {} <br></br>
                                                   </span>
 
                                                   <span> {user.email} </span>
@@ -828,7 +813,7 @@ const Admin = (props) => {
                                       </div>
                                       <div className="col">
                                         {" "}
-                                        <label>
+                                        <label className="text-nowrap">
                                           Avaliable Quantity <span className="required">*</span>
                                         </label>
                                         <input type="text" defaultValue={p_quantity} required aria-required="true" size="30" name="p_quantity" {...register("p_quantity")} id="p_quantity" />
@@ -888,31 +873,31 @@ const Admin = (props) => {
                                 <tbody>
                                   {products.length > 0
                                     ? products.map((product, key) => (
-                                      <tr>
-                                        <td className="product-item-img">
-                                          <img className="smallimage" src={product.p_image} height="15" alt="" />
-                                        </td>
-                                        <td className="product-item-name">{product.p_name}</td>
-                                        <td className="product-item-name">{product.p_category}</td>
-                                        <td className="product-item-price">{product.p_actual_price}</td>
-                                        <td className="product-item-price">{product.p_price}</td>
-                                        <td className="product-item-quantity">{product.p_quantity}</td>
+                                        <tr>
+                                          <td className="product-item-img">
+                                            <img className="smallimage" src={product.p_image} height="15" alt="" />
+                                          </td>
+                                          <td className="product-item-name">{product.p_name}</td>
+                                          <td className="product-item-name">{product.p_category}</td>
+                                          <td className="product-item-price">{product.p_actual_price}</td>
+                                          <td className="product-item-price">{product.p_price}</td>
+                                          <td className="product-item-quantity">{product.p_quantity}</td>
 
-                                        <td>
-                                          <Link className="btn py-1" onClick={(e) => (setProduct_image(product.p_image), editData(e, product))}>
-                                            Edit
-                                          </Link>{" "}
-                                          <Link className={product.isactive === "1" ? "btn py-1" : "btn bg-danger py-1"} onClick={(e) => activateDeactivateProduct(product.p_id, product.isactive === "1" ? "0" : "1")}>
-                                            {product.isactive === "1" ? "Deactivate" : "Activate"}
-                                          </Link>
-                                        </td>
-                                        <td>
-                                          <Link className="btn bg-danger py-1" onClick={(e) => deleteProduct(product.p_id)}>
-                                            X
-                                          </Link>
-                                        </td>
-                                      </tr>
-                                    ))
+                                          <td>
+                                            <Link className="btn py-1" onClick={(e) => (setProduct_image(product.p_image), editData(e, product))}>
+                                              Edit
+                                            </Link>{" "}
+                                            <Link className={product.isactive === "1" ? "btn py-1" : "btn bg-danger py-1"} onClick={(e) => activateDeactivateProduct(product.p_id, product.isactive === "1" ? "0" : "1")}>
+                                              {product.isactive === "1" ? "Deactivate" : "Activate"}
+                                            </Link>
+                                          </td>
+                                          <td>
+                                            <Link className="btn bg-danger py-1" onClick={(e) => deleteProduct(product.p_id)}>
+                                              X
+                                            </Link>
+                                          </td>
+                                        </tr>
+                                      ))
                                     : "No Product added"}
                                 </tbody>
                               </table>
