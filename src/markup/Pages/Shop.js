@@ -204,7 +204,8 @@ const Shop = (props) => {
       .then((data) => {
         if (data.status === 200) {
           console.log("master category", data);
-          setMasterCategory(data.data);
+          let _filter = data.data.filter((_d) => _d.type === "product")
+          setMasterCategory(_filter);
           localStorage.setItem("cartUpdated", true);
         } else if (data.status === 400) {
           setMessage("No Data");
