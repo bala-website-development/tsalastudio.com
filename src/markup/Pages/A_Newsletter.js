@@ -23,31 +23,40 @@ const A_Newsletter = (props) => {
     }, 1000);
   };
 
-  const onChange_image_gallery = async (e, imagename) => {
-    setSuccessMsg("Please wait");
-    console.log("image name", imagename);
-    setSmShow(true);
-    const file = e.target.files[0];
-    console.log("file", e.target.files[0]);
-    if (file.size < 1000000) {
-      console.log("add products", file);
-      const path = config.storage + "/gallery";
-      const storageRef = firebase.storage().ref(path);
-      const fileRef = storageRef.child(uuid());
-      await fileRef.put(file);
-      setGallery_image(await fileRef.getDownloadURL());
-      console.log("add products", gallery_image);
-      setSmShow(false);
-      setSuccessMsg("");
-    } else {
-      setSuccessMsg("Please upload file less than 1 mb");
-    }
-  };
 
   useEffect(() => {
     // getGalleryDetails();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
+
+  const addSubscriptionForNewsLetter = (data, e) => {
+    setSuccessMsg("Please wait");
+    setSmShow(true);
+    e.preventDefault();
+    let _data = {};
+    _data.email = data.subscribe_email;
+    _data.createddate = new Date();
+    console.log("newsletter", _data)
+    fetch(config.service_url + "newsletter", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ data: _data }) })
+      .then((response) => response.json())
+      .then((data) => {
+        console.log(data);
+        if (data.status === 200) {
+          e.target.reset();
+          setSuccessMsg(data.message);
+          setSmShow(false);
+          handleVisible();
+          //etGalleryDetails();
+        } else {
+          setSuccessMsg(data.message);
+          setSmShow(false);
+          handleVisible();
+        }
+      })
+      .catch((error) => {
+        setSuccessMsg("Something went wrong, Please try again later!!");
+      })
+  }
 
   const {
     register,
@@ -56,42 +65,7 @@ const A_Newsletter = (props) => {
     reset,
   } = useForm({ defaultValues: {}, mode: "blur" });
   const onSubmit = (data, e) => {
-    let methodname = "addgallery";
-
-    setSuccessMsg("Please wait");
-    setSmShow(true);
-    e.preventDefault();
-    if (localStorage.getItem("uuid") === undefined || localStorage.getItem("uuid") === null) {
-      history.push("/");
-    } else {
-      data.gallery_id = uuid();
-      data.createddate = new Date();
-      data.createduserid = localStorage.getItem("uuid");
-      data.createdby = localStorage.getItem("name");
-      data.viewingallery = 0;
-      data.isactive = 1;
-      data.displaydate = Moment().format("LL");
-      data.imageurl = gallery_image;
-    }
-    console.log("add gallery", data);
-    fetch(config.service_url + methodname, { method: "POST", headers: { "Content-Type": "application/json", authorization: localStorage.getItem("accessToken") }, body: JSON.stringify({ data }) })
-      .then((response) => response.json())
-      .then((data) => {
-        console.log("regitered user", data);
-        if (data.status === 200) {
-          e.target.reset();
-          setSuccessMsg(data.message);
-          setSmShow(false);
-          handleVisible();
-          setGallery_image("");
-          //etGalleryDetails();
-        } else {
-          setSuccessMsg(data.message);
-        }
-      })
-      .catch((err) => {
-        setSuccessMsg("Something went wrong, Please try again later!!");
-      });
+    addSubscriptionForNewsLetter(data, e);
   };
 
   return (
@@ -100,16 +74,18 @@ const A_Newsletter = (props) => {
         <Modal.Header closeButton>{successMsg}</Modal.Header>
       </Modal>
       <div id="review_form_wrapper">
-        <div className=" d-flex ">
-          <div class="input-group mb-3 justify-content-center w-100">
-            <input type="text" className="px-3 " placeholder="Enter your email" />
-            <div class="input-group-append">
-              <button class="btn btnhover" type="button">
-                Join us
-              </button>
+        <form id="newslettersubscription" onSubmit={handleSubmit(onSubmit)}>
+          <div className=" d-flex ">
+            <div class="input-group mb-3 justify-content-center w-100">
+              <input type="email" className="px-3 " placeholder="Enter your email" required name="subscribe_email" {...register("subscribe_email")} />
+              <div class="input-group-append">
+                <button class="btn btnhover" type="submit">
+                  Join us
+                </button>
+              </div>
             </div>
           </div>
-        </div>
+        </form>
       </div>
     </div>
   );
