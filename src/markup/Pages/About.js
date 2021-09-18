@@ -17,7 +17,7 @@ import member4 from "./../../images/our-team/member4.jpg";
 import cake1 from "./../../images/cake1.jpg";
 import pic5 from "./../../images/about/pic5.jpg";
 import pic6 from "./../../images/about/pic6.jpg";
-
+import config from "../../config.json";
 const teamInfo = [
   {
     image: member1,
@@ -73,11 +73,11 @@ class About extends Component {
                 <div className="row">
                   <div className="col-lg-12">
                     <div className="section-head text-center">
-                      <div className="icon-bx icon-bx-xl">
-                        <img src={cake1} alt="" />
+                      <div className="my-4">
+                        <img src={config.logo} width="250px" className="rounded" alt="tsalastudio" />
                       </div>
-                      <h3>About Our Restaurant King</h3>
-                      <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
+                      <h3>About Our tsalastudio</h3>
+                      <p>{config.aboutus_aboutpage}</p>
                     </div>
                   </div>
                 </div>
@@ -90,6 +90,35 @@ class About extends Component {
                   <div className="col-lg-6 col-md-6 m-b30">
                     <div className="about-thumb">
                       <img src={pic6} alt="" />
+                    </div>
+                  </div>
+                </div>
+                <div className="row">
+                  <div className="col-lg-12">
+                    <div className="section-head">
+                      <div className="my-4">
+                        <img src={config.logo} width="250px" className="rounded" alt="tsalastudio" />
+                      </div>
+                      <h3>Tsala Studio Offerings:</h3>
+                      <div>
+                        <blockquote>
+                          <ul className="font-weight-light">
+                            <li>
+                              Regular in-house <strong>quilting &amp; hobby classes</strong>
+                            </li>
+                            <li>Hobby Classes &amp; Workshops are held periodically by well known artisans, quilters, crochet, embroidery and knitting experts from across the country&nbsp;</li>
+                            <li>
+                              The store also sells and services Swiss-based Bernina &amp; Bernette <strong>sewing machines</strong>
+                            </li>
+                            <li>We undertake orders for quilts, bags, home decor and almost any fabric that you might want to custom make</li>
+                            <li>
+                              Studio <strong>rent out</strong> option available
+                            </li>
+                            <li>We sell various kinds of quilt fabrics, batting, thread, bobbins, needles, cutting mats, rotary cutters, scissors, rulers, basting pins, tapes, buttons. We also sell supplies such as zippers, bag feet, D rings, magnetic buttons, bag handles (leather and faux leather), bag straps and much more..</li>
+                          </ul>
+                        </blockquote>
+                        <button className="btn btnhover">Click here for more hobby clases</button>
+                      </div>
                     </div>
                   </div>
                 </div>

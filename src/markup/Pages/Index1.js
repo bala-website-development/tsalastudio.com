@@ -88,8 +88,8 @@ const Index1 = () => {
               <div className="row">
                 <div className="col-lg-12">
                   <div className="section-head mb-0 text-center">
-                    <div className="icon-bx icon-bx-xl">
-                      <img src={cake1} alt="" />
+                    <div className="my-4">
+                      <img className="rounded" width="200px" src={config.logo} alt="" />
                     </div>
                     <h3 className="text-primary">{config.aboutustitle}</h3>
                     <p className="main-text">{config.aboutus1} </p>

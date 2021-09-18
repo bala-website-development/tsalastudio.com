@@ -82,11 +82,13 @@ const Ourservices = () => {
               <div className="row">
                 <div className="col-lg-12">
                   <div className="section-head text-center">
-                    <div className="icon-bx icon-bx-xl">
+                    <div className="icon-bx icon-bx-xl d-none">
                       <img src={cake1} alt="" />
                     </div>
+                    <div className="my-4">
+                      <img src={config.logo} width="200px" className="rounded" alt="tsalastudio" />
+                    </div>
                     <h3>We’Ve Got You Covered!</h3>
-                    <p>What You Get With Us</p>
                   </div>
                 </div>
               </div>
@@ -206,12 +208,12 @@ const Ourservices = () => {
                   <div class="card-header1">
                     <img src={course.post_image} alt="rover" />
                   </div>
-                  <div class="card-body dangerous">
-                    <span class="tag tag-teal">{course.postsubcategory}</span>
+                  <div class="card-body">
+                    <span class="tag tag-teal">Sub Category name</span>
                     <h5>{course.posttitle}</h5>
-                    <span>
+                    <p className="mb-2">
                       <div dangerouslySetInnerHTML={{ __html: course.postcontent.substring(0, 150) }} />
-                    </span>
+                    </p>
                     <div className="user">
                       <a href={course.courselink} target="_blank">
                         Learn more ...
