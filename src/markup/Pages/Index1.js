@@ -22,6 +22,7 @@ import work_pic1 from "./../../images/our-work/pic1.jpg";
 import work_pic2 from "./../../images/our-work/pic2.jpg";
 import work_pic3 from "./../../images/our-work/pic3.jpg";
 import pic3 from "./../../images/about/pic3.jpg";
+import A_Newsletter from "./A_Newsletter";
 //Images
 // var img1 = require("./../../images/background/bg5.jpg");
 // var serblog1 = require("./../../images/our-services/pic1.jpg");
@@ -93,15 +94,8 @@ const Index1 = () => {
                     <h3 className="text-primary">{config.aboutustitle}</h3>
                     <p className="main-text">{config.aboutus1} </p>
                     <p>{config.aboutus2}</p>
-                    <div className=" d-flex ">
-                      <div class="input-group mb-3 justify-content-center w-100">
-                        <input type="text" className="px-3 " placeholder="Enter your email" />
-                        <div class="input-group-append">
-                          <button class="btn btnhover" type="button">
-                            Join us
-                          </button>
-                        </div>
-                      </div>
+                    <div>
+                      <A_Newsletter />
                     </div>
                   </div>
                 </div>
