@@ -6,6 +6,7 @@ import Header from "./../Layout/Header";
 import Footer from "./../Layout/Footer";
 import bgimg1 from "./../../images/banner/bnr3.jpg";
 import bgimg2 from "./../../images/background/bg5.jpg";
+import config from "../../config.json";
 
 class Contact extends Component {
   render() {
@@ -38,6 +39,7 @@ class Contact extends Component {
                   <div className="col-xl-6 col-lg-6 col-md-6 d-flex m-md-b30 m-lg-b30">
                     <div className="p-a30 border contact-area border-1 align-self-stretch radius-sm bg-white">
                       <h3 className="m-b5">Quick Contact</h3>
+                      <p> Better yet, see us in person! We love our customers, so feel free to visit during normal business hours.</p>
                       <p>If you have any questions simply use the following contact details.</p>
                       <ul className="no-margin">
                         <li className="icon-bx-wraper left m-b30">
@@ -49,7 +51,7 @@ class Contact extends Component {
                           </div>
                           <div className="icon-content">
                             <h6 className="text-uppercase m-tb0 dlab-tilte">Address:</h6>
-                            <p>123 West Street, Melbourne Victoria 3000 Australia</p>
+                            <p>{config.contact_address}</p>
                           </div>
                         </li>
                         <li className="icon-bx-wraper left  m-b30">
@@ -61,7 +63,7 @@ class Contact extends Component {
                           </div>
                           <div className="icon-content">
                             <h6 className="text-uppercase m-tb0 dlab-tilte">Email:</h6>
-                            <p>info@example.com</p>
+                            <p>{config.contact_email}</p>
                           </div>
                         </li>
                         <li className="icon-bx-wraper left">
@@ -72,26 +74,20 @@ class Contact extends Component {
                           </div>
                           <div className="icon-content">
                             <h6 className="text-uppercase m-tb0 dlab-tilte">PHONE</h6>
-                            <p>+61 3 8376 6284</p>
+                            <p>{config.contact_phone1}</p>
                           </div>
                         </li>
                       </ul>
                       <div className="m-t20">
                         <ul className="dlab-social-icon dlab-social-icon-lg">
                           <li>
-                            <Link to={""} className="fa fa-facebook bg-primary mr-1"></Link>
+                            <a href={"https://www.facebook.com/tsalastudio/"} target="_blank" className="fa fa-facebook bg-primary mr-1"></a>
                           </li>
                           <li>
-                            <Link to={""} className="fa fa-twitter bg-primary mr-1"></Link>
+                            <a href={"https://www.instagram.com/tsalastudio/"} target="_blank" className="fa fa-instagram bg-primary mr-1"></a>
                           </li>
                           <li>
-                            <Link to={""} className="fa fa-linkedin bg-primary mr-1"></Link>
-                          </li>
-                          <li>
-                            <Link to={""} className="fa fa-pinterest-p bg-primary mr-1"></Link>
-                          </li>
-                          <li>
-                            <Link to={""} className="fa fa-google-plus bg-primary "></Link>
+                            <a href={"https://www.pinterest.com/tsalaquiltingstudio/"} target="_blank" className="fa fa-pinterest-p bg-primary mr-1"></a>
                           </li>
                         </ul>
                       </div>

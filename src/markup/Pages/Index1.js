@@ -323,7 +323,7 @@ const Index1 = () => {
                       </div>
                     </div>
                     <p>The beauty of Quilting is that the product to be quilted can range from as small as a coin purse, scissor case, denim pouch, wallet, laptop cover, tote bag to as big as crazy patch sling bag, bed quilts etc etc.. that you want it to be.</p>
-                    <Link to={"our-services"} className="btn-secondry white btnhover btn-md">
+                    <Link to={"our-services"} className="btn-secondry border white btn btnhover btn-md">
                       <i className="fas fas-cart"></i>Join now
                     </Link>
                   </div>

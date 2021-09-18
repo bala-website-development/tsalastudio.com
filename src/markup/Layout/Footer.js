@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
-import bgfoter from "./../../images/background/bg2.jpg"
-
+import bgfoter from "./../../images/background/bg2.jpg";
+import config from "../../config.json";
 
 class Footer extends Component {
   render() {
@@ -16,60 +16,24 @@ class Footer extends Component {
                   <ul>
                     <li>
                       <i className="fa fa-map-marker"></i>
-                      <p>Marmora City, Vietnam</p>
+                      <p>{config.contact_address}</p>
                     </li>
                     <li>
                       <i className="fa fa-phone"></i>
-                      <p>0800-123456</p>
+                      <p>{config.contact_phone1}</p>
                     </li>
                     <li>
                       <i className="fa fa-mobile"></i>
-                      <p>(+91) 0800-123456</p>
+                      <p>{config.contact_phone2}</p>
                     </li>
                     <li>
                       <i className="fa fa-envelope"></i>
-                      <p>info@example.com</p>
+                      <p>{config.contact_email}</p>
                     </li>
                   </ul>
                 </div>
               </div>
-              {/* <div className="col-xl-3 col-lg-6 col-md-6 col-sm-6">
-								<div className="widget recent-posts-entry">
-									<h4 className="footer-title">Latest Post</h4>
-									<div className="widget-post-bx">
-										<div className="widget-post clearfix">
-											<div className="dlab-post-media radius-sm"> 
-												<img src= {require('./../../images/blog/recent-blog/pic1.jpg')} alt="" /> 
-											</div>
-											<div className="dlab-post-info">
-												<div className="dlab-post-header">
-													<h6 className="post-title"><Link to={'/blog-single'}>The Background Of Bakery Now</Link></h6>
-												</div>
-												<div className="dlab-post-meta">
-													<ul>
-														<li className="post-date"> <i className="la la-clock-o"></i><strong>March 25, 2020</strong> </li>
-													</ul>
-												</div>
-											</div>
-										</div>
-										<div className="widget-post clearfix">
-											<div className="dlab-post-media radius-sm"> 
-												<img src= {require('./../../images/blog/recent-blog/pic1.jpg')} alt="" /> 
-											</div>
-											<div className="dlab-post-info">
-												<div className="dlab-post-header">
-													<h6 className="post-title"><Link to={'blog-single'}>How Bakery Can Increase Your Profit</Link></h6>
-												</div>
-												<div className="dlab-post-meta">
-													<ul>
-														<li className="post-date"> <i className="la la-clock-o"></i><strong>March 25, 2020</strong> </li>
-													</ul>
-												</div>
-											</div>
-										</div>
-									</div>
-								</div>
-			</div> */}
+
               <div className="col-xl-4 col-lg-6 col-md-6 col-sm-6">
                 <div className="widget widget_services border-0">
                   <h4 className="footer-title">Quick Links</h4>
@@ -81,25 +45,30 @@ class Footer extends Component {
                       <Link to={"/about-1"}>About</Link>
                     </li>
                     <li>
-                      <Link to={"/our-menu-1"}>Our Menu</Link>
+                      <Link to={"/our-services"}>Our Courses</Link>
+                    </li>
+
+                    <li>
+                      <Link to={"/blog-half-img-sidebar"}>Blog</Link>
                     </li>
                     <li>
-                      <Link to={"/faq"}>FAQ</Link>
-                    </li>
-                    <li>
-                      <Link to={"/blog-grid-2"}>Blog</Link>
-                    </li>
-                    <li>
-                      <Link to={"/shop"}>Shop</Link>
+                      <Link to={"/shop"}>Products</Link>
                     </li>
                     <li>
                       <Link to={"/contact-1"}>Contact</Link>
                     </li>
+                  </ul>
+                </div>
+                <div className="m-t20">
+                  <ul className="dlab-social-icon dlab-social-icon-lg">
                     <li>
-                      <Link to={"/team"}>Team</Link>
+                      <a href={"https://www.facebook.com/tsalastudio/"} target="_blank" className="fa fa-facebook bg-primary mr-1"></a>
                     </li>
                     <li>
-                      <Link to={"/calendar"}>Calendar</Link>
+                      <a href={"https://www.instagram.com/tsalastudio/"} target="_blank" className="fa fa-instagram bg-primary mr-1"></a>
+                    </li>
+                    <li>
+                      <a href={"https://www.pinterest.com/tsalaquiltingstudio/"} target="_blank" className="fa fa-pinterest-p bg-primary mr-1"></a>
                     </li>
                   </ul>
                 </div>
@@ -107,19 +76,19 @@ class Footer extends Component {
               <div className="col-xl-4 col-lg-6 col-md-6 col-sm-6">
                 <div className="widget border-0">
                   <h4 className="footer-title">Opening Hours</h4>
-                  <p className="m-b20">Our support available to help you 24 hours a day, seven days a week.</p>
+                  <p className="m-b20">Our support available to help you.</p>
                   <ul className="work-hour-list">
                     <li>
                       <span className="day">
                         <span>Monday to Friday</span>
                       </span>
-                      <span className="timing">7AM - 5PM</span>
+                      <span className="timing">10AM - 6PM</span>
                     </li>
                     <li>
                       <span className="day">
                         <span>Saturday</span>
                       </span>
-                      <span className="timing">10AM - 5PM</span>
+                      <span className="timing">By Appointment</span>
                     </li>
                     <li>
                       <span className="day">
@@ -140,7 +109,7 @@ class Footer extends Component {
               <div className="col-lg-6 col-md-6 text-left">
                 {" "}
                 <span>
-                  Developed by{" "}
+                  Developed/Maintained by{" "}
                   <a href="https://www.theuniquecreations.com" className="font-weight-bold" target="blank">
                     https://www.theuniquecreations.com
                   </a>{" "}
@@ -151,9 +120,7 @@ class Footer extends Component {
                 <div className="widget-link">
                   <ul>
                     <li>
-                      <a href="mailto: info@theuniquecreations.com">
-                        Contact us info@theuniquecreations.com for Website creation
-                      </a>
+                      <a href="mailto: info@theuniquecreations.com">Contact us info@theuniquecreations.com for Website creation</a>
                     </li>
                   </ul>
                 </div>

@@ -3,14 +3,15 @@
 =====================*/
 
 :root {
-  --color-primary: #2994AE;
-  --color-secondry: #2994AE;
+  --color-primary: #2994ae;
+  --color-secondry: #2994ae;
   --color-hover: #185261;
   --color-primary-opacity: rgba(41, 148, 174, 0.15);
 }
 
 /* Hex */
 .bg-primary,
+.about-bx,
 .theme-bg,
 .meet-ask-row:after,
 .dlab-separator.style-skew[class*="style-"]:after,
@@ -212,10 +213,11 @@ input[type="radio"] + label:hover:before,
 .owl-item.active.center .testimonial-8 .testimonial-text:after {
   border-top: 25px solid var(--color-primary);
 }
-blockquote, .side-bar .widget,.product-description .nav-tabs li a
-{
+blockquote,
+.side-bar .widget,
+.product-description .nav-tabs li a {
   border-left-color: var(--color-primary) !important;
-  background-color:var(--color-primary-opacity)
+  background-color: var(--color-primary-opacity);
 }
 .dlab-tabs.border-top .nav-tabs > li.active > a {
   border-top-color: var(--color-primary);

@@ -168,7 +168,7 @@ class About extends Component {
                     <div className="counter-style-1 text-white text-center">
                       <div className="counter-num">
                         <span className="counter">
-                          <CountUp end={53} />
+                          <CountUp end={15} />
                         </span>
                         <small>+</small>
                       </div>
@@ -179,7 +179,7 @@ class About extends Component {
                     <div className="counter-style-1 text-white text-center">
                       <div className="counter-num">
                         <span className="counter">
-                          <CountUp end={102} />
+                          <CountUp end={10} />
                         </span>
                       </div>
                       <span className="counter-text">Awards Wins</span>
@@ -189,9 +189,9 @@ class About extends Component {
                     <div className="counter-style-1 text-white text-center">
                       <div className="counter-num">
                         <span className="counter">
-                          <CountUp end={36} />
+                          <CountUp end={30} />
                         </span>
-                        <small>k</small>
+                        <small>+</small>
                       </div>
                       <span className="counter-text">Happy Clients</span>
                     </div>
@@ -202,6 +202,7 @@ class About extends Component {
                         <span className="counter">
                           <CountUp end={99} />
                         </span>
+                        <small>+</small>
                       </div>
                       <span className="counter-text">Perfect Products</span>
                     </div>
@@ -211,7 +212,7 @@ class About extends Component {
             </div>
 
             <div className="section-full content-inner-1 bg-white" style={{ backgroundImage: "url(" + img2 + ")" }}>
-              <div className="container">
+              <div className="container d-none">
                 <div className="row">
                   <div className="col-lg-12">
                     <div className="section-head text-center">
@@ -254,13 +255,16 @@ class About extends Component {
                   <div class="row">
                     <div class="col-lg-12">
                       <div class="section-head text-center">
-                        <h3>Our PARTNERS</h3>
-                        <p>famous companies trusted us, why you are not</p>
+                        <h3>Thanks for reaching us</h3>
+                        <p>Better yet, see us in person! We love our customers, so feel free to visit during normal business hours.</p>
+                        <Link to={"contact-1"} className="btn-secondry   btn btnhover btn-md">
+                          <i className="fas fas-cart"></i>Contact us
+                        </Link>
                       </div>
                     </div>
                   </div>
                 </div>
-                <OurPartners />
+                {/* <OurPartners /> */}
               </div>
             </div>
           </div>
