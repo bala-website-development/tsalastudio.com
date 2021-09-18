@@ -23,6 +23,7 @@ import work_pic2 from "./../../images/our-work/pic2.jpg";
 import work_pic3 from "./../../images/our-work/pic3.jpg";
 import pic3 from "./../../images/about/pic3.jpg";
 import A_Newsletter from "./A_Newsletter";
+import SideBar from "./../Element/SideBar";
 //Images
 // var img1 = require("./../../images/background/bg5.jpg");
 // var serblog1 = require("./../../images/our-services/pic1.jpg");
@@ -165,7 +166,7 @@ const Index1 = () => {
           <div className="section-full content-inner bg-gray" style={{ backgroundImage: "url(" + img2 + ")", backgroundSize: "100%" }}>
             <div className="container">
               <div className="row faq-area1">
-                <div className="col-lg-6 m-b30">
+                <div className="col-lg-6 m-b20">
                   <div className="m-r20">
                     <div className="section-head text-left">
                       <h2>Why Tsala..?</h2>
@@ -203,7 +204,7 @@ const Index1 = () => {
               </div>
             </div>
           </div>
-          <div className="section-full bg-white">
+          <div className="section-full bg-white d-none">
             <div className="container-fluid">
               <div className="row">
                 <div className="col-lg-3 col-md-6 col-sm-6">
@@ -316,63 +317,37 @@ const Index1 = () => {
                   <div className="about-bx">
                     <div className="section-head text-center text-white">
                       <h4 className="text-white">Limited Time Offer</h4>
-                      <p>Wedding Cake Sale !</p>
+                      <p>Join our course</p>
                       <div className="icon-bx">
                         <img src={icon2} alt="" />
                       </div>
                     </div>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore</p>
-                    <Link to={"about-1"} className="btn-secondry white btnhover btn-md">
-                      <i className="fa fa-cart"></i>GET NOW
+                    <p>The beauty of Quilting is that the product to be quilted can range from as small as a coin purse, scissor case, denim pouch, wallet, laptop cover, tote bag to as big as crazy patch sling bag, bed quilts etc etc.. that you want it to be.</p>
+                    <Link to={"our-services"} className="btn-secondry white btnhover btn-md">
+                      <i className="fas fas-cart"></i>Join now
                     </Link>
                   </div>
                 </div>
               </div>
             </div>
             <div className="container">
-              <div className="row client-area1 p-t80">
-                <OurPartners />
-              </div>
+              <div className="row client-area1 p-t10">{/* <OurPartners /> */}</div>
             </div>
-            <div className="container content-inner d-none">
+            <div className="container content-inner ">
               <div className="row">
-                <div className="col-lg-12">
+                <div className="col-lg-6">
                   <div className="section-head text-center">
                     <div className="icon-bx icon-bx-xl">
                       <img src={cake1} alt="" />
                     </div>
                     <h3>From The Blog</h3>
                     <p>Latest news and updates</p>
+                    <Link to="blog-half-img-sidebar" className="btn btnhover">
+                      Latest Blog
+                    </Link>
                   </div>
                 </div>
-              </div>
-              <div className="row">
-                {blogNews.map((item, index) => (
-                  <div className="col-lg-4 col-md-6" key={index}>
-                    <div className="blog-post blog-grid blog-rounded">
-                      <div className="dlab-post-media dlab-img-effect">
-                        <Link to={"/blog-single-sidebar"}>
-                          <img src={item.image} alt="" />
-                        </Link>
-                      </div>
-                      <div className="dlab-info p-a25">
-                        <div className="dlab-post-title">
-                          <h4 className="post-title">
-                            <Link to={"/blog-single-sidebar"}>{item.title}</Link>
-                          </h4>
-                        </div>
-                        <div className="dlab-post-meta">
-                          <ul>
-                            <li className="post-folder">
-                              <i className="fa fa-folder-open-o"></i>
-                              <Link to={""}>Cake</Link>,<Link to={""}> Biscuits</Link>
-                            </li>
-                          </ul>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                ))}
+                <SideBar></SideBar>
               </div>
             </div>
           </div>
