@@ -11,7 +11,7 @@ const Halfimgsidebar = () => {
   const [posts, setPosts] = useState([]);
   const [loading, setLoading] = useState(false);
   const [networkError, setNetworkError] = useState("");
-  const postsPerPage = 1;
+  const postsPerPage = 10;
   let arrayForHoldingPosts = [];
   const [postsToShow, setPostsToShow] = useState([]);
   const [next, setNext] = useState(postsPerPage);
