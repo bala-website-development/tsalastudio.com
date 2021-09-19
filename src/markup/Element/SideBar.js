@@ -75,7 +75,7 @@ const SideBar = (props) => {
                   <li>
                     <div className="dlab-post-thum dlab-img-effect">
                       <a href={item.imageurl} className="check-km">
-                        <img src={item.imageurl} alt={item.title} />
+                        <img src={item.imageurl} className="galarythumbnailimage" alt={item.title} />
                       </a>
                     </div>
                   </li>
@@ -90,7 +90,7 @@ const SideBar = (props) => {
             {posts.map((item, index) => (
               <div className="widget-post clearfix">
                 <div className="dlab-post-media ">
-                  <img className="round" src={item.post_image} width="200" height="200" alt="" />
+                  <img className="rounded" src={item.post_image} width="200" height="200" alt="" />
                 </div>
                 <div className="dlab-post-info">
                   <div className="dlab-post-meta">

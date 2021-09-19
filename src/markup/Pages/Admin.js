@@ -61,7 +61,7 @@ const Admin = (props) => {
       console.log("add products", file);
       const path = config.storage + "/products";
       const storageRef = firebase.storage().ref(path);
-      const fileRef = storageRef.child(file.name);
+      const fileRef = storageRef.child(editProduct.p_id);
       await fileRef.put(file);
       setProduct_image(await fileRef.getDownloadURL());
       console.log("add products", product_image);
@@ -378,8 +378,7 @@ const Admin = (props) => {
       if (data.p_price === "" || data.p_price <= 0 || data.p_price === "0") {
         if (editProduct.p_price === "" || editProduct.p_price <= 0 || editProduct.p_price === "0") {
           data.p_price = data.p_actual_price;
-        }
-        else {
+        } else {
           data.p_price = editProduct.p_price;
         }
       }
@@ -489,7 +488,7 @@ const Admin = (props) => {
                         </li>
                         <li>
                           <Link className="nav-link" id="pills-post-tab" data-bs-toggle="pill" data-bs-target="#pills-blogpost">
-                            Manage Blog Posts
+                            Manage Blog/Course
                           </Link>
                         </li>
                         <li>
@@ -666,7 +665,7 @@ const Admin = (props) => {
                                                 <>
                                                   <b> {user.name} </b>
                                                   <span>
-                                                    {user.address + ", " + user.city + ", " + user.state + ", " + user.pincode + "(Phone: " + user.phonenumber + ")"}, { } <br></br>
+                                                    {user.address + ", " + user.city + ", " + user.state + ", " + user.pincode + "(Phone: " + user.phonenumber + ")"}, {} <br></br>
                                                   </span>
 
                                                   <span> {user.email} </span>
@@ -787,20 +786,21 @@ const Admin = (props) => {
                                       </div>
                                     </div>
                                   </div>
-
-                                  <div className="comment-form-author">
-                                    <div className="row">
-                                      <div className="col">
-                                        <label>Upload Image (max. size 1 mb)</label>
-                                        <input placeholder="Upload Product Image" name="p_image" onChange={onChange_image} accept="image/*" className="form-control" type="file" />
-                                        {/* <input placeholder="Upload Product Image" name="p_image" onChange={onChange_image} type="file" {...register("p_image")} id="p_image" /> */}
-                                      </div>
-                                      <div className="col">
-                                        <label>Image</label>
-                                        <img className="smallimage" src={product_image} />
+                                  {Object.keys(editProduct).length > 0 && (
+                                    <div className="comment-form-author">
+                                      <div className="row">
+                                        <div className="col">
+                                          <label>Upload Image (max. size 1 mb)</label>
+                                          <input placeholder="Upload Product Image" name="p_image" onChange={onChange_image} accept="image/*" className="form-control" type="file" />
+                                          {/* <input placeholder="Upload Product Image" name="p_image" onChange={onChange_image} type="file" {...register("p_image")} id="p_image" /> */}
+                                        </div>
+                                        <div className="col">
+                                          <label>Image</label>
+                                          <img className="smallimage" src={product_image} />
+                                        </div>
                                       </div>
                                     </div>
-                                  </div>
+                                  )}
                                   <div className="comment-form-author">
                                     <div className="row">
                                       <div className="col">
@@ -881,31 +881,31 @@ const Admin = (props) => {
                                 <tbody>
                                   {products.length > 0
                                     ? products.map((product, key) => (
-                                      <tr>
-                                        <td className="product-item-img">
-                                          <img className="smallimage" src={product.p_image} height="15" alt="" />
-                                        </td>
-                                        <td className="product-item-name">{product.p_name}</td>
-                                        <td className="product-item-name">{product.p_category}</td>
-                                        <td className="product-item-price">{product.p_actual_price}</td>
-                                        <td className="product-item-price">{product.p_price}</td>
-                                        <td className="product-item-quantity">{product.p_quantity}</td>
+                                        <tr>
+                                          <td className="product-item-img">
+                                            <img className="smallimage" src={product.p_image} height="15" alt="" />
+                                          </td>
+                                          <td className="product-item-name">{product.p_name}</td>
+                                          <td className="product-item-name">{product.p_category}</td>
+                                          <td className="product-item-price">{product.p_actual_price}</td>
+                                          <td className="product-item-price">{product.p_price}</td>
+                                          <td className="product-item-quantity">{product.p_quantity}</td>
 
-                                        <td>
-                                          <Link className="btn py-1" onClick={(e) => (setProduct_image(product.p_image), editData(e, product))}>
-                                            Edit
-                                          </Link>{" "}
-                                          <Link className={product.isactive === "1" ? "btn py-1" : "btn bg-danger py-1"} onClick={(e) => activateDeactivateProduct(product.p_id, product.isactive === "1" ? "0" : "1")}>
-                                            {product.isactive === "1" ? "Deactivate" : "Activate"}
-                                          </Link>
-                                        </td>
-                                        <td>
-                                          <Link className="btn bg-danger py-1" onClick={(e) => deleteProduct(product.p_id)}>
-                                            X
-                                          </Link>
-                                        </td>
-                                      </tr>
-                                    ))
+                                          <td>
+                                            <Link className="btn py-1" onClick={(e) => (setProduct_image(product.p_image), editData(e, product))}>
+                                              Edit
+                                            </Link>{" "}
+                                            <Link className={product.isactive === "1" ? "btn py-1" : "btn bg-danger py-1"} onClick={(e) => activateDeactivateProduct(product.p_id, product.isactive === "1" ? "0" : "1")}>
+                                              {product.isactive === "1" ? "Deactivate" : "Activate"}
+                                            </Link>
+                                          </td>
+                                          <td>
+                                            <Link className="btn bg-danger py-1" onClick={(e) => deleteProduct(product.p_id)}>
+                                              X
+                                            </Link>
+                                          </td>
+                                        </tr>
+                                      ))
                                     : "No Product added"}
                                 </tbody>
                               </table>

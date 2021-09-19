@@ -137,6 +137,12 @@ select.form-control:not([size]):not([multiple]) {
 .postthumbnailimage {
   max-height: 350px !important;
 }
+.galarythumbnailimage {
+  height: 60px !important;
+  width: 60px !important;
+  border-radius: 3px;
+  display: inline !important;
+}
 
 .container1 {
   display: flex;
@@ -6196,7 +6202,7 @@ ol.comment-list li.comment .comment-respond .comment-form p {
 
 .widget_gallery ul {
   padding-left: 0;
-  display: table;
+  /* display: table; */
   margin-left: -5px;
   margin-right: -5px;
   margin-bottom: 0;
