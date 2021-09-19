@@ -901,7 +901,7 @@ const Admin = (props) => {
                                           </td>
                                           <td>
                                             <Link className="btn bg-danger py-1" onClick={(e) => deleteProduct(product.p_id)}>
-                                              X
+                                              x
                                             </Link>
                                           </td>
                                         </tr>
