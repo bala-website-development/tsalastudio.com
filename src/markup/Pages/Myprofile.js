@@ -22,7 +22,9 @@ const Myprofile = (props) => {
   //const [networkError, setNetworkError] = useState("");
   const [smShow, setSmShow] = useState(false);
   const history = useHistory();
-
+  const [oldPassword, setOldPassword] = useState("");
+  const [newPassword, setNewPassword] = useState("");
+  const [confirmPwd, setConfirmPwd] = useState("");
   const handleVisible = () => {
     setSmShow(true);
     setTimeout(() => {
@@ -30,9 +32,35 @@ const Myprofile = (props) => {
     }, 1000);
   };
 
+  const changePassword = async (e) => {
+    e.preventDefault();
+    let _data = {};
+    _data.oldPassword = oldPassword;
+    _data.newPassword = newPassword;
+    _data.uuid = localStorage.getItem("uuid");
+    await fetch(config.service_url + "changepassword", {
+      method: "POST", headers: {
+        "Content-Type": "application/json",
+        "authorization": localStorage.getItem("accessToken")
+      }, body: JSON.stringify({ data: _data })
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        if (data.status === 200) {
+          localStorage.clear();
+          history.push("/password-success");
+        } else {
+          setSuccessMsg(data.message);
+          handleVisible();
+        }
+        console.log(data, "profile");
+        console.log(profile, "profilestate");
+      });
+  }
+
   useEffect(() => {
     const getUserProfile = () => {
-      fetch(config.service_url + "getuserprofile", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ userid: localStorage.getItem("uuid") }) })
+      fetch(config.service_url + "getuserprofile", { method: "POST", headers: { "Content-Type": "application/json", authorization: localStorage.getItem("accessToken") }, body: JSON.stringify({ userid: localStorage.getItem("uuid") }) })
         .then((response) => response.json())
         .then((data) => {
           if (data.status === 200) {
@@ -70,7 +98,7 @@ const Myprofile = (props) => {
       //delete userdetails.password;
     }
     console.log("profile", JSON.stringify({ id: localStorage.getItem("uuid"), userdetails: userdetails }));
-    fetch(config.service_url + `updateuserprofile`, { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ id: localStorage.getItem("uuid"), userdetails: userdetails }) })
+    fetch(config.service_url + `updateuserprofile`, { method: "POST", headers: { "Content-Type": "application/json", authorization: localStorage.getItem("accessToken") }, body: JSON.stringify({ id: localStorage.getItem("uuid"), userdetails: userdetails }) })
       .then((response) => response.json())
       .then((data) => {
         console.log("regitered user", data);
@@ -135,10 +163,11 @@ const Myprofile = (props) => {
                         </li>
                       </ul>
                       {profile?.map((profile) => (
-                        <form className="comment-form" onSubmit={handleSubmit(onSubmit)}>
-                          <div className="tab-content">
-                            <div className="tab-pane " id="pills-address">
-                              <div id="review_form_wrapper">
+
+                        <div className="tab-content">
+                          <div className="tab-pane " id="pills-address">
+                            <div id="review_form_wrapper">
+                              <form className="comment-form" onSubmit={handleSubmit(onSubmit)}>
                                 <div id="review_form">
                                   <div id="respond" className="comment-respond">
                                     <div className="comment-form-author">
@@ -173,11 +202,13 @@ const Myprofile = (props) => {
                                     </div>
                                   </div>
                                 </div>
-                              </div>
+                              </form>
                             </div>
+                          </div>
 
-                            <div className="tab-pane active" id="pills-review">
-                              <div id="review_form_wrapper1">
+                          <div className="tab-pane active" id="pills-review">
+                            <div id="review_form_wrapper1">
+                              <form className="comment-form" onSubmit={handleSubmit(onSubmit)}>
                                 <div id="review_form1">
                                   <div id="respond" className="comment-respond">
                                     <div className="comment-form-author">
@@ -206,42 +237,42 @@ const Myprofile = (props) => {
                                     </div>
                                   </div>
                                 </div>
-                              </div>
+                              </form>
                             </div>
-                            <div className="tab-pane " id="pills-changepwd">
-                              <div id="review_form_wrapper2">
-                                <div id="review_form2">
-                                  <div id="respond" className="comment-respond">
-                                    <div className="comment-form-author">
-                                      <label>
-                                        Current Password <span className="required">*</span>
-                                      </label>
-                                      <input type="password" aria-required="true" size="30" name="password" required={false} id="password" />
-                                    </div>
-                                    <div className="comment-form-author">
-                                      <label>
-                                        New Password <span className="required">*</span>
-                                      </label>
-                                      <input type="password" aria-required="true" size="30" name="newpwd" required={false} id="newpwd" />
-                                    </div>
-                                    <div className="comment-form-author">
-                                      <label>
-                                        Confirm Password <span className="required">*</span>
-                                      </label>
-                                      <input type="password" aria-required="true" size="30" name="cnfpwd" required={false} id="cnfpwd" />
-                                    </div>
+                          </div>
+                          <div className="tab-pane " id="pills-changepwd">
+                            <div id="review_form_wrapper2">
+                              <div id="review_form2" className="comment-form">
+                                <div id="respond" className="comment-respond">
+                                  <div className="comment-form-author">
+                                    <label>
+                                      Current Password <span className="required">*</span>
+                                    </label>
+                                    <input type="password" aria-required="true" size="30" name="password" required={false} id="password" onChange={(e) => setOldPassword(e.target.value)} />
+                                  </div>
+                                  <div className="comment-form-author">
+                                    <label>
+                                      New Password <span className="required">*</span>
+                                    </label>
+                                    <input type="password" aria-required="true" size="30" name="newpwd" required={false} id="newpwd" onChange={(e) => setNewPassword(e.target.value)} />
+                                  </div>
+                                  <div className="comment-form-author">
+                                    <label>
+                                      Confirm Password <span className="required">*</span>
+                                    </label>
+                                    <input type="password" aria-required="true" size="30" name="cnfpwd" required={false} id="cnfpwd" onChange={(e) => setConfirmPwd(e.target.value)} />
+                                  </div>
 
-                                    <div className="form-submit">
-                                      <button type="button" className="btn btnhover">
-                                        Submit
-                                      </button>
-                                    </div>
+                                  <div className="form-submit">
+                                    <button type="button" className="btn btnhover" onClick={(e) => changePassword(e)}>
+                                      Submit
+                                    </button>
                                   </div>
                                 </div>
                               </div>
                             </div>
                           </div>
-                        </form>
+                        </div>
                       ))}
                     </div>
                   </div>

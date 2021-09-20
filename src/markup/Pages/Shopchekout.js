@@ -59,7 +59,7 @@ const Shopchekout = () => {
   const getUserProfile = async () => {
     await fetch(config.service_url + "getuserprofile", {
       method: "POST",
-      headers: { "Content-Type": "application/json" },
+      headers: { "Content-Type": "application/json", authorization: localStorage.getItem("accessToken") },
       body: JSON.stringify({ userid: localStorage.getItem("uuid") }),
     })
       .then((response) => response.json())

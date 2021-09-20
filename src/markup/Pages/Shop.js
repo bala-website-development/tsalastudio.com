@@ -18,7 +18,7 @@ const Shop = (props) => {
   const [mcatFilterApp, setMcatFilterApp] = useState(false);
   const [mcatFilterProd, setMcatFilterProd] = useState([]);
   // const [postsToShow, setPostsToShow] = useState([]);
-  const postsPerPage = 5;
+  const postsPerPage = 20;
   const [next, setNext] = useState(postsPerPage);
   const [end, setEnd] = useState(0);
   const history = useHistory();
@@ -394,8 +394,7 @@ const Shop = (props) => {
                             <div className="item-box shop-item">
                               <div className="item-img">
                                 <img className="thumbnailimage" src={product.p_image} alt="" />
-                                {product.p_actual_price !== product.p_price && product.p_price !== 0
-                                  && product.p_price !== "" ? (
+                                {product.p_actual_price !== product.p_price && product.p_price !== 0 && product.p_price !== "" ? (
                                   <>
                                     <div className="price bg-white">
                                       <span style={{ "text-decoration": "line-through" }}>
