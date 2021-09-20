@@ -5,7 +5,7 @@ import Footer from "../Layout/Footer";
 import img1 from "./../../images/banner/bnr1.jpg";
 import img2 from "./../../images/background/bg5.jpg";
 
-const Success = () => {
+const PasswordChanged = () => {
   return (
     <div>
       <div>
@@ -59,4 +59,4 @@ const Success = () => {
   );
 };
 
-export default Success;
+export default PasswordChanged;
