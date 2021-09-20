@@ -411,13 +411,13 @@ const AdminManagePosts = (props) => {
           >
             Add Post
           </button>
-          <table>
+          <table className="table check-tbl">
             <thead>
               <tr>
                 <th>Image</th>
                 <th>Post Title</th>
-                <th>Type</th>
-                <th>Category</th>
+                <th>Type/Category</th>
+
                 <th>Create Date</th>
 
                 <th>Action</th>
@@ -432,26 +432,25 @@ const AdminManagePosts = (props) => {
                         <img className="smallimage" src={post.post_image} height="15" alt="" />
                       </td>
                       <td className="product-item-name font-weight-normal">{post.posttitle}</td>
-                      <td className="product-item-name font-weight-normal">{post.posttypevalue}</td>
-                      <td className="product-item-name font-weight-normal">{post.postcategory}</td>
+                      <td className="product-item-name font-weight-normal">
+                        {post.posttypevalue}/{post.postcategory}
+                      </td>
 
-                      <td className="product-item-price font-weight-normal">{Moment(post.createddate).format("DD-MMM-YYYY hh:mm A")}</td>
+                      <td className="product-item-price font-weight-normal">{Moment(post.createddate).format("DD-MMM-YYYY")}</td>
 
-                      <td>
+                      <td className="text-nowrap">
                         <Link className="btn py-1" onClick={(e) => editPostData(e, post)}>
                           Edit
                         </Link>{" "}
                         <Link className={post.published === 0 ? "btn bg-success py-1" : "btn  py-1"} onClick={(e) => activateDeactivatePost("publish", post.post_id, post.published === 1 ? 0 : 1)}>
                           {post.published === 0 ? "Publish" : "UnPublish"}
                         </Link>{" "}
-                        <Link className={post.isactive === 0 ? "btn py-1 bg-success" : "btn bg-danger py-1"} onClick={(e) => activateDeactivatePost("activate", post.post_id, post.isactive === 1 ? 0 : 1)}>
+                        <Link className={post.isactive === 0 ? "btn py-1 bg-success" : "btn bg-secondary py-1"} onClick={(e) => activateDeactivatePost("activate", post.post_id, post.isactive === 1 ? 0 : 1)}>
                           {post.isactive === 1 ? "Deactivate" : "Activate"}
                         </Link>
                       </td>
-                      <td>
-                        <Link className="btn bg-danger py-1" onClick={(e) => deletePost(post.post_id)}>
-                          X
-                        </Link>
+                      <td className="product-item-close">
+                        <Link className="ti-close" onClick={(e) => deletePost(post.post_id)}></Link>
                       </td>
                     </tr>
                   ))

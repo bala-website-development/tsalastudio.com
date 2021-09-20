@@ -126,7 +126,7 @@ const Shopregister = ({ history }) => {
                           {/* {errors.address && "Address is required"} */}
                         </div>
                         <div className="row">
-                          <div className="form-group col-md-6">
+                          <div className="form-group col-md-6 d-none">
                             <label>Apartment *</label>
                             <input type="text" className="form-control" placeholder="Apartment" />
                           </div>
@@ -135,18 +135,20 @@ const Shopregister = ({ history }) => {
                             <input name="city" required type="text" className="form-control" placeholder="Town/City" {...register("city", { required: true })} />
                             {/* {errors.city && "City is required"} */}
                           </div>
-                        </div>
-                        <div className="row">
                           <div className="form-group col-md-6">
                             <label>State/Country *</label>
                             <input name="state" required type="text" className="form-control" placeholder="State/Country" {...register("state", { required: true })} />
                             {/* {errors.state && "State/Country is required"} */}
                           </div>
+                        </div>
+                        <div className="row">
                           <div className="form-group col-md-6">
                             <label>Postcode/Zip *</label>
                             <input name="pincode" required type="text" className="form-control" placeholder="Pincode" {...register("pincode", { required: true })} />
                             {/* {errors.pincode && "Pincode is required"} */}
                           </div>
+                        </div>
+                        <div className=" form-group  row">
                           <div className="form-group col-md-6">
                             <div className="text-success">{message}</div>
                             <div className="text-red">{valmessage}</div>

@@ -39,10 +39,12 @@ const Myprofile = (props) => {
     _data.newPassword = newPassword;
     _data.uuid = localStorage.getItem("uuid");
     await fetch(config.service_url + "changepassword", {
-      method: "POST", headers: {
+      method: "POST",
+      headers: {
         "Content-Type": "application/json",
-        "authorization": localStorage.getItem("accessToken")
-      }, body: JSON.stringify({ data: _data })
+        authorization: localStorage.getItem("accessToken"),
+      },
+      body: JSON.stringify({ data: _data }),
     })
       .then((response) => response.json())
       .then((data) => {
@@ -56,7 +58,7 @@ const Myprofile = (props) => {
         console.log(data, "profile");
         console.log(profile, "profilestate");
       });
-  }
+  };
 
   useEffect(() => {
     const getUserProfile = () => {
@@ -163,7 +165,6 @@ const Myprofile = (props) => {
                         </li>
                       </ul>
                       {profile?.map((profile) => (
-
                         <div className="tab-content">
                           <div className="tab-pane " id="pills-address">
                             <div id="review_form_wrapper">
@@ -227,7 +228,7 @@ const Myprofile = (props) => {
                                       <label>
                                         Phone Number <span className="required">*</span>
                                       </label>
-                                      <input type="number" aria-required="true" defaultValue={profile.phonenumber} required name="phonenumber" {...register("phonenumber")} id="author" />
+                                      <input type="number" aria-required="true" disabled={true} defaultValue={profile.phonenumber} required name="phonenumber" {...register("phonenumber")} id="author" />
                                     </div>
 
                                     <div className="form-submit">

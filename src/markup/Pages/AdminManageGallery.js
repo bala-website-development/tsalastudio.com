@@ -208,7 +208,7 @@ const AdminManagePosts = (props) => {
           >
             Add Image
           </button>
-          <table>
+          <table className="table check-tbl">
             <thead>
               <tr>
                 <th>Gallery</th>
@@ -245,10 +245,8 @@ const AdminManagePosts = (props) => {
                       </td>
                       <td className="product-item-price font-weight-normal text-no-wrap">{Moment(post.createddate).format("DD-MMM-YYYY")}</td>
 
-                      <td>
-                        <Link className="btn bg-danger py-1" onClick={(e) => deleteGallery(post.gallery_id)}>
-                          X
-                        </Link>
+                      <td className="product-item-close">
+                        <Link className="ti-close" onClick={(e) => deleteGallery(post.gallery_id)}></Link>
                       </td>
                     </tr>
                   ))

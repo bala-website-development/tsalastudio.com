@@ -665,7 +665,7 @@ const Admin = (props) => {
                                                 <>
                                                   <b> {user.name} </b>
                                                   <span>
-                                                    {user.address + ", " + user.city + ", " + user.state + ", " + user.pincode + "(Phone: " + user.phonenumber + ")"}, { } <br></br>
+                                                    {user.address + ", " + user.city + ", " + user.state + ", " + user.pincode + "(Phone: " + user.phonenumber + ")"}, {} <br></br>
                                                   </span>
 
                                                   <span> {user.email} </span>
@@ -865,7 +865,7 @@ const Admin = (props) => {
                               >
                                 Add Product
                               </button>
-                              <table>
+                              <table className="table check-tbl">
                                 <thead>
                                   <tr>
                                     <th>Product</th>
@@ -881,31 +881,29 @@ const Admin = (props) => {
                                 <tbody>
                                   {products.length > 0
                                     ? products.map((product, key) => (
-                                      <tr>
-                                        <td className="product-item-img">
-                                          <img className="smallimage" src={product.p_image} height="15" alt="" />
-                                        </td>
-                                        <td className="product-item-name">{product.p_name}</td>
-                                        <td className="product-item-name">{product.p_category}</td>
-                                        <td className="product-item-price">{product.p_actual_price}</td>
-                                        <td className="product-item-price">{product.p_price}</td>
-                                        <td className="product-item-quantity">{product.p_quantity}</td>
+                                        <tr>
+                                          <td className="product-item-img">
+                                            <img className="smallimage" src={product.p_image} height="15" alt="" />
+                                          </td>
+                                          <td className="product-item-name font-weight-normal">{product.p_name}</td>
+                                          <td className="product-item-name font-weight-normal">{product.p_category}</td>
+                                          <td className="product-item-price font-weight-normal">{product.p_actual_price}</td>
+                                          <td className="product-item-price font-weight-normal">{product.p_price}</td>
+                                          <td className="product-item-quantity font-weight-normal">{product.p_quantity}</td>
 
-                                        <td>
-                                          <Link className="btn py-1" onClick={(e) => (setProduct_image(product.p_image), editData(e, product))}>
-                                            Edit
-                                          </Link>{" "}
-                                          <Link className={product.isactive === "1" ? "btn py-1" : "btn bg-danger py-1"} onClick={(e) => activateDeactivateProduct(product.p_id, product.isactive === "1" ? "0" : "1")}>
-                                            {product.isactive === "1" ? "Deactivate" : "Activate"}
-                                          </Link>
-                                        </td>
-                                        <td>
-                                          <Link className="btn bg-danger py-1" onClick={(e) => deleteProduct(product.p_id)}>
-                                            x
-                                          </Link>
-                                        </td>
-                                      </tr>
-                                    ))
+                                          <td>
+                                            <Link className="btn py-1" onClick={(e) => (setProduct_image(product.p_image), editData(e, product))}>
+                                              Edit
+                                            </Link>{" "}
+                                            <Link className={product.isactive === "1" ? "btn bg-secondary py-1" : "btn bg-success py-1"} onClick={(e) => activateDeactivateProduct(product.p_id, product.isactive === "1" ? "0" : "1")}>
+                                              {product.isactive === "1" ? "Deactivate" : "Activate"}
+                                            </Link>
+                                          </td>
+                                          <td className="product-item-close">
+                                            <Link className="ti-close" onClick={(e) => deleteProduct(product.p_id)}></Link>
+                                          </td>
+                                        </tr>
+                                      ))
                                     : "No Product added"}
                                 </tbody>
                               </table>
