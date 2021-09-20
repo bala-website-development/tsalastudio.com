@@ -12,6 +12,7 @@ import Error from "./Pages/Error";
 import Success from "./Pages/Success";
 import Calendar from "./Pages/Calendar";
 import Team from "./Pages/Team";
+import PasswordChanged from "./Pages/PasswordChanged";
 
 import Ourmenustyle1 from "./Pages/Ourmenustyle1";
 import Ourmenustyle2 from "./Pages/Ourmenustyle2";
@@ -68,6 +69,7 @@ class Markup extends Component {
           <Route path="/success" exact component={Success} />
           <Route path="/calendar" exact component={Calendar} />
           <Route path="/team" exact component={Team} />
+          <Route path="/password-success" exact component={PasswordChanged} />
 
           <Route path="/our-menu-1" exact component={Ourmenustyle1} />
           <Route path="/our-menu-2" exact component={Ourmenustyle2} />
