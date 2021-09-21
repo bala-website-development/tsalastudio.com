@@ -70,10 +70,10 @@ const AdminViewUsers = (props) => {
   return (
     <div>
       <div id="review_form_wrapper">
-        <div className="py-1 font-weight-bold text-primary"> NewsLetter Users:</div>
+        <div className="py-1 font-weight-bold text-primary"> NewsLetter Users ({newsletterUsers.length > 0 ? newsletterUsers.length : 0}):</div>
         <div> {newsletterUsers.map((user) => user.email) + ", "}</div>
-        <div className="py-1 font-weight-bold text-primary"> Account Users:</div>
-        <div>{accoutUsers.map((user) => user.email) + ", "} </div>
+        <div className="py-1 font-weight-bold text-primary"> Account Users ({accoutUsers.length > 0 ? accoutUsers.length : 0}):</div>
+        <div>{accoutUsers.map((user) => user && user.email) + ", "} </div>
       </div>
     </div>
   );
