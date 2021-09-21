@@ -32,9 +32,9 @@ const Contact = () => {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
-        from: "info@theuniquecreations.com",
-        to: data.c_email + "," + "info@theuniquecreations.com",
-        subject: "Tasala - Contact us - " + data.c_name,
+        from: config.fromemail,
+        to: data.c_email + "," + config.fromemail,
+        subject: config.subject + data.c_name,
         text: "",
         html: body,
       }),
