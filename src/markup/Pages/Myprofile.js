@@ -49,7 +49,10 @@ const Myprofile = (props) => {
         if (data.status === 200) {
           localStorage.clear();
           history.push("/password-success");
-        } else {
+        } else if (data.status === 499) {
+          history.push("/shop-login");
+        }
+        else {
           setSuccessMsg(data.message);
           handleVisible();
         }
@@ -67,6 +70,8 @@ const Myprofile = (props) => {
             // setSuccessMsg(data.message);
             setProfile(data.data);
             // handleVisible();
+          } else if (data.status === 499) {
+            history.push("/shop-login");
           } else {
             setSuccessMsg(data.message);
             handleVisible();
@@ -105,6 +110,8 @@ const Myprofile = (props) => {
         if (data.status === 200) {
           setSuccessMsg(data.message);
           handleVisible();
+        } else if (data.status === 499) {
+          history.push("/shop-login");
         } else {
           setSuccessMsg(data.message);
         }
