@@ -8,7 +8,7 @@ import Footer from "./../Layout/Footer";
 import bgimg1 from "./../../images/banner/bnr3.jpg";
 import bgimg2 from "./../../images/background/bg5.jpg";
 import config from "../../config.json";
-
+import { Modal } from "react-bootstrap";
 const Contact = () => {
   const [successMsg, setSuccessMsg] = useState("");
 
@@ -18,7 +18,7 @@ const Contact = () => {
     formState: { errors },
     reset,
   } = useForm({ defaultValues: {} });
-  const onSubmit = (data) => {
+  const onSubmit = (data, e) => {
     console.log("data123", data);
     // const emailBody = <>
     //   <div>
@@ -45,9 +45,7 @@ const Contact = () => {
       //.then((data) => this.setState({ responsemessage: "Thanks for Contacting us." }));
       //this.setState({ responsemessage: "Thanks for Contacting us." });
       setSuccessMsg("Thanks for Contacting us.");
-      setTimeout(function () {
-        window.location.reload(1);
-      }, 2000);
+      e.target.reset();
     } catch (err) {
       console.log(err);
     }
@@ -177,6 +175,7 @@ const Contact = () => {
                             <span>Submit</span>{" "}
                           </button>
                         </div>
+                        <div className="p-1 mt-1 border rounded">{successMsg}</div>
                       </div>
                     </form>
                   </div>
