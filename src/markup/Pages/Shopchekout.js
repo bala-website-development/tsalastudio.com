@@ -66,6 +66,8 @@ const Shopchekout = () => {
       .then((data) => {
         if (data.status === 200) {
           setUserAddress(data.data);
+        } else if (data.status === 499) {
+          history.push("/shop-login");
         } else {
           setMessage(data.message);
           handleVisible();
