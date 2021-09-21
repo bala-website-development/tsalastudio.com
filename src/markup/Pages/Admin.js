@@ -473,37 +473,37 @@ const Admin = (props) => {
                   <div>
                     <div className="dlab-tabs product-description p-3 tabs-site-button m-t30">
                       <ul className="nav nav-tabs">
-                        <li>
+                        <li className="mt-1">
                           <Link className="nav-link active" id="pills-home-tab" data-bs-toggle="pill" data-bs-target="#pills-review">
                             Add Product ({products.length > 0 ? products.length : 0})
                           </Link>
                         </li>
-                        <li>
+                        <li className="mt-1">
                           <Link className="nav-link" id="pills-profile-tab" data-bs-toggle="pill" data-bs-target="#admin-mange-orders">
                             Manage Orders ({orderDetails.length > 0 ? orderDetails.length : 0})
                           </Link>
                         </li>
-                        <li>
+                        <li className="mt-1">
                           <Link className="nav-link" id="pills-profile-tab" data-bs-toggle="pill" data-bs-target="#pills-dashboard">
                             Dashboard
                           </Link>
                         </li>
-                        <li>
+                        <li className="mt-1">
                           <Link className="nav-link" id="pills-blog-tab" data-bs-toggle="pill" data-bs-target="#pills-blogpost">
                             Manage Blog/Course
                           </Link>
                         </li>
-                        <li>
+                        <li className="mt-1">
                           <Link className="nav-link" id="pills-gallery-tab" data-bs-toggle="pill" data-bs-target="#pills-gallery">
                             Manage Gallery
                           </Link>
                         </li>
-                        <li>
+                        <li className="mt-1">
                           <Link className="nav-link" id="pills-user-tab" data-bs-toggle="pill" data-bs-target="#pills-users">
                             Users
                           </Link>
                         </li>
-                        <li>
+                        <li className="mt-1">
                           <Link className="nav-link" id="pills-user-tab" data-bs-toggle="pill" data-bs-target="#pills-support">
                             Support
                           </Link>
