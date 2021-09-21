@@ -466,7 +466,7 @@ const Admin = (props) => {
         </div>
 
         <div className="content-block">
-          <div className="section-full content-inner-1 bg-gray-light">
+          <div className="section-full my-4 bg-gray-light">
             <div className="container woo-entry">
               <div className="row">
                 <div className="col-lg-12">
@@ -501,6 +501,11 @@ const Admin = (props) => {
                         <li>
                           <Link className="nav-link" id="pills-user-tab" data-bs-toggle="pill" data-bs-target="#pills-users">
                             Users
+                          </Link>
+                        </li>
+                        <li>
+                          <Link className="nav-link" id="pills-user-tab" data-bs-toggle="pill" data-bs-target="#pills-support">
+                            Support
                           </Link>
                         </li>
                       </ul>
@@ -925,6 +930,9 @@ const Admin = (props) => {
                         </div>
                         <div className="tab-pane" id="pills-users">
                           <AdminViewUsers />
+                        </div>
+                        <div className="tab-pane" id="pills-support">
+                          For Techincal Support, please contact: <span className="text-primary">info@theuniquecreations.com</span>
                         </div>
                       </div>
                     </div>
