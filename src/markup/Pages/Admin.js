@@ -18,6 +18,7 @@ import Moment from "moment";
 import Chart from "./Chart";
 import AdminManagePosts from "./AdminManagePosts";
 import AdminManageGallery from "./AdminManageGallery";
+import AdminViewUsers from "./AdminViewUsers";
 //import Camera, { FACING_MODES } from "react-html5-camera-photo";
 //import "react-html5-camera-photo/build/css/index.css";
 // import ImagePreview from './ImagePreview';
@@ -341,6 +342,7 @@ const Admin = (props) => {
     getSubCategories();
     getProductDetails();
     getAdminOrderHistory();
+
     // console.log("mobile view", isMobile);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [flag]);
@@ -487,13 +489,18 @@ const Admin = (props) => {
                           </Link>
                         </li>
                         <li>
-                          <Link className="nav-link" id="pills-post-tab" data-bs-toggle="pill" data-bs-target="#pills-blogpost">
+                          <Link className="nav-link" id="pills-blog-tab" data-bs-toggle="pill" data-bs-target="#pills-blogpost">
                             Manage Blog/Course
                           </Link>
                         </li>
                         <li>
-                          <Link className="nav-link" id="pills-post-tab" data-bs-toggle="pill" data-bs-target="#pills-gallery">
+                          <Link className="nav-link" id="pills-gallery-tab" data-bs-toggle="pill" data-bs-target="#pills-gallery">
                             Manage Gallery
+                          </Link>
+                        </li>
+                        <li>
+                          <Link className="nav-link" id="pills-user-tab" data-bs-toggle="pill" data-bs-target="#pills-users">
+                            Users
                           </Link>
                         </li>
                       </ul>
@@ -915,6 +922,9 @@ const Admin = (props) => {
                         </div>
                         <div className="tab-pane" id="pills-gallery">
                           <AdminManageGallery />
+                        </div>
+                        <div className="tab-pane" id="pills-users">
+                          <AdminViewUsers />
                         </div>
                       </div>
                     </div>
