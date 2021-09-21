@@ -9,7 +9,6 @@ import bgimg1 from "./../../images/banner/bnr3.jpg";
 import bgimg2 from "./../../images/background/bg5.jpg";
 import config from "../../config.json";
 
-
 const Contact = () => {
   const [successMsg, setSuccessMsg] = useState("");
 
@@ -28,14 +27,7 @@ const Contact = () => {
     //     <p>{"Regards,"}<br /><a href="https://www.tsalastudio.com">Tsala Studio Team</a> </p>
 
     //   </div></>
-    const body = "<p>Hello " + data.c_name + "," + "</p>"
-      + "<p>Thanks for reaching us, we will get back to you shorlty.</p>"
-      + "<br/><p>Regards,</p> <p><a href='https://www.tsalastudio.com'>Tsala Studio Team</a></p>"
-      + "<table  style='border: 1px solid black'>"
-      + " <tr  style='border: 1px solid black'><td> <i>Name:</i></td> <td> <i>" + data.c_name + "</i></td></tr>"
-      + "<tr style='border: 1px solid black'><td><i>Email:</i></td><td> <i>" + data.c_email + "</i></td></tr>"
-      + "<tr style='border: 1px solid black'><td><i>Message:</i></td><td> <i>" + data.c_message + "</i></td></tr>"
-      + "</table>";
+    const body = "<p>Hello " + data.c_name + "," + "</p>" + "<p>Thanks for reaching us, we will get back to you shorlty.</p>" + "<br/><p>Regards,</p> <p><a href='https://www.tsalastudio.com'>Tsala Studio Team</a></p>" + "<table  style='border: 1px solid black'>" + " <tr  style='border: 1px solid black'><td> <i>Name:</i></td> <td> <i>" + data.c_name + "</i></td></tr>" + "<tr style='border: 1px solid black'><td><i>Email:</i></td><td> <i>" + data.c_email + "</i></td></tr>" + "<tr style='border: 1px solid black'><td><i>Message:</i></td><td> <i>" + data.c_message + "</i></td></tr>" + "</table>";
     const requestOptions = {
       method: "POST",
       headers: { "Content-Type": "application/json" },
@@ -47,13 +39,9 @@ const Contact = () => {
         html: body,
       }),
     };
-    console.log(requestOptions)
+    console.log(requestOptions);
     try {
-      fetch(
-        "http://localhost:8000/email",
-        //"http://localhost:8000/email/",
-        requestOptions
-      ).then((response) => console.log(response.json()));
+      fetch(config.email_service_url, requestOptions).then((response) => console.log(response.json()));
       //.then((data) => this.setState({ responsemessage: "Thanks for Contacting us." }));
       //this.setState({ responsemessage: "Thanks for Contacting us." });
       setSuccessMsg("Thanks for Contacting us.");
@@ -210,7 +198,6 @@ const Contact = () => {
       <Footer />
     </div>
   );
-}
-
+};
 
 export default Contact;
