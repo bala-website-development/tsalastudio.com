@@ -28,6 +28,7 @@ const Shopregister = ({ history }) => {
       pincode: data.pincode,
       email: data.email,
       name: data.firstname + " " + data.lastname,
+      loggedin: false,
     };
     console.log("registered user", datas);
 
