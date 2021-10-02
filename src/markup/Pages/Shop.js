@@ -196,7 +196,7 @@ const Shop = (props) => {
   };
 
   const getCategories = async () => {
-    await fetch(config.service_url + "getcategory")
+    await fetch(config.service_url + "getuserscategory")
       .then((response) => response.json())
       .then((data) => {
         if (data.status === 200) {
