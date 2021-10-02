@@ -39,7 +39,7 @@ import Blogsingleleftsidebar from "./Pages/Blogsingleleftsidebar";
 import Shop from "./Pages/Shop";
 import Shopsidebar from "./Pages/Shopsidebar";
 import Shopproduct from "./Pages/Shopproduct";
-import Admin from "./Pages/Admin";
+//import Admin from "./Pages/Admin";
 import Shopcart from "./Pages/Shopcart";
 import Shopwishlist from "./Pages/Shopwishlist";
 import Shopchekout from "./Pages/Shopchekout";
@@ -58,7 +58,7 @@ class Markup extends Component {
         <Switch>
           <Route path="/" exact component={Index1} />
           {/* <Route path="/index-2" exact component={Index2} /> */}
-          <Route path="/admin" exact component={Admin} />
+          {/* <Route path="/admin" exact component={Admin} /> */}
           <Route path="/myprofile" exact component={Myprofile} />
           <Route path="/orderhistory" exact component={Orderhistory} />
           <Route path="/about-1" exact component={About} />

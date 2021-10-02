@@ -146,7 +146,7 @@ const Shopproduct = (props) => {
         isactive: 1,
       };
       console.log("add review", datas);
-      fetch(config.service_url + "addReviews", { method: "POST", headers: { "Content-Type": "application/json", 'authorization': localStorage.getItem("accessToken") }, body: JSON.stringify({ data: datas, product_id: productDtl.p_id }) })
+      fetch(config.service_url + "addReviews", { method: "POST", headers: { "Content-Type": "application/json", authorization: localStorage.getItem("accessToken") }, body: JSON.stringify({ data: datas, product_id: productDtl.p_id }) })
         .then((response) => response.json())
         .then((data) => {
           console.log("regitered user", data);
@@ -158,8 +158,7 @@ const Shopproduct = (props) => {
             setSuccessMsg(data.message);
             e.target.reset();
             getProductReviews();
-          }
-          else if (data?.status === 499) {
+          } else if (data?.status === 499) {
             history.push("/shop-login");
           }
         });
@@ -212,7 +211,7 @@ const Shopproduct = (props) => {
                   <Form className="cart sticky-top" onSubmit={addItemsToCart}>
                     <div className="dlab-post-title">
                       <h4 className="post-title">{productDtl.p_name}</h4>
-                      <p className="m-b10">{productDtl.p_description}</p>
+                      <p className="m-b10 d-none">{productDtl.p_description}</p>
                       <div className="dlab-divider bg-gray tb15">
                         <i className="icon-dot c-square"></i>
                       </div>
@@ -268,7 +267,9 @@ const Shopproduct = (props) => {
 
                       <div className="tab-content">
                         <div className="tab-pane active" id="pills-des">
-                          <p>{productDtl.p_description}</p>
+                          <p>
+                            <div dangerouslySetInnerHTML={{ __html: productDtl.p_description }} />
+                          </p>
                           <p className="m-b0"></p>
                         </div>
                         <div className="tab-pane" id="pills-review">
