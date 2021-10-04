@@ -111,16 +111,18 @@ class Footer extends Component {
                 <span>
                   Developed/Maintained by{" "}
                   <a href="https://www.theuniquecreations.com" className="font-weight-bold" target="blank">
-                    www.theuniquecreations.com
+                    theuniquecreations
                   </a>{" "}
-                  Copyright © 2021 Unique Creations. All rights are reserved.
+                  <div>Copyright © {new Date().getFullYear()} Unique Creations. All rights are reserved.</div>
                 </span>{" "}
               </div>
               <div className="col-lg-6 col-md-6 text-right">
                 <div className="widget-link">
                   <ul>
                     <li>
-                      <a href="mailto: info@theuniquecreations.com">Contact us info@theuniquecreations.com for Website creation</a>
+                      <a href="https://www.theuniquecreations.com/contact" className="font-weight-light" target="blank">
+                        Contact us
+                      </a>{" "}
                     </li>
                   </ul>
                 </div>
