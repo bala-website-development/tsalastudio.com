@@ -249,7 +249,7 @@ const Header = (props) => {
                               <Link to={"/orderhistory"}>Order History</Link>
                             </li>
                             {localStorage.getItem("role") !== undefined && localStorage.getItem("role") === "admin" && (
-                              <li>
+                              <li className="d-none">
                                 {/* <Link to={"/admin"}>Admin</Link> */}
                                 <a href={config.admin_url} target="_blank">
                                   Admin
