@@ -81,7 +81,6 @@ body {
 .fc-button.fc-state-active,
 .fc-button.fc-state-default {
   background-color: var(--color-primary);
-  font-family: var(--font);
 }
 
 /*Hex color :hover */
