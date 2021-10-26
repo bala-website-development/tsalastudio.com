@@ -76,7 +76,7 @@ class About extends Component {
                       <div className="my-4">
                         <img src={config.logo} width="250px" className="rounded" alt="tsalastudio" />
                       </div>
-                      <h3>About Our tsalastudio</h3>
+                      <h3></h3>
                       <p>{config.aboutus_aboutpage}</p>
                     </div>
                   </div>

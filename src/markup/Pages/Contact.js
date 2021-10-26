@@ -116,6 +116,7 @@ const Contact = () => {
                         <div className="icon-content">
                           <h6 className="text-uppercase m-tb0 dlab-tilte">PHONE</h6>
                           <p>{config.contact_phone1}</p>
+                          <p>{config.contact_phone2}</p>
                         </div>
                       </li>
                     </ul>
