@@ -105,7 +105,7 @@ const Header = (props) => {
                     <Link to={"/blog-half-img-sidebar"}>Blog</Link>
                   </li>
                   <li className={props?.active === "shop" ? "active" : ""}>
-                    <Link to={"/shop"}>Products</Link>
+                    <Link to={"/shop"}>Shop</Link>
                     {/* <ul className="sub-menu">
                       <li>
                         <Link to={"/shop"}>Shop</Link>
@@ -193,7 +193,7 @@ const Header = (props) => {
                       <Link to={"/blog-half-img-sidebar"}>Blog</Link>
                     </li>
                     <li className={props?.active === "shop" ? "active" : ""}>
-                      <Link to={"/shop"}>Products</Link>
+                      <Link to={"/shop"}>Shop</Link>
                     </li>
                     {/* <li className={props?.active === "shop" ? "active" : ""}>
                       <Link to={""}>

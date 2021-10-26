@@ -34,10 +34,9 @@ const Blogsinglesidebar = (props) => {
             console.log("post image", image);
             setLoading((loading) => !loading);
           }
-        }
-        else {
+        } else {
           setLoading((loading) => !loading);
-          setSuccessMsg("No Posts")
+          setSuccessMsg("No Posts");
         }
       })
       .catch((err) => {
@@ -58,9 +57,8 @@ const Blogsinglesidebar = (props) => {
         if (data.status === 200) {
           setComments(data.data);
           console.log(data, "comments");
-        }
-        else {
-          console.log(data.message)
+        } else {
+          console.log(data.message);
         }
       });
   };
@@ -85,7 +83,7 @@ const Blogsinglesidebar = (props) => {
       isactive: 1,
     };
     console.log("add review", datas);
-    fetch(config.service_url + "addcomments", { method: "POST", headers: { "Content-Type": "application/json", 'authorization': localStorage.getItem("accessToken") }, body: JSON.stringify({ data: datas }) })
+    fetch(config.service_url + "addcomments", { method: "POST", headers: { "Content-Type": "application/json", authorization: localStorage.getItem("accessToken") }, body: JSON.stringify({ data: datas }) })
       .then((response) => response.json())
       .then((data) => {
         console.log("regitered user", data);
@@ -94,15 +92,13 @@ const Blogsinglesidebar = (props) => {
           setSuccessMsg(data.message);
           e.target.reset();
           getcomments(datas.post_id);
-        }
-        else if (data?.status === 499) {
+        } else if (data?.status === 499) {
           history.push("/shop-login");
-        }
-        else {
+        } else {
           setSuccessMsg(data.message);
         }
       });
-  }
+  };
   return (
     <div>
       <Modal size="sm" show={smShow} onHide={() => setSmShow(false)}>
@@ -204,7 +200,11 @@ const Blogsinglesidebar = (props) => {
                                           <cite className="fn">{comment.username}</cite> <span className="says">says:</span>
                                         </li>
                                         <li className="post-date">{comment.displaydate}</li>
-                                        {localStorage.getItem("role") === "admin" && <li className="post-date"><Link>Delete</Link></li>}
+                                        {localStorage.getItem("role") === "admin" && (
+                                          <li className="post-date">
+                                            <Link>Delete</Link>
+                                          </li>
+                                        )}
                                       </ul>
                                     </div>
 
