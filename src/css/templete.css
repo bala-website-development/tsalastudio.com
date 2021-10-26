@@ -39,7 +39,7 @@
   margin-bottom: 15px;
   display: block;
   color: #fff;
-  font-family: "Amita", sans-serif;
+  /* font-family: "Amita", sans-serif; */
   font-weight: 700;
 }
 .main-slider .title {
@@ -127,9 +127,7 @@
 }
 
 /* Header */
-.header-style-2 .header-nav .nav > li > a {
-  font-family: "Amita", sans-serif;
-}
+
 .header-style-2 .main-bar:after {
   content: "";
   background-image: url(../images/border.png);

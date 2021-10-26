@@ -104,6 +104,7 @@ const Shopproduct = (props) => {
         .then((response) => response.json())
         .then((data) => {
           setRelatedProd(data);
+          console.log("getRelatedProducts", data);
         });
     };
     const getProductDetailsByProductID = async () => {

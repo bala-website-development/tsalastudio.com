@@ -7,8 +7,11 @@
   --color-secondry: #2994ae;
   --color-hover: #185261;
   --color-primary-opacity: rgba(41, 148, 174, 0.15);
+  --font: "Zen Kaku Gothic New", sans-serif;
 }
-
+body {
+  font-family: var(--font) !important;
+}
 /* Hex */
 .bg-primary,
 .about-bx,
@@ -78,6 +81,7 @@
 .fc-button.fc-state-active,
 .fc-button.fc-state-default {
   background-color: var(--color-primary);
+  font-family: var(--font);
 }
 
 /*Hex color :hover */
