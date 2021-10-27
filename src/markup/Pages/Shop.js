@@ -341,7 +341,7 @@ const Shop = (props) => {
                           <div className="acod-head">
                             <h5 className="acod-title">
                               <Link data-toggle="collapse" to="#categories">
-                                Product categories
+                                Categories
                               </Link>
                             </h5>
                           </div>

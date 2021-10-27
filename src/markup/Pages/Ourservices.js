@@ -205,7 +205,7 @@ const Ourservices = () => {
           <div class="container1 mb-5" style={{ backgroundImage: "url(" + img2 + ")" }}>
             {courses &&
               courses.map((course) => (
-                <div class="card ">
+                <div class="card">
                   <div class="card-header1">
                     <img src={course.post_image} alt="rover" />
                   </div>
@@ -213,9 +213,10 @@ const Ourservices = () => {
                     <span class="tag tag-teal">{course.postsubcategory}</span>
                     <h5>{course.posttitle}</h5>
                     <p className="mb-2">
-                      <div dangerouslySetInnerHTML={{ __html: course.postcontent.substring(0, 150) }} />
+                      {/* <div dangerouslySetInnerHTML={{ __html: course.postcontent.substring(0, 150) }} /> */}
+                      <div dangerouslySetInnerHTML={{ __html: course.postcontent }} />
                     </p>
-                    <div className="user">
+                    <div className="user d-none">
                       <a href={course.courselink} target="_blank">
                         Learn more ...
                       </a>
@@ -296,8 +297,8 @@ const Ourservices = () => {
                       <h3>CRAFT & HOBBY CLASSES AT TSALA STUDIO</h3>
                       <p>Do you want to learn stitching, quilting, pursue a hobby from basics or would like to fine tune your creative skills..?</p>
                       <p>Then..Firstly thank yourself for taking some time out of your routine schedule to showcase your creativity and also finding a fun way to meet new people. Join our Art and Craft classes in Bangalore coz... #hobbyisfun</p>
-                      <Link to="/our-services" className="btn btnhover">
-                        Click here for more Hobby Clases
+                      <Link to="/contact-1" className="btn btnhover">
+                        Contact for more Hobby Clases
                       </Link>
                     </div>
                   </div>
