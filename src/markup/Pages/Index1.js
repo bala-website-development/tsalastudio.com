@@ -78,9 +78,15 @@ const Index1 = () => {
                           <h2 className="dlab-tilte text-white">{cat.title}</h2>
                           <p>{cat.subtitle}</p>
                           <div className="dlab-separator style1 bg-primary"></div>
-                          <Link to={{ pathname: "/shop", category: cat.category }} className="btn btnhover">
-                            More details <i className="fa fa-angle-double-right m-l5"></i>
-                          </Link>
+                          {cat.category === "Course" ? (
+                            <Link to="/our-services" className="btn btnhover">
+                              More details <i className="fa fa-angle-double-right m-l5"></i>
+                            </Link>
+                          ) : (
+                            <Link to={{ pathname: "/shop", category: cat.category }} className="btn btnhover">
+                              More details <i className="fa fa-angle-double-right m-l5"></i>
+                            </Link>
+                          )}
                         </div>
                       </div>
                     </div>
