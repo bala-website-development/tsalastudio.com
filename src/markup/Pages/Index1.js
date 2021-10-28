@@ -267,7 +267,7 @@ const Index1 = () => {
           </div>
 
           <div className="section-full bg-white " style={{ backgroundImage: "url(" + img3 + ")", backgroundSize: "100%" }}>
-            <div className="container d-none">
+            <div className="container ">
               <div className="row">
                 <div className="col-lg-12">
                   <div className="section-head text-center">
