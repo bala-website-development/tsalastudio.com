@@ -52,7 +52,7 @@ class Footer extends Component {
                       <Link to={"/blog-half-img-sidebar"}>Blog</Link>
                     </li>
                     <li>
-                      <Link to={"/shop"}>Products</Link>
+                      <Link to={"/shop"}>Shop</Link>
                     </li>
                     <li>
                       <Link to={"/contact-1"}>Contact</Link>
