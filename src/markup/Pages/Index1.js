@@ -99,7 +99,7 @@ const Index1 = () => {
                       <img className="rounded" width="200px" src={config.logo} alt="" />
                     </div>
                     <h3 className="text-primary">{config.aboutustitle}</h3>
-                    <p className="main-text">{config.aboutus1} </p>
+                    <p className="">{config.aboutus1} </p>
                     <p>{config.aboutus2}</p>
                     <div>
                       <A_Newsletter />
