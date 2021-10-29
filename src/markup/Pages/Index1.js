@@ -176,9 +176,9 @@ const Index1 = () => {
               <div className="row faq-area1">
                 <div className="col-lg-6 m-b20">
                   <div className="m-r20">
-                    <div className="section-head text-left">
-                      <h2>Why Tsala..?</h2>
-                      <p className="text-bold">At Tsala, we conduct classes for the craft enthusiasts to learn:</p>
+                    <div className="text-left">
+                      <h2>Why Tsala ?</h2>
+                      <p className="">We believe in motivating and encouraging many minds to come forward.</p>
                       <div className="dlab-separator style1 bg-primary"></div>
                     </div>
                     <div className="clearfix">
@@ -298,7 +298,7 @@ const Index1 = () => {
                         <CountUp end={10} />
                       </span>
                     </div>
-                    <span className="counter-text">Awards Wins</span>
+                    <span className="counter-text">Awards Won</span>
                   </div>
                 </div>
                 <div className="col-lg-3 col-md-6 col-sm-6 col-6 m-b30">

@@ -28,7 +28,7 @@ class Footer extends Component {
                     </li>
                     <li>
                       <i className="fa fa-envelope"></i>
-                      <p>{config.contact_email}</p>
+                      <p className="text-lowercase">{config.contact_email}</p>
                     </li>
                   </ul>
                 </div>
