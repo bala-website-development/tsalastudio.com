@@ -143,37 +143,42 @@ const Shopcart = () => {
                       {!loading ? (
                         cartDetails.length > 0 ? (
                           cartDetails.map((cart, key) => (
-                            <tr className="alert">
-                              <td className="product-item-img">
-                                <img src={cart.p_image} alt="" />
+                            <tr>
+                              <td colSpan="6">
+                                <tr className="alert">
+                                  <td className="product-item-img" style={{ width: "20%" }}>
+                                    <img src={cart.p_image} alt="" />
+                                  </td>
+                                  <td className="product-item-name" style={{ width: "25%" }}>{cart.p_name}</td>
+                                  <td className="product-item-price" style={{ width: "20%" }}>{cart.p_price}</td>
+                                  <td className="product-item-quantity" style={{ width: "23%" }}>
+                                    <div className="quantity btn-quantity max-w80">
+                                      {/* <Form> */}
+                                      <select id={key} className="drpquantity" onChange={(e) => updateCartQuantity(cart.id, e.target.value)} defaultValue={cart.p_quantity}>
+                                        <option value={1}>1</option>
+                                        <option value={2}>2</option>
+                                        <option value={3}>3</option>
+                                        <option value={4}>4</option>
+                                        <option value={5}>5</option>
+                                      </select>
+                                    </div>
+                                  </td>
+                                  <td className="product-item-totle" style={{ width: "23%" }}>
+                                    <i class="fa fa-inr"></i> {cart.p_price * cart.p_quantity}
+                                  </td>
+                                  <td className="product-item-close" style={{ width: "23%" }}>
+                                    <Link
+                                      onClick={(e) => {
+                                        deleteCart([cart.id]);
+                                      }}
+                                      data-dismiss="alert"
+                                      aria-label="close"
+                                      className="ti-close"
+                                    ></Link>
+                                  </td>
+                                </tr>
                               </td>
-                              <td className="product-item-name">{cart.p_name}</td>
-                              <td className="product-item-price">{cart.p_price}</td>
-                              <td className="product-item-quantity">
-                                <div className="quantity btn-quantity max-w80">
-                                  {/* <Form> */}
-                                  <select id={key} className="drpquantity" onChange={(e) => updateCartQuantity(cart.id, e.target.value)} defaultValue={cart.p_quantity}>
-                                    <option value={1}>1</option>
-                                    <option value={2}>2</option>
-                                    <option value={3}>3</option>
-                                    <option value={4}>4</option>
-                                    <option value={5}>5</option>
-                                  </select>
-                                </div>
-                              </td>
-                              <td className="product-item-totle">
-                                <i class="fa fa-inr"></i> {cart.p_price * cart.p_quantity}
-                              </td>
-                              <td className="product-item-close">
-                                <Link
-                                  onClick={(e) => {
-                                    deleteCart([cart.id]);
-                                  }}
-                                  data-dismiss="alert"
-                                  aria-label="close"
-                                  className="ti-close"
-                                ></Link>
-                              </td>
+
                             </tr>
                           ))
                         ) : (
