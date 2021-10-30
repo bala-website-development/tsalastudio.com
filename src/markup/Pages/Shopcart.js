@@ -135,20 +135,18 @@ const Shopcart = () => {
                           <b>Product</b>
                         </div>
                         <div className="w-30">
-                          <b>Product name</b>
+                          <b>Name</b>
                         </div>
                         <div className="w-25">
-                          <b>Unit Price</b>
+                          <b>Price</b>
                         </div>
-                        <div className="w-10">
-                          <b>Quantity</b>
+                        <div className="w-25">
+                          <b>Qty.</b>
                         </div>
                         <div className="w-25">
                           <b>Total</b>
                         </div>
-                        <div className="w-10">
-                          <b>Remove</b>
-                        </div>
+                        <div className="w-10"></div>
                       </div>
                     </thead>
                     <tbody>
@@ -161,16 +159,21 @@ const Shopcart = () => {
                               </div>
                               <div className="w-30">{cart.p_name}</div>
                               <div className="w-25">{cart.p_price}</div>
-                              <div className="w-10">
+                              <div className="w-25">
                                 <select id={key} className="drpquantity" onChange={(e) => updateCartQuantity(cart.id, e.target.value)} defaultValue={cart.p_quantity}>
                                   <option value={1}>1</option>
                                   <option value={2}>2</option>
                                   <option value={3}>3</option>
                                   <option value={4}>4</option>
                                   <option value={5}>5</option>
+                                  <option value={6}>6</option>
+                                  <option value={7}>7</option>
+                                  <option value={8}>8</option>
+                                  <option value={9}>9</option>
+                                  <option value={10}>10</option>
                                 </select>
                               </div>
-                              <div className="w-25">
+                              <div className="w-25 text-nowrap">
                                 {" "}
                                 <i class="fa fa-inr"></i> {cart.p_price * cart.p_quantity}
                               </div>
