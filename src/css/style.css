@@ -143,6 +143,12 @@ select.form-control:not([size]):not([multiple]) {
   border-radius: 3px;
   display: inline !important;
 }
+.w-10 {
+  width: 10%;
+}
+.w-30 {
+  width: 30%;
+}
 
 .container1 {
   display: flex;
