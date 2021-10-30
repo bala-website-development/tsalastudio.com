@@ -103,7 +103,7 @@ const Shopchekout = () => {
       orderid: uuid(),
       orderstatus: "Ordered",
       paymentstatus: "NotReceived",
-      paymentmethod: "CashOnDelivery",
+      paymentmethod: "",
       deliverystatus: "InProgress",
       deliverydate: "",
       orderdate: new Date(),
@@ -133,11 +133,9 @@ const Shopchekout = () => {
             setCartDetails([]);
             setStatus(true);
             history.push("/success");
-          }
-          else if (data?.status === 499) {
+          } else if (data?.status === 499) {
             history.push("/shop-login");
-          }
-          else {
+          } else {
             setMessage(data.message);
             setStatus(true);
           }

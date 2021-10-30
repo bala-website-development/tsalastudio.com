@@ -143,6 +143,12 @@ select.form-control:not([size]):not([multiple]) {
   border-radius: 3px;
   display: inline !important;
 }
+.w-10 {
+  width: 10%;
+}
+.w-30 {
+  width: 30%;
+}
 
 .container1 {
   display: flex;
@@ -14410,8 +14416,8 @@ pre {
   left: 50%;
 }
 .drpquantity {
-  padding: 5px;
-  border-radius: 5px;
-  padding-left: 10px;
+  padding: 3px;
+  border-radius: 3px;
+  padding-left: 7px;
   padding-right: 5px;
 }
