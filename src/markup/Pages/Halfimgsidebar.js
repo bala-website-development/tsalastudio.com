@@ -83,45 +83,49 @@ const Halfimgsidebar = () => {
               <div className="row">
                 <div className="col-lg-8">
                   {!loading ? (
-                    postsToShow.map((item, index) => (
-                      <>
-                        <div className="blog-post blog-md clearfix blog-rounded">
-                          <div className="dlab-post-media dlab-img-effect zoom-slow " key={index}>
-                            <Link to={"/blog-single-sidebar/" + item.slug}>
-                              <img src={item.post_image} alt="" />
-                            </Link>
-                          </div>
-                          <div className="dlab-post-info">
-                            <div className="dlab-post-title">
-                              <h4 className="post-title">
-                                <Link to={"/blog-single-sidebar/" + item.slug}>{item.posttitle}</Link>
-                              </h4>
-                            </div>
-                            <div className="dlab-post-meta">
-                              <div className="post-author-thumb">
+                    postsToShow.length > 0 ? (
+                      postsToShow.map((item, index) => (
+                        <>
+                          <div className="blog-post blog-md clearfix blog-rounded">
+                            <div className="dlab-post-media dlab-img-effect zoom-slow " key={index}>
+                              <Link to={"/blog-single-sidebar/" + item.slug}>
                                 <img src={item.post_image} alt="" />
-                              </div>
-                              <ul>
-                                <li className="post-author">
-                                  <Link to={""}>{item.createdby}</Link>{" "}
-                                </li>
-                                <li className="post-date">{item.displaydate}</li>
-                              </ul>
-                            </div>
-                            <div className="dlab-post-text">
-                              <p>
-                                <div dangerouslySetInnerHTML={{ __html: item.postcontent.substring(0, 150) }} />
-                              </p>
-                            </div>
-                            <div className="dlab-post-readmore">
-                              <Link to={"/blog-single-sidebar/" + item.slug} title="READ MORE" rel="bookmark" className="btn btn-sm btn1 btnhover">
-                                <i className="fa fa-angle-right"></i>READ MORE
                               </Link>
                             </div>
+                            <div className="dlab-post-info">
+                              <div className="dlab-post-title">
+                                <h4 className="post-title">
+                                  <Link to={"/blog-single-sidebar/" + item.slug}>{item.posttitle}</Link>
+                                </h4>
+                              </div>
+                              <div className="dlab-post-meta">
+                                <div className="post-author-thumb">
+                                  <img src={item.post_image} alt="" />
+                                </div>
+                                <ul>
+                                  <li className="post-author">
+                                    <Link to={""}>{item.createdby}</Link>{" "}
+                                  </li>
+                                  <li className="post-date">{item.displaydate}</li>
+                                </ul>
+                              </div>
+                              <div className="dlab-post-text">
+                                <p>
+                                  <div dangerouslySetInnerHTML={{ __html: item.postcontent.substring(0, 150) }} />
+                                </p>
+                              </div>
+                              <div className="dlab-post-readmore">
+                                <Link to={"/blog-single-sidebar/" + item.slug} title="READ MORE" rel="bookmark" className="btn btn-sm btn1 btnhover">
+                                  <i className="fa fa-angle-right"></i>READ MORE
+                                </Link>
+                              </div>
+                            </div>
                           </div>
-                        </div>
-                      </>
-                    ))
+                        </>
+                      ))
+                    ) : (
+                      <div className="p-2 border rounded mb-2"> No Post available. Please check after sometime.</div>
+                    )
                   ) : (
                     <div className="p-2 border round"> Please wait while we are loading post</div>
                   )}
