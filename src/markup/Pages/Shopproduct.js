@@ -370,7 +370,7 @@ const Shopproduct = (props) => {
             <div class="container">
               <h2 class="title">Related products</h2>
               <div class="products-carousel">
-                <Carousel autoPlay={true} responsive={responsive} arrows={false}>
+                <Carousel autoPlay={true} responsive={responsive} arrows={true}>
                   {relatedProd.length > 0 &&
                     relatedProd.map((rel) => (
                       <div className="p-a15">

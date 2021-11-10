@@ -24,6 +24,7 @@ import work_pic3 from "./../../images/our-work/pic3.jpg";
 import pic3 from "./../../images/about/pic3.jpg";
 import A_Newsletter from "./A_Newsletter";
 import SideBar from "./../Element/SideBar";
+import Testimonial from "./../Element/Testimonial";
 //Images
 // var img1 = require("./../../images/background/bg5.jpg");
 // var serblog1 = require("./../../images/our-services/pic1.jpg");
@@ -264,6 +265,9 @@ const Index1 = () => {
                 </div>
               </div>
             </div>
+          </div>
+          <div id="testimonial" className="container">
+            <Testimonial />
           </div>
 
           <div className="section-full bg-white " style={{ backgroundImage: "url(" + img3 + ")", backgroundSize: "100%" }}>
