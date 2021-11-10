@@ -17,9 +17,9 @@ const Testimonial = (props) => {
       .then((data1) => {
         if (data1.status === 200) {
           let active1 = data1.data
-            .filter((filter1, index) => filter1.isactive === "1")
-            .map((data) => {
-              return data;
+            .filter((filter1, index) => filter1.isactive === "1" || filter1.isactive === 1)
+            .map((d) => {
+              return d;
             });
           setProducts(active1);
           console.log("gettestimonial", active1);
