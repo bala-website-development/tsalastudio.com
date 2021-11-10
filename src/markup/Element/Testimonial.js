@@ -7,6 +7,7 @@ import work_pic1 from "./../../images/our-work/pic1.jpg";
 import work_pic2 from "./../../images/our-work/pic1.jpg";
 import work_pic3 from "./../../images/our-work/pic1.jpg";
 import config from "../../config.json";
+import Carousel from "react-multi-carousel";
 const Testimonial = (props) => {
   const [products, setProducts] = useState([]);
   const [networkError, setNetworkError] = useState("");
@@ -31,35 +32,55 @@ const Testimonial = (props) => {
       });
   };
 
+  const responsive = {
+    superLargeDesktop: {
+      breakpoint: { max: 4000, min: 3000 },
+      items: 5,
+    },
+    desktop: {
+      breakpoint: { max: 3000, min: 1024 },
+      items: 4,
+    },
+    tablet: {
+      breakpoint: { max: 1024, min: 464 },
+      items: 2,
+    },
+    mobile: {
+      breakpoint: { max: 464, min: 0 },
+      items: 1,
+    },
+  };
   useEffect(() => {
     getTestimonial();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (
-    <div className="m-r20 mt-5">
-      <div className="section-head text-left">
-        <h2>Testimonial</h2>
-        <div className="dlab-separator style1 bg-primary"></div>
-      </div>
-
+    <div className="">
       <div>
-        <div class="container1 mb-5">
-          {products.length > 0 &&
-            products.map((course) => (
-              <div class="card">
-                <div class="card-header1">
-                  <img src={course.t_image} alt="rover" />
-                </div>
-                <div class="card-body dangerous">
-                  <h5>{course.t_title}</h5>
-                  <p className="mb-2">
-                    {/* <div dangerouslySetInnerHTML={{ __html: course.postcontent.substring(0, 150) }} /> */}
-                    <div dangerouslySetInnerHTML={{ __html: course.t_content }} />
-                  </p>
-                </div>
-              </div>
-            ))}
+        <div class="section-full related-products bg-gray-light">
+          <div class="container">
+            <h2 class="title">Testimonial</h2>
+            <div class="products-carousel">
+              <Carousel autoPlay={true} responsive={responsive} arrows={true}>
+                {products.length > 0 &&
+                  products.map((course) => (
+                    <div className="p-a15">
+                      <div class="item-img">
+                        <img src={course.t_image} alt="rover" />
+                      </div>
+                      <div class="card-body dangerous bg-white">
+                        <h5>{course.t_title}</h5>
+                        <p className="mb-2">
+                          {/* <div dangerouslySetInnerHTML={{ __html: course.postcontent.substring(0, 150) }} /> */}
+                          <div dangerouslySetInnerHTML={{ __html: course.t_content }} />
+                        </p>
+                      </div>
+                    </div>
+                  ))}
+              </Carousel>
+            </div>
+          </div>
         </div>
       </div>
     </div>
