@@ -53,9 +53,9 @@ const Header = (props) => {
               <span></span>
             </button>
 
-            <div className={`header-nav navbar-collapse navbar myNavbar collapse justify-content-between ${toggleShow ? "show" : "hide"}`} id="navbarNavDropdown">
+            <div className={`header-nav navbar-collapse aligntopsidebar navbar myNavbar collapse justify-content-between ${toggleShow ? "show" : "hide"}`} id="navbarNavDropdown">
               {toggleShow === true && (
-                <div className="logo-header mostion">
+                <div className="logo-header mostion d-none">
                   <Link to={"/"} className="dez-page">
                     <img src={config.logo} alt="" />
                   </Link>
@@ -63,6 +63,11 @@ const Header = (props) => {
               )}
               {toggleShow === true ? (
                 <ul className="nav navbar-nav nav1">
+                  <li>
+                    <div className="logo-header mostion ">
+                      <img src={config.logo} alt="tsalastudio" className="w-50" />
+                    </div>
+                  </li>
                   <li>
                     {localStorage.getItem("uuid") === undefined || localStorage.getItem("uuid") === null ? (
                       <></>
