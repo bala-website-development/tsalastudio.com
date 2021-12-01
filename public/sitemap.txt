@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /contact
+Allow: /about
+Allow: /shop
+Allow: /our-services
+Sitemap: https://www.aadila.in/sitemap.txt

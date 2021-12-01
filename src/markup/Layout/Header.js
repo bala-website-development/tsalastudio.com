@@ -97,7 +97,7 @@ const Header = (props) => {
                     <Link to={"/"}>Home</Link>
                   </li>
                   <li className={props?.active === "about" ? "active" : ""}>
-                    <Link to={"/about-1"}>About Us</Link>
+                    <Link to={"/about"}>About Us</Link>
                   </li>
                   <li className={props?.active === "service" ? "active" : ""}>
                     <Link to={"/our-services"}>Course</Link>
@@ -107,7 +107,7 @@ const Header = (props) => {
                   </li> */}
 
                   <li className={props?.active === "shop" ? "active" : ""}>
-                    <Link to={"/blog-half-img-sidebar"}>Blog</Link>
+                    <Link to={"/blog"}>Blog</Link>
                   </li>
                   <li className={props?.active === "shop" ? "active" : ""}>
                     <Link to={"/shop"}>Shop</Link>
@@ -127,7 +127,7 @@ const Header = (props) => {
                    */}
                   </li>
                   <li className={props?.active === "contact" ? "active" : ""}>
-                    <Link to={"/contact-1"}>Contact Us</Link>
+                    <Link to={"/contact"}>Contact Us</Link>
                   </li>
                   {localStorage.getItem("uuid") === undefined || localStorage.getItem("uuid") === null ? (
                     <li>
@@ -165,11 +165,11 @@ const Header = (props) => {
                   </ul> */}
                     </li>
                     <li className={props?.active === "about" ? "active" : ""}>
-                      <Link to={"/about-1"}>About Us</Link>
+                      <Link to={"/about"}>About Us</Link>
 
                       {/* <ul className="sub-menu">
                     <li>
-                      <Link to={"/about-1"}>About Us</Link>
+                      <Link to={"/about"}>About Us</Link>
                     </li>
 
                     <li>
@@ -195,7 +195,7 @@ const Header = (props) => {
                     </li> */}
 
                     <li className={props?.active === "blog" ? "active" : ""}>
-                      <Link to={"/blog-half-img-sidebar"}>Blog</Link>
+                      <Link to={"/blog"}>Blog</Link>
                     </li>
                     <li className={props?.active === "shop" ? "active" : ""}>
                       <Link to={"/shop"}>Shop</Link>
@@ -228,10 +228,10 @@ const Header = (props) => {
                       </ul>
                     </li>*/}
                     <li className={props?.active === "contact" ? "active" : ""}>
-                      <Link to={"/contact-1"}>Contact Us</Link>
+                      <Link to={"/contact"}>Contact Us</Link>
                       {/* <ul className="sub-menu left">
                     <li>
-                      <Link to={"/contact-1"}>Contact Us 1</Link>
+                      <Link to={"/contact"}>Contact Us 1</Link>
                     </li>
                     <li>
                       <Link to={"/contact-2"}>Contact Us 2</Link>

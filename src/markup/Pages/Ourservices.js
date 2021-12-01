@@ -297,7 +297,7 @@ const Ourservices = () => {
                       <h3>CRAFT & HOBBY CLASSES AT TSALA STUDIO</h3>
                       <p>Do you want to learn stitching, quilting, pursue a hobby from basics or would like to fine tune your creative skills..?</p>
                       <p>Then..Firstly thank yourself for taking some time out of your routine schedule to showcase your creativity and also finding a fun way to meet new people. Join our Art and Craft classes in Bangalore coz... #hobbyisfun</p>
-                      <Link to="/contact-1" className="btn btnhover">
+                      <Link to="/contact" className="btn btnhover">
                         Contact for more Hobby Clases
                       </Link>
                     </div>

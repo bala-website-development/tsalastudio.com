@@ -257,7 +257,7 @@ class About extends Component {
                       <div class="section-head text-center">
                         <h3>Thanks for reaching us</h3>
                         <p>Better yet, see us in person! We love our customers, so feel free to visit during normal business hours.</p>
-                        <Link to={"contact-1"} className="btn-secondry   btn btnhover btn-md">
+                        <Link to={"contact"} className="btn-secondry   btn btnhover btn-md">
                           <i className="fas fas-cart"></i>Contact us
                         </Link>
                       </div>

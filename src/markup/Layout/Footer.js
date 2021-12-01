@@ -42,20 +42,20 @@ class Footer extends Component {
                       <Link to={"/"}>Home</Link>
                     </li>
                     <li>
-                      <Link to={"/about-1"}>About</Link>
+                      <Link to={"/about"}>About</Link>
                     </li>
                     <li>
                       <Link to={"/our-services"}>Our Courses</Link>
                     </li>
 
                     <li>
-                      <Link to={"/blog-half-img-sidebar"}>Blog</Link>
+                      <Link to={"/blog"}>Blog</Link>
                     </li>
                     <li>
                       <Link to={"/shop"}>Shop</Link>
                     </li>
                     <li>
-                      <Link to={"/contact-1"}>Contact</Link>
+                      <Link to={"/contact"}>Contact</Link>
                     </li>
                   </ul>
                 </div>
