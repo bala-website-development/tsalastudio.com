@@ -107,7 +107,9 @@ const Shopchekout = () => {
       deliverystatus: "InProgress",
       deliverydate: "",
       orderdate: new Date(),
-      grosstotal: subTotal,
+      tax: (subTotal * config.taxpercentage) / 100,
+      shipping: subTotal < config.freeshippingcost ? config.shippingcost : 0,
+      grosstotal: subTotal + (subTotal * config.taxpercentage) / 100 + (subTotal < config.freeshippingcost ? config.shippingcost : 0),
       userid: localStorage.getItem("uuid"),
       usernotes: notes,
       billingaddress: userAddress[0],
@@ -246,9 +248,9 @@ const Shopchekout = () => {
                 </div>
                 <div className="col-lg-6 col-md-12 m-b30 m-md-b0">
                   <h3>
-                    <button className="btn-link text-black" type="button" data-toggle="collapse" data-target="#different-address">
+                    <button className="btn-link text-black" type="button" data-toggle="collapse" data-target="#different-address1">
                       {/* Ship to a different address <i className="fa fa-angle-down"></i> */}
-                      User notes <i className="fa fa-angle-down"></i>
+                      User notes / Instructions <i className="fa fa-angle-down d-none"></i>
                     </button>
                   </h3>
                   <div id="different-address" className="collapse">
@@ -378,18 +380,23 @@ const Shopchekout = () => {
                           </tr>
                           <tr>
                             <td>Shipping</td>
-                            <td>Free Shipping</td>
-                          </tr>
-                          <tr>
-                            <td>Tax</td>
-                            <td className="product-price">
-                              <i class="fa fa-inr"></i> 0.00
+                            <td>
+                              <i class="fa fa-inr"></i> {subTotal < config.freeshippingcost ? config.shippingcost : 0}
+                              <div className={subTotal < config.freeshippingcost ? "small" : "d-none"}>
+                                {config.freeshippingmessage} <i class="fa fa-inr"></i> {config.freeshippingcost}
+                              </div>
                             </td>
                           </tr>
                           <tr>
+                            <td>Tax({config.taxpercentage}%)</td>
+                            <td>
+                              <i class="fa fa-inr"></i> {(subTotal * (config.taxpercentage / 100)).toFixed(2)}
+                            </td>
+                          </tr>
+                          <tr className="bg-primary text-light">
                             <td>Total</td>
-                            <td className="product-price-total">
-                              <i class="fa fa-inr"></i> {subTotal}
+                            <td>
+                              <i class="fa fa-inr"></i> {subTotal + (subTotal * config.taxpercentage) / 100 + (subTotal < config.freeshippingcost ? config.shippingcost : 0)}
                             </td>
                           </tr>
                         </tbody>
