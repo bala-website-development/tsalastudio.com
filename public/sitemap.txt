@@ -1,6 +1,6 @@
-User-agent: *
-Allow: /contact
-Allow: /about
-Allow: /shop
-Allow: /our-services
-Sitemap: https://www.aadila.in/sitemap.txt
+https://www.tsalastudio.com/
+https://www.tsalastudio.com/about
+https://www.tsalastudio.com/contact
+https://www.tsalastudio.com/shop
+https://www.tsalastudio.com/our-services
+https://www.tsalastudio.com/blog
