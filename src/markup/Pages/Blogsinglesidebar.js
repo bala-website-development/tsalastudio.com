@@ -174,7 +174,7 @@ const Blogsinglesidebar = (props) => {
                         </div>
                       </div>
                       <div className="row mb-5">
-                        <Link to="/blog-half-img-sidebar" className="btn btnhover p-2">
+                        <Link to="/blog" className="btn btnhover p-2">
                           All Posts
                         </Link>
                       </div>

@@ -61,20 +61,20 @@ class Markup extends Component {
           {/* <Route path="/admin" exact component={Admin} /> */}
           <Route path="/myprofile" exact component={Myprofile} />
           <Route path="/orderhistory" exact component={Orderhistory} />
-          <Route path="/about-1" exact component={About} />
+          <Route path="/about" exact component={About} />
           <Route path="/our-services" exact component={Ourservices} />
           <Route path="/faq" exact component={Faq} />
-          <Route path="/booking" exact component={Booking} />
+          {/* <Route path="/booking" exact component={Booking} /> */}
           <Route path="/error-404" exact component={Error} />
           <Route path="/success" exact component={Success} />
           <Route path="/calendar" exact component={Calendar} />
           <Route path="/team" exact component={Team} />
           <Route path="/password-success" exact component={PasswordChanged} />
-
+          {/* 
           <Route path="/our-menu-1" exact component={Ourmenustyle1} />
           <Route path="/our-menu-2" exact component={Ourmenustyle2} />
           <Route path="/our-menu-3" exact component={Ourmenustyle3} />
-          <Route path="/our-menu-4" exact component={Ourmenustyle4} />
+          <Route path="/our-menu-4" exact component={Ourmenustyle4} /> */}
 
           <Route path="/blog-grid-2" exact component={Bloggrid2} />
           <Route path="/blog-grid-2-sidebar" exact component={Bloggridrightsidebar} />
@@ -82,12 +82,12 @@ class Markup extends Component {
           <Route path="/blog-grid-3" exact component={Bloggride3} />
 
           <Route path="/blog-half-img" exact component={Bloghalfimg} />
-          <Route path="/blog-half-img-sidebar" exact component={Halfimgsidebar} />
-          <Route path="/blog-half-img-left-sidebar" exact component={Halfimgleftsidebar} />
+          <Route path="/blog" exact component={Halfimgsidebar} />
+          {/* <Route path="/blog-half-img-left-sidebar" exact component={Halfimgleftsidebar} />
 
           <Route path="/blog-large-img" exact component={Bloglargeimg} />
           <Route path="/blog-large-img-sidebar" exact component={Bloglargeimgsidebar} />
-          <Route path="/blog-large-img-left-sidebar" exact component={Bloglargeimgleftsidebar} />
+          <Route path="/blog-large-img-left-sidebar" exact component={Bloglargeimgleftsidebar} /> */}
 
           <Route path="/blog-single" exact component={Blogsingle} />
           <Route path="/blog-single-sidebar/:id" exact component={Blogsinglesidebar} />
@@ -102,8 +102,7 @@ class Markup extends Component {
           <Route path="/shop-login" exact component={Shoplogin} />
           <Route path="/shop-register" exact component={Shopregister} />
 
-          <Route path="/contact-1" exact component={Contact} />
-          <Route path="/contact-2" exact component={Contact2} />
+          <Route path="/contact" exact component={Contact} />
         </Switch>
       </BrowserRouter>
     );
