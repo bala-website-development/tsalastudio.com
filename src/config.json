@@ -1,7 +1,7 @@
 {
   "domain": "tsalastudio.com",
   "storage": "tsalastudio.com",
-  "service_url": "https://asia-south1-tucfbclouddb.cloudfunctions.net/tuc_shop_node_api/api/",
+  "service_url": "http://localhost:8000/api/",
   "admin_url": "https://www.theuniquecreations.com/login/",
   "email_service_url": "https://asia-south1-tucfbclouddb.cloudfunctions.net/tuc_shop_node_api/email/",
   "============================": "==========================",
@@ -9,6 +9,7 @@
   "service_url_prod": "https://asia-south1-tucfbclouddb.cloudfunctions.net/tuc_shop_node_api/api/",
   "admin_url_local": "http://localhost:3001/login/",
   "service_url_local": "http://localhost:8000/api/",
+  "faviconimage": "https://firebasestorage.googleapis.com/v0/b/tucfbclouddb.appspot.com/o/tsalastudio.com%2Flogo%2Ftsalafavicon.png?alt=media&token=3bb6903e-81d0-4646-aaf7-914e364bb8d7",
   "logo": "https://firebasestorage.googleapis.com/v0/b/tucfbclouddb.appspot.com/o/tsalastudio.com%2Flogo%2Flogo.jpeg?alt=media&token=2a0ea36d-d6b0-4ad3-8701-a4daa8dda261",
   "slider": [
     {
@@ -52,7 +53,12 @@
   "whatsappurl": "https://wa.me/919880162266",
   "taxpercentage": 0,
   "shippingcost": 150,
+  "themecolor": "#2994ae",
+  "title": "TSALA Quilting Studio",
+  "description": "Quilting | Sewing | Tailoring | Art & Craft Workshop | Longarm Services",
   "razorpaylink": "https://pages.razorpay.com/tsalastudio",
+  "key_id": "rzp_test_y2rb715q4IMgED",
+  "key_secret": "YFKyovnDaTY94qJyIHt4LGLU",
   "tc1": "",
   "tc2": "",
   "tc3": "",

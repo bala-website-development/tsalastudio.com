@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Link, useHistory } from "react-router-dom";
 import Header from "./../Layout/Header";
 import Footer from "./../Layout/Footer";
+import Payment from "./../Element/Payment";
 import loadingimg from "./../../images/load.gif";
 import { Form } from "react-bootstrap";
 import config from "../../config.json";
@@ -125,16 +126,24 @@ const Shopchekout = () => {
     };
     console.log("input", data);
     console.log(_data);
+
+    //send amount, order id
     if (cartDetails.length > 0) {
       fetch(config.service_url + "placeOrder", { method: "POST", headers: { "Content-Type": "application/json", authorization: localStorage.getItem("accessToken") }, body: JSON.stringify({ data: _data }) })
         .then((response) => response.json())
         .then((data) => {
           if (data.status === 200) {
-            handleVisible();
-            setMessage(data.message);
+            //handleVisible();
+            //setMessage(data.message);
             setCartDetails([]);
+            console.log("order completed", data);
+            // call payemnt
+            history.push({
+              pathname: "/payment",
+              state: { amount: data.data.grosstotal, orderid: data.data.orderid, orderstatus: data.data.orderstatus, paymentstatus: data.data.paymentstatus, contactno: data.data.billingaddress.phonenumber, name: data.data.billingaddress.name, email: data.data.billingaddress.email },
+            });
             setStatus(true);
-            history.push("/success");
+            //history.push("/success");
           } else if (data?.status === 499) {
             history.push("/shop-login");
           } else {
@@ -430,6 +439,7 @@ const Shopchekout = () => {
                           </button>
                         )}
                       </div>
+                      {/* <div className="form-group d-none">{cartDetails.length > 0 && status === false && <Payment loadingstatus={loading} name={userAddress[0]?.name} email={userAddress[0]?.email} contactno={userAddress[0]?.contactno} amount={subTotal + (subTotal * config.taxpercentage) / 100 + (subTotal < config.freeshippingcost ? config.shippingcost : 0)} />}</div> */}
                       {/* </form> */}
                     </div>
                   )

@@ -10,6 +10,7 @@ import Faq from "./Pages/Faq";
 import Booking from "./Pages/Booking";
 import Error from "./Pages/Error";
 import Success from "./Pages/Success";
+import Payment from "./Pages/Payment";
 import Calendar from "./Pages/Calendar";
 import Team from "./Pages/Team";
 import PasswordChanged from "./Pages/PasswordChanged";
@@ -67,6 +68,7 @@ class Markup extends Component {
           {/* <Route path="/booking" exact component={Booking} /> */}
           <Route path="/error-404" exact component={Error} />
           <Route path="/success" exact component={Success} />
+          <Route path="/payment" exact component={Payment} />
           <Route path="/calendar" exact component={Calendar} />
           <Route path="/team" exact component={Team} />
           <Route path="/password-success" exact component={PasswordChanged} />
