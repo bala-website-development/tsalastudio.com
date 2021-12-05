@@ -68,7 +68,7 @@ const Payment = (props) => {
           paymentobj.on("payment.failed", function (response) {
             // log failure message
             // update payment failed in order page
-            // alert(response.error.code);
+            alert(response.error.code);
             // alert(response.error.description);
             // alert(response.error.source);
             // alert(response.error.step);
