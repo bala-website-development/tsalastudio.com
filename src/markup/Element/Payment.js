@@ -36,7 +36,7 @@ const Payment = (props) => {
           //setPaymentResponse(data.data);
           console.log("orderid", data.data.id);
           const options = {
-            key: dev ? "rzp_test_y2rb715q4IMgED" : config.key_id,
+            key: dev ? "rzp_test_anSQ2uSSoNWOyA" : config.key_id,
             amount: props.amount * 100,
             currency: "INR",
             name: config.title,
