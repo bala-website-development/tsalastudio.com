@@ -47,6 +47,20 @@ const Header = (props) => {
                 <img className="" src={config.logo} alt="" />
               </Link>
             </div>
+            <div className=" navbar-toggler collapsed">
+              <ul className="nav navbar-nav nav1">
+                <li>
+                  {localStorage.getItem("uuid") !== undefined && localStorage.getItem("uuid") !== null && (
+                    <>
+                      <Link to={"/shop-cart"}>
+                        <i className="ti-shopping-cart cart font-weight-bold"></i>
+                        <span className="mb-1 position-absolute top-50 start-100 translate-middle badge rounded-pill bg-danger text-light">{cartDetails.length > 0 ? cartDetails.length : 0}</span>
+                      </Link>
+                    </>
+                  )}
+                </li>
+              </ul>
+            </div>
             <button className="navbar-toggler collapsed navicon justify-content-end" type="button" onClick={toggle} data-toggle="collapse" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
               <span></span>
               <span></span>
@@ -77,7 +91,7 @@ const Header = (props) => {
                       </>
                     )}
                   </li>
-                  <li>
+                  <li className="d-none">
                     {localStorage.getItem("uuid") !== undefined && localStorage.getItem("uuid") !== null && (
                       <Link to={"/shop-cart"}>
                         {" "}

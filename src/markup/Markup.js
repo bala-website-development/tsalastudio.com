@@ -64,6 +64,7 @@ class Markup extends Component {
           <Route path="/orderhistory" exact component={Orderhistory} />
           <Route path="/about" exact component={About} />
           <Route path="/our-services" exact component={Ourservices} />
+          <Route path="/hobby-classes" exact component={Ourservices} />
           <Route path="/faq" exact component={Faq} />
           {/* <Route path="/booking" exact component={Booking} /> */}
           <Route path="/error-404" exact component={Error} />
