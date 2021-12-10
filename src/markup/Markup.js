@@ -63,6 +63,7 @@ class Markup extends Component {
           <Route path="/myprofile" exact component={Myprofile} />
           <Route path="/orderhistory" exact component={Orderhistory} />
           <Route path="/about" exact component={About} />
+          <Route path="/about-us" exact component={About} />
           <Route path="/our-services" exact component={Ourservices} />
           <Route path="/hobby-classes" exact component={Ourservices} />
           <Route path="/faq" exact component={Faq} />
