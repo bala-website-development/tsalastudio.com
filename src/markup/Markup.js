@@ -14,11 +14,7 @@ import Payment from "./Pages/Payment";
 import Calendar from "./Pages/Calendar";
 import Team from "./Pages/Team";
 import PasswordChanged from "./Pages/PasswordChanged";
-
-import Ourmenustyle1 from "./Pages/Ourmenustyle1";
-import Ourmenustyle2 from "./Pages/Ourmenustyle2";
-import Ourmenustyle3 from "./Pages/Ourmenustyle3";
-import Ourmenustyle4 from "./Pages/Ourmenustyle4";
+import TermsandCondition from "./Pages/TermsandCondition";
 
 import Bloggrid2 from "./Pages/Bloggrid2";
 import Bloggridrightsidebar from "./Pages/Bloggridrightsidebar";
@@ -87,6 +83,7 @@ class Markup extends Component {
 
           <Route path="/blog-half-img" exact component={Bloghalfimg} />
           <Route path="/blog" exact component={Halfimgsidebar} />
+          <Route path="/termsandcondition" exact component={TermsandCondition} />
           {/* <Route path="/blog-half-img-left-sidebar" exact component={Halfimgleftsidebar} />
 
           <Route path="/blog-large-img" exact component={Bloglargeimg} />
@@ -105,7 +102,6 @@ class Markup extends Component {
           <Route path="/shop-checkout" exact component={Shopchekout} />
           <Route path="/shop-login" exact component={Shoplogin} />
           <Route path="/shop-register" exact component={Shopregister} />
-
           <Route path="/contact" exact component={Contact} />
         </Switch>
       </BrowserRouter>
