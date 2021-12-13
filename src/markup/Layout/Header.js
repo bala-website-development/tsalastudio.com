@@ -155,11 +155,7 @@ const Header = (props) => {
                       <li>
                         <Link to={"/orderhistory"}>Order History</Link>
                       </li>
-                      {localStorage.getItem("role") !== undefined && localStorage.getItem("role") === "admin" && (
-                        <li>
-                          <Link to={"/admin"}>Admin</Link>
-                        </li>
-                      )}
+
                       <li>
                         <Link onClick={logout}>
                           <span>LogOut</span>
@@ -267,14 +263,7 @@ const Header = (props) => {
                             <li>
                               <Link to={"/orderhistory"}>Order History</Link>
                             </li>
-                            {localStorage.getItem("role") !== undefined && localStorage.getItem("role") === "admin" && (
-                              <li className="d-none">
-                                {/* <Link to={"/admin"}>Admin</Link> */}
-                                <a href={config.admin_url} target="_blank">
-                                  Admin
-                                </a>
-                              </li>
-                            )}
+
                             <li>
                               <Link onClick={logout}>
                                 <span>LogOut</span>
