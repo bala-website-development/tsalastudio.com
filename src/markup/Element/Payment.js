@@ -20,8 +20,8 @@ const Payment = (props) => {
     // call api for order api,  orderid, amount
 
     let _data = {
-      key_id: config.key_id,
-      key_secret: config.key_secret,
+      //key_id: config.key_id,
+      //key_secret: config.key_secret,
       amount: props.amount * 100, // get from order total
       currency: "INR",
       orderid: props.orderid, // get from orderid
@@ -36,7 +36,7 @@ const Payment = (props) => {
           //setPaymentResponse(data.data);
           console.log("orderid", data.data.id);
           const options = {
-            key: dev ? "rzp_test_anSQ2uSSoNWOyA" : config.key_id,
+            //key: dev ? "rzp_test_anSQ2uSSoNWOyA" : config.key_id,
             amount: props.amount * 100,
             currency: "INR",
             name: config.title,
