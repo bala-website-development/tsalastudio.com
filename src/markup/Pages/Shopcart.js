@@ -248,18 +248,24 @@ const Shopcart = () => {
                       </tr>
                       <tr>
                         <td>Shipping</td>
-                        <td>Free Shipping</td>
-                      </tr>
-                      <tr>
-                        <td>Tax</td>
                         <td>
-                          <i class="fa fa-inr"></i> 0.00
+                          <i class="fa fa-inr"></i> {subTotal < config.freeshippingcost ? config.shippingcost : 0}
+                          <br />
+                          <span className={subTotal < config.freeshippingcost ? "small" : "d-none"}>
+                            {config.freeshippingmessage} <i class="fa fa-inr"></i> {config.freeshippingcost}
+                          </span>
                         </td>
                       </tr>
                       <tr>
+                        <td>Tax({config.taxpercentage}%)</td>
+                        <td>
+                          <i class="fa fa-inr"></i> {(subTotal * config.taxpercentage) / 100}
+                        </td>
+                      </tr>
+                      <tr className="bg-primary text-light">
                         <td>Total</td>
                         <td>
-                          <i class="fa fa-inr"></i> {subTotal}
+                          <i class="fa fa-inr"></i> {subTotal + (subTotal * config.taxpercentage) / 100 + (subTotal < config.freeshippingcost ? config.shippingcost : 0)}
                         </td>
                       </tr>
                     </tbody>

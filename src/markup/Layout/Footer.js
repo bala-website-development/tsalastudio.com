@@ -98,6 +98,11 @@ class Footer extends Component {
                     </li>
                   </ul>
                 </div>
+                <div>
+                  <a href={"/termsandcondition"}>
+                    <h5>Terms and Condition</h5>
+                  </a>
+                </div>
               </div>
             </div>
           </div>

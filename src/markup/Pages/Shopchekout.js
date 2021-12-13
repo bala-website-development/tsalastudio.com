@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Link, useHistory } from "react-router-dom";
 import Header from "./../Layout/Header";
 import Footer from "./../Layout/Footer";
+import Payment from "./../Element/Payment";
 import loadingimg from "./../../images/load.gif";
 import { Form } from "react-bootstrap";
 import config from "../../config.json";
@@ -107,7 +108,9 @@ const Shopchekout = () => {
       deliverystatus: "InProgress",
       deliverydate: "",
       orderdate: new Date(),
-      grosstotal: subTotal,
+      tax: (subTotal * config.taxpercentage) / 100,
+      shipping: subTotal < config.freeshippingcost ? config.shippingcost : 0,
+      grosstotal: subTotal + (subTotal * config.taxpercentage) / 100 + (subTotal < config.freeshippingcost ? config.shippingcost : 0),
       userid: localStorage.getItem("uuid"),
       usernotes: notes,
       billingaddress: userAddress[0],
@@ -123,16 +126,24 @@ const Shopchekout = () => {
     };
     console.log("input", data);
     console.log(_data);
+
+    //send amount, order id
     if (cartDetails.length > 0) {
       fetch(config.service_url + "placeOrder", { method: "POST", headers: { "Content-Type": "application/json", authorization: localStorage.getItem("accessToken") }, body: JSON.stringify({ data: _data }) })
         .then((response) => response.json())
         .then((data) => {
           if (data.status === 200) {
-            handleVisible();
-            setMessage(data.message);
+            //handleVisible();
+            //setMessage(data.message);
             setCartDetails([]);
+            console.log("order completed", data);
+            // call payemnt
+            history.push({
+              pathname: "/payment",
+              state: { amount: data.data.grosstotal, orderid: data.data.orderid, orderstatus: data.data.orderstatus, paymentstatus: data.data.paymentstatus, contactno: data.data.billingaddress.phonenumber, name: data.data.billingaddress.name, email: data.data.billingaddress.email },
+            });
             setStatus(true);
-            history.push("/success");
+            //history.push("/success");
           } else if (data?.status === 499) {
             history.push("/shop-login");
           } else {
@@ -246,9 +257,9 @@ const Shopchekout = () => {
                 </div>
                 <div className="col-lg-6 col-md-12 m-b30 m-md-b0">
                   <h3>
-                    <button className="btn-link text-black" type="button" data-toggle="collapse" data-target="#different-address">
+                    <button className="btn-link text-black" type="button" data-toggle="collapse" data-target="#different-address1">
                       {/* Ship to a different address <i className="fa fa-angle-down"></i> */}
-                      User notes <i className="fa fa-angle-down"></i>
+                      User notes / Instructions <i className="fa fa-angle-down d-none"></i>
                     </button>
                   </h3>
                   <div id="different-address" className="collapse">
@@ -378,18 +389,23 @@ const Shopchekout = () => {
                           </tr>
                           <tr>
                             <td>Shipping</td>
-                            <td>Free Shipping</td>
-                          </tr>
-                          <tr>
-                            <td>Tax</td>
-                            <td className="product-price">
-                              <i class="fa fa-inr"></i> 0.00
+                            <td>
+                              <i class="fa fa-inr"></i> {subTotal < config.freeshippingcost ? config.shippingcost : 0}
+                              <div className={subTotal < config.freeshippingcost ? "small" : "d-none"}>
+                                {config.freeshippingmessage} <i class="fa fa-inr"></i> {config.freeshippingcost}
+                              </div>
                             </td>
                           </tr>
                           <tr>
+                            <td>Tax({config.taxpercentage}%)</td>
+                            <td>
+                              <i class="fa fa-inr"></i> {(subTotal * (config.taxpercentage / 100)).toFixed(2)}
+                            </td>
+                          </tr>
+                          <tr className="bg-primary text-light">
                             <td>Total</td>
-                            <td className="product-price-total">
-                              <i class="fa fa-inr"></i> {subTotal}
+                            <td>
+                              <i class="fa fa-inr"></i> {subTotal + (subTotal * config.taxpercentage) / 100 + (subTotal < config.freeshippingcost ? config.shippingcost : 0)}
                             </td>
                           </tr>
                         </tbody>
@@ -423,6 +439,7 @@ const Shopchekout = () => {
                           </button>
                         )}
                       </div>
+                      {/* <div className="form-group d-none">{cartDetails.length > 0 && status === false && <Payment loadingstatus={loading} name={userAddress[0]?.name} email={userAddress[0]?.email} contactno={userAddress[0]?.contactno} amount={subTotal + (subTotal * config.taxpercentage) / 100 + (subTotal < config.freeshippingcost ? config.shippingcost : 0)} />}</div> */}
                       {/* </form> */}
                     </div>
                   )
