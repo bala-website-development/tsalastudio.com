@@ -210,23 +210,25 @@ const Shopchekout = () => {
                   </div> */}
                   <div className="row">
                     <div className="form-group col-md-6">
-                      <input type="text" className="form-control" placeholder="First Name" defaultValue={userAddress[0]?.name} />
-                    </div>
-                    <div className="form-group col-md-6">
-                      <input type="text" className="form-control" placeholder="Last Name" defaultValue={userAddress[0]?.name} />
+                      Name
+                      <input type="text" className="form-control" placeholder="First Name + Lastname Name" defaultValue={userAddress[0]?.name} {...register("name")} />
                     </div>
                   </div>
                   <div className="form-group">
+                    Address
                     <input type="text" name="address" placeholder="Full Address" defaultValue={userAddress[0]?.address} className="form-control" {...register("address")} required />
                   </div>
                   <div className="form-group">
+                    City
                     <input type="text" name="city" placeholder="Village/Town/City" defaultValue={userAddress[0]?.city} className="form-control" {...register("city")} required />
                   </div>
                   <div className="row">
                     <div className="form-group col-md-6">
+                      State
                       <input type="text" className="form-control" placeholder="State" defaultValue={userAddress[0]?.state} name="state" {...register("state")} required />
                     </div>
                     <div className="form-group col-md-6">
+                      Pincode
                       <input type="text" className="form-control" placeholder="Pincode" defaultValue={userAddress[0]?.pincode} name="pincode" {...register("pincode")} required />
                     </div>
                   </div>
