@@ -58,7 +58,7 @@ class About extends Component {
                   <div className="col-lg-12 col-md-12 m-b30">
                     <div className="">
                       <p>{config.tc1}</p>
-                      <p>{config.tc2}</p>
+                      <div dangerouslySetInnerHTML={{ __html: config.tc2 }} />
                       <p>{config.tc3}</p>
                       <p>{config.tc4}</p>
                     </div>
