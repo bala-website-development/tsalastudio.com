@@ -57,10 +57,10 @@ class About extends Component {
                 <div className="row sp30">
                   <div className="col-lg-12 col-md-12 m-b30">
                     <div className="">
-                      <p>{config.tc1}</p>
-                      <div dangerouslySetInnerHTML={{ __html: config.tc2 }} />
-                      <p>{config.tc3}</p>
-                      <p>{config.tc4}</p>
+                      <div className="my-1" dangerouslySetInnerHTML={{ __html: config.tc1 }} />
+                      <div className="my-1" dangerouslySetInnerHTML={{ __html: config.tc2 }} />
+                      <div className="my-1" dangerouslySetInnerHTML={{ __html: config.tc3 }} />
+                      <div className="my-1" dangerouslySetInnerHTML={{ __html: config.tc4 }} />
                     </div>
                   </div>
                 </div>
