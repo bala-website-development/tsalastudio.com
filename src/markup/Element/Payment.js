@@ -105,7 +105,7 @@ const Payment = (props) => {
   return (
     <div>
       <button className="btn button-lg btnhover btn-block w-auto" type="button" onClick={displayRazorPay}>
-        Payment is {paymentResponse?.data?.status ? paymentResponse?.data?.status : "pending"}
+        Payment is {paymentResponse?.data?.status ? paymentResponse?.data?.status : "pending. Please Wait.."}
       </button>
     </div>
   );
