@@ -116,8 +116,8 @@ const Shopchekout = () => {
       billingaddress: userAddress[0],
       shippingaddress: {
         address: data.address === "" ? userAddress[0].address : data.address,
-        name: userAddress[0].name,
-        email: userAddress[0].email,
+        name: data.name === "" ? userAddress[0].name : data.name,
+        email: userAddress[0].email, // need to change , need to add filed in UI
         city: data.city === "" ? userAddress[0].city : data.city,
         state: data.state === "" ? userAddress[0].state : data.state,
         pincode: data.pincode === "" ? userAddress[0].pincode : data.pincode,
