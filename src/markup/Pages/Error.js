@@ -13,7 +13,7 @@ class Error extends Component {
         <Header />
 
         <div className="page-content bg-white">
-          <div className="dlab-bnr-inr overlay-black-middle" style={{ backgroundImage: "url(" + img1 + ")" }}>
+          <div className="dlab-bnr-inr overlay-black-middle bg-primary" style={{ backgroundImage: "url(" + img1 + ")" }}>
             <div className="container">
               <div className="dlab-bnr-inr-entry">
                 <h1 className="text-white">Error 404</h1>
@@ -45,6 +45,9 @@ class Error extends Component {
                         </h5>
                         <Link to={"./"} className="btn btnhover">
                           Go To Home
+                        </Link>{" "}
+                        <Link to={"./shop"} className="btn btnhover">
+                          Go To Shop{" "}
                         </Link>
                       </form>
                     </div>
