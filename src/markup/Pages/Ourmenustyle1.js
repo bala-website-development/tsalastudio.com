@@ -76,7 +76,6 @@ class Ourmenustyle1 extends Component {
             </div>
           </div>
         </div>
-
         <Footer />
       </div>
     );

@@ -186,7 +186,7 @@ const Orderhistory = (props) => {
                                           <th>Order Date</th>
                                           <th>Order status</th>
                                           <th>Delivery Status</th>
-                                          <th>Delivery Date</th>
+                                          <th className="d-none">Delivery Date</th>
                                           <th>Payemnt Method/Status</th>
                                           <th>Total</th>
                                         </tr>
@@ -198,7 +198,7 @@ const Orderhistory = (props) => {
                                             <td className="font-weight-light">{orderhistory.orderdate}</td>
                                             <td className="font-weight-light">{orderhistory.orderstatus}</td>
                                             <td className="font-weight-light">{orderhistory.deliverystatus}</td>
-                                            <td className="font-weight-light">{orderhistory.deliverydate}</td>
+                                            <td className="font-weight-light d-none">{orderhistory.deliverydate}</td>
                                             <td className="font-weight-light">
                                               {orderhistory.paymentmethod}/ {orderhistory.paymentstatus}
                                             </td>

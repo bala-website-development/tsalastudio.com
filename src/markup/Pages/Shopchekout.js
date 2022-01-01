@@ -117,11 +117,11 @@ const Shopchekout = () => {
       shippingaddress: {
         address: data.address === "" ? userAddress[0].address : data.address,
         name: data.name === "" ? userAddress[0].name : data.name,
-        email: userAddress[0].email, // need to change , need to add filed in UI
+        email: data.email === "" ? userAddress[0].email : data.email,
         city: data.city === "" ? userAddress[0].city : data.city,
         state: data.state === "" ? userAddress[0].state : data.state,
         pincode: data.pincode === "" ? userAddress[0].pincode : data.pincode,
-        phonenumber: userAddress[0].phonenumber,
+        phonenumber: data.phonenumber === "" ? userAddress[0].phonenumber : data.phonenumber,
       },
     };
     console.log("input", data);
@@ -213,6 +213,14 @@ const Shopchekout = () => {
                       Name
                       <input type="text" className="form-control" placeholder="First Name + Lastname Name" defaultValue={userAddress[0]?.name} {...register("name")} />
                     </div>
+                    <div className="form-group col-md-6">
+                      Email
+                      <input type="text" className="form-control" placeholder="EmailName" defaultValue={userAddress[0]?.email} {...register("email")} />
+                    </div>
+                  </div>
+                  <div className="form-group">
+                    Phonenumber
+                    <input type="text" name="phonenumber" placeholder="Phonenumber" defaultValue={userAddress[0]?.phonenumber} className="form-control" {...register("phonenumber")} required />
                   </div>
                   <div className="form-group">
                     Address

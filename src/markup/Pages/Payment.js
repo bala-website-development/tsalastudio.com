@@ -1,13 +1,22 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React, { Component, useEffect, useState } from "react";
+import { Link, useHistory } from "react-router-dom";
 import Header from "./../Layout/Header";
 import Payment from "./../Element/Payment";
 import Footer from "./../Layout/Footer";
 import img1 from "./../../images/banner/bnr1.jpg";
 import img2 from "./../../images/background/bg5.jpg";
 import { useLocation } from "react-router-dom";
+import config from "../../config.json";
+
 const PaymentPage = (props) => {
   const location = useLocation();
+  const history = useHistory();
+  useEffect(() => {
+    if (location.state === undefined) {
+      history.push("/");
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
   return (
     <div>
       <div>
@@ -38,7 +47,7 @@ const PaymentPage = (props) => {
                 <div className="row">
                   <div className="col-lg-12">
                     <div className="page-notfound text-center">
-                      <Payment amount={location.state.amount} name={location.state.name} orderid={location.state.orderid} email={location.state.email} contactno={location.state.contactno} orderstatus={location.state.orderstatus} paymentstatus={location.state.paymentstatus} />
+                      <Payment amount={location.state?.amount} name={location.state?.name} orderid={location.state?.orderid} email={location.state?.email} contactno={location.state?.contactno} orderstatus={location.state?.orderstatus} paymentstatus={location.state?.paymentstatus} />
                     </div>
                   </div>
                 </div>

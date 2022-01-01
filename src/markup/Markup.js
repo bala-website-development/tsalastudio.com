@@ -16,22 +16,22 @@ import Team from "./Pages/Team";
 import PasswordChanged from "./Pages/PasswordChanged";
 import TermsandCondition from "./Pages/TermsandCondition";
 
-import Bloggrid2 from "./Pages/Bloggrid2";
-import Bloggridrightsidebar from "./Pages/Bloggridrightsidebar";
-import Bloggridleftsidebar from "./Pages/Bloggridleftsidebar";
-import Bloggride3 from "./Pages/Bloggride3";
+// import Bloggrid2 from "./Pages/Bloggrid2";
+// import Bloggridrightsidebar from "./Pages/Bloggridrightsidebar";
+// import Bloggridleftsidebar from "./Pages/Bloggridleftsidebar";
+// import Bloggride3 from "./Pages/Bloggride3";
 
-import Bloghalfimg from "./Pages/Bloghalfimg";
+// import Bloghalfimg from "./Pages/Bloghalfimg";
 import Halfimgsidebar from "./Pages/Halfimgsidebar";
-import Halfimgleftsidebar from "./Pages/Halfimgleftsidebar";
+// import Halfimgleftsidebar from "./Pages/Halfimgleftsidebar";
 
-import Bloglargeimg from "./Pages/Bloglargeimg";
-import Bloglargeimgsidebar from "./Pages/Bloglargeimgsidebar";
-import Bloglargeimgleftsidebar from "./Pages/Bloglargeimgleftsidebar";
+// import Bloglargeimg from "./Pages/Bloglargeimg";
+// import Bloglargeimgsidebar from "./Pages/Bloglargeimgsidebar";
+// import Bloglargeimgleftsidebar from "./Pages/Bloglargeimgleftsidebar";
 
-import Blogsingle from "./Pages/Blogsingle";
+// import Blogsingle from "./Pages/Blogsingle";
 import Blogsinglesidebar from "./Pages/Blogsinglesidebar";
-import Blogsingleleftsidebar from "./Pages/Blogsingleleftsidebar";
+// import Blogsingleleftsidebar from "./Pages/Blogsingleleftsidebar";
 
 import Shop from "./Pages/Shop";
 import Shopsidebar from "./Pages/Shopsidebar";
@@ -46,7 +46,7 @@ import Myprofile from "./Pages/Myprofile";
 import Orderhistory from "./Pages/Orderhistory";
 
 import Contact from "./Pages/Contact";
-import Contact2 from "./Pages/Contact2";
+// import Contact2 from "./Pages/Contact2";
 
 class Markup extends Component {
   render() {
@@ -70,30 +70,9 @@ class Markup extends Component {
           <Route path="/calendar" exact component={Calendar} />
           <Route path="/team" exact component={Team} />
           <Route path="/password-success" exact component={PasswordChanged} />
-          {/* 
-          <Route path="/our-menu-1" exact component={Ourmenustyle1} />
-          <Route path="/our-menu-2" exact component={Ourmenustyle2} />
-          <Route path="/our-menu-3" exact component={Ourmenustyle3} />
-          <Route path="/our-menu-4" exact component={Ourmenustyle4} /> */}
-
-          <Route path="/blog-grid-2" exact component={Bloggrid2} />
-          <Route path="/blog-grid-2-sidebar" exact component={Bloggridrightsidebar} />
-          <Route path="/blog-grid-2-sidebar-left" exact component={Bloggridleftsidebar} />
-          <Route path="/blog-grid-3" exact component={Bloggride3} />
-
-          <Route path="/blog-half-img" exact component={Bloghalfimg} />
           <Route path="/blog" exact component={Halfimgsidebar} />
           <Route path="/termsandcondition" exact component={TermsandCondition} />
-          {/* <Route path="/blog-half-img-left-sidebar" exact component={Halfimgleftsidebar} />
-
-          <Route path="/blog-large-img" exact component={Bloglargeimg} />
-          <Route path="/blog-large-img-sidebar" exact component={Bloglargeimgsidebar} />
-          <Route path="/blog-large-img-left-sidebar" exact component={Bloglargeimgleftsidebar} /> */}
-
-          <Route path="/blog-single" exact component={Blogsingle} />
           <Route path="/blog-single-sidebar/:id" exact component={Blogsinglesidebar} />
-          <Route path="/blog-single-left-sidebar" exact component={Blogsingleleftsidebar} />
-
           <Route path="/shop" exact component={Shop} />
           <Route path="/shop-sidebar" exact component={Shopsidebar} />
           <Route path="/shop-product-details/:id" exact component={Shopproduct} />
@@ -103,6 +82,21 @@ class Markup extends Component {
           <Route path="/shop-login" exact component={Shoplogin} />
           <Route path="/shop-register" exact component={Shopregister} />
           <Route path="/contact" exact component={Contact} />
+
+          <Route path="*" component={Error} />
+          {/* 
+          <Route path="/our-menu-1" exact component={Ourmenustyle1} />
+          <Route path="/our-menu-2" exact component={Ourmenustyle2} />
+          <Route path="/our-menu-3" exact component={Ourmenustyle3} />
+          <Route path="/our-menu-4" exact component={Ourmenustyle4} /> <Route path="/blog-grid-2" exact component={Bloggrid2} />  <Route path="/blog-grid-2-sidebar" exact component={Bloggridrightsidebar} />
+          <Route path="/blog-grid-2-sidebar-left" exact component={Bloggridleftsidebar} />
+          <Route path="/blog-grid-3" exact component={Bloggride3} />
+          <Route path="/blog-half-img" exact component={Bloghalfimg} /> 
+          <Route path="/blog-half-img-left-sidebar" exact component={Halfimgleftsidebar} />
+          <Route path="/blog-large-img" exact component={Bloglargeimg} />
+          <Route path="/blog-large-img-sidebar" exact component={Bloglargeimgsidebar} />
+          <Route path="/blog-large-img-left-sidebar" exact component={Bloglargeimgleftsidebar} /> <Route path="/blog-single" exact component={Blogsingle} /> 
+          <Route path="/blog-single-left-sidebar" exact component={Blogsingleleftsidebar} /> */}
         </Switch>
       </BrowserRouter>
     );

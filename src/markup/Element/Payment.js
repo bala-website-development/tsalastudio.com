@@ -45,6 +45,8 @@ const Payment = (props) => {
             order_id: data.data.id,
             handler: function (response) {
               console.log("razorpay response", response);
+              UpdateOrderPayemntStatus(props.orderid, "Received", "Completed");
+              //call order api to update the order sucess
               // alert(response.razorpay_payment_id);
               // alert(response.razorpay_order_id);
               // alert(response.razorpay_signature);
@@ -67,14 +69,11 @@ const Payment = (props) => {
           paymentobj.open();
           paymentobj.on("payment.failed", function (response) {
             // log failure message
+            UpdateOrderPayemntStatus(props.orderid, "Failed", "Pending");
+            console.log("payement failed");
             // update payment failed in order page
-            alert(response.error.code);
-            // alert(response.error.description);
-            // alert(response.error.source);
-            // alert(response.error.step);
-            // alert(response.error.reason);
-            // alert(response.error.metadata.order_id);
-            // alert(response.error.metadata.payment_id);
+            // alert(response.error.code);
+            //call order service and update the order to failed
           });
         } else if (data?.status === 400) {
           console.log("orderid", "400");
@@ -102,6 +101,34 @@ const Payment = (props) => {
       document.body.appendChild(script);
     });
   }
+  const UpdateOrderPayemntStatus = async (orderid, paymentstatus, orderstatus) => {
+    let _data = {
+      orderid: orderid,
+      paymentstatus: paymentstatus,
+      paymentmethod: "Online",
+      orderstatus: orderstatus,
+    };
+
+    await fetch(config.service_url + "updateorderbyuser", {
+      method: "POST",
+      headers: { "Content-Type": "application/json", authorization: localStorage.getItem("accessToken") },
+      body: JSON.stringify({ data: _data }),
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        if (data.status === 200) {
+          console.log("payment status updated");
+        } else if (data?.status === 499) {
+          console.log("payment status not updated");
+        } else {
+          console.log("payment status not updated");
+        }
+      })
+      .catch((err) => {
+        console.log(err.message);
+      });
+  };
+
   return (
     <div>
       <button className="btn button-lg btnhover btn-block w-auto" type="button" onClick={displayRazorPay}>
