@@ -71,8 +71,8 @@ const Testimonial = (props) => {
                       </div>
                       <div class="card-body dangerous bg-white">
                         <h5>{course.t_title}</h5>
+                        <p className="font-italic">{course.t_description}</p>
                         <p className="mb-2">
-                          {/* <div dangerouslySetInnerHTML={{ __html: course.postcontent.substring(0, 150) }} /> */}
                           <div dangerouslySetInnerHTML={{ __html: course.t_content }} />
                         </p>
                       </div>

@@ -36,7 +36,6 @@ const Payment = (props) => {
           //setPaymentResponse(data.data);
           console.log("orderid", data.data.id);
           const options = {
-            //key: dev ? "rzp_test_anSQ2uSSoNWOyA" : config.key_id,
             amount: props.amount * 100,
             currency: "INR",
             name: config.title,
@@ -47,10 +46,7 @@ const Payment = (props) => {
               console.log("razorpay response", response);
               UpdateOrderPayemntStatus(props.orderid, "Received", "Completed");
               //call order api to update the order sucess
-              // alert(response.razorpay_payment_id);
-              // alert(response.razorpay_order_id);
-              // alert(response.razorpay_signature);
-              // save this in db paymentid and razor order id status sucess in db
+
               history.push("/success");
             },
             prefill: {
@@ -72,8 +68,6 @@ const Payment = (props) => {
             UpdateOrderPayemntStatus(props.orderid, "Failed", "Pending");
             console.log("payement failed");
             // update payment failed in order page
-            // alert(response.error.code);
-            //call order service and update the order to failed
           });
         } else if (data?.status === 400) {
           console.log("orderid", "400");
