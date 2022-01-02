@@ -132,7 +132,7 @@ const Payment = (props) => {
       body: JSON.stringify({
         from: config.fromemail,
         to: email + "," + config.fromemail,
-        subject: "Order Received" + name,
+        subject: "Order Received - " + name,
         text: "",
         html: body,
       }),
