@@ -46,7 +46,7 @@ const Payment = (props) => {
               console.log("razorpay response", response);
               UpdateOrderPayemntStatus(props.orderid, "Received", "Completed");
               //call order api to update the order sucess
-
+              sendEmail(props.name, props.email, props.orderid, "Received", "Completed");
               history.push("/success");
             },
             prefill: {
@@ -66,6 +66,8 @@ const Payment = (props) => {
           paymentobj.on("payment.failed", function (response) {
             // log failure message
             UpdateOrderPayemntStatus(props.orderid, "Failed", "Pending");
+            // email service
+            sendEmail(props.name, props.email, props.orderid, "Failed", "Pending");
             console.log("payement failed");
             // update payment failed in order page
           });
@@ -122,7 +124,26 @@ const Payment = (props) => {
         console.log(err.message);
       });
   };
-
+  const sendEmail = (name, email, orderid, paymentstatus, orderstatus) => {
+    const body = "<p>Hello ," + "</p>" + "<p>Your Order has been placed Sucessfully. Below is the status: </p>" + "<br/><p>Regards,</p> <p><a href='https://www.tsalastudio.com'>Tsala Studio Team</a></p>" + "<table  style='border: 1px solid black'>" + "<tr style='border: 1px solid black'><td> <i>Name:</i></td> <td> <i>" + name + "</i></td></tr>" + "<tr style='border: 1px solid black'><td> <i>Email:</i></td> <td> <i>" + email + "</i></td></tr>" + "<tr style='border: 1px solid black'><td> <i>Orderid:</i></td> <td> <i>" + orderid + "</i></td></tr>" + "<tr style='border: 1px solid black'><td><i>Payment Status:</i></td><td> <i>" + paymentstatus + "</i></td></tr>" + "<tr style='border: 1px solid black'><td><i>Order Status:</i></td><td> <i>" + orderstatus + "</i></td></tr>" + "</table>";
+    const requestOptions = {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        from: config.fromemail,
+        to: email + "," + config.fromemail,
+        subject: "Order Received" + name,
+        text: "",
+        html: body,
+      }),
+    };
+    console.log(requestOptions);
+    try {
+      fetch(config.email_service_url, requestOptions).then((response) => console.log(response.json()));
+    } catch (err) {
+      console.log(err);
+    }
+  };
   return (
     <div>
       <button className="btn button-lg btnhover btn-block w-auto" type="button" onClick={displayRazorPay}>
