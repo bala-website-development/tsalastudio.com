@@ -26,7 +26,7 @@ const Blogsinglesidebar = (props) => {
       .then((response) => response.json())
       .then((data) => {
         if (data.status === 200) {
-          let _filterData = data.data.filter((blog) => blog.posttypevalue === "Blog");
+          let _filterData = data.data;
           if (_filterData) {
             setBlogpost(_filterData);
             getcomments(_filterData[0].post_id);
