@@ -188,7 +188,7 @@ const Shopchekout = () => {
             <form className="shop-form" onSubmit={handleSubmit(onSubmit)}>
               <div className="row">
                 <div className="col-lg-6 col-md-12 m-b30">
-                  <h3>Billing & Shipping Address</h3>
+                  <h3>Shipping Address</h3>
                   {/* <div className="form-group">
                     <Form.Group controlId="exampleForm.ControlSelect1">
                       <Form.Control as="select">
@@ -240,24 +240,7 @@ const Shopchekout = () => {
                       <input type="text" className="form-control" placeholder="Pincode" defaultValue={userAddress[0]?.pincode} name="pincode" {...register("pincode")} required />
                     </div>
                   </div>
-                  {/* <div className="row">
-                    <div className="form-group col-md-6">
-                      <input type="text" className="form-control" placeholder="State / County" />
-                    </div>
-                    <div className="form-group col-md-6">
-                      <input type="text" className="form-control" placeholder="Postcode / Zip" />
-                    </div> */}
-                  {/* </div> */}
-                  <div className="row">
-                    <div className="form-group col-md-6">{/* <input type="email" className="form-control" placeholder="Email" defaultValue={userAddress[0]?.email} {...register("email")} disabled /> */}</div>
-                    <div className="form-group col-md-6">{/* <input type="text" className="form-control" placeholder="Phone" defaultValue={userAddress[0]?.phonenumber}  {...register("phonenumber")} /> */}</div>
-                  </div>
-                  {/* <h4>
-                    <Link className="btn-link text-black" type="button" data-toggle="collapse" data-target="#create-an-account">
-                      Create an account
-                      <i className="fa fa-angle-down"></i>
-                    </Link>
-                  </h4> */}
+
                   <div id="create-an-account" className="collapse">
                     <p>Create an account by entering the information below. If you are a returning customer please login at the top of the page.</p>
                     <div className="form-group">
@@ -267,71 +250,23 @@ const Shopchekout = () => {
                 </div>
                 <div className="col-lg-6 col-md-12 m-b30 m-md-b0">
                   <h3>
-                    <button className="btn-link text-black" type="button" data-toggle="collapse" data-target="#different-address1">
+                    <button className="btn-link text-black" type="button" data-toggle="collapse" data-target="#different-address">
                       {/* Ship to a different address <i className="fa fa-angle-down"></i> */}
-                      User notes / Instructions <i className="fa fa-angle-down d-none"></i>
+                      User notes / Instructions /Billing Address<i className="fa fa-angle-down"></i>
                     </button>
                   </h3>
                   <div id="different-address" className="collapse">
-                    <p>If you have shopped with us before, please enter your details in the boxes below. If you are a new customer please proceed to the Billing & Shipping section.</p>
-                    {/* <div className="form-group">
-                      <Form.Group controlId="exampleForm.ControlSelect1">
-                        <Form.Control as="select">
-                          <option value="">Åland Islands</option>
-                          <option value="">Afghanistan</option>
-                          <option value="">Albania</option>
-                          <option value="">Algeria</option>
-                          <option value="">Andorra</option>
-                          <option value="">Angola</option>
-                          <option value="">Anguilla</option>
-                          <option value="">Antarctica</option>
-                          <option value="">Antigua and Barbuda</option>
-                          <option value="">Argentina</option>
-                          <option value="">Armenia</option>
-                          <option value="">Aruba</option>
-                          <option value="">Australia</option>
-                        </Form.Control>
-                      </Form.Group>
-                    </div> */}
-                    <div className="row">
-                      <div className="form-group col-md-6">
-                        <input type="text" className="form-control" placeholder="First Name" />
-                      </div>
-                      <div className="form-group col-md-6">
-                        <input type="text" className="form-control" placeholder="Last Name" />
-                      </div>
-                    </div>
+                    <p>If Billing address is different, please updated in your profile</p>
+
                     <div className="form-group">
-                      <input type="text" className="form-control" placeholder="Company Name" />
+                      <div className="font-weight-bold">Billing Address:</div>
+                      <div>Name : {userAddress[0]?.name}</div>
+                      <div>Eamil : {userAddress[0]?.email}</div>
+                      <div>
+                        Address : {userAddress[0]?.address}, {userAddress[0]?.city}, {userAddress[0]?.state}, {userAddress[0]?.pincode}{" "}
+                      </div>
+                      <div>Phone : {userAddress[0]?.phonenumber}</div>
                     </div>
-                    <div className="form-group">
-                      <input type="text" className="form-control" placeholder="Address" />
-                    </div>
-                    <div className="row">
-                      <div className="form-group col-md-6">
-                        <input type="text" className="form-control" placeholder="Apartment, suite, unit etc." />
-                      </div>
-                      <div className="form-group col-md-6">
-                        <input type="text" className="form-control" placeholder="Town / City" />
-                      </div>
-                    </div>
-                    <div className="row">
-                      <div className="form-group col-md-6">
-                        <input type="text" className="form-control" placeholder="State / County" />
-                      </div>
-                      <div className="form-group col-md-6">
-                        <input type="text" className="form-control" placeholder="Postcode / Zip" />
-                      </div>
-                    </div>
-                    <div className="row">
-                      <div className="form-group col-md-6">
-                        <input type="email" className="form-control" placeholder="Email" />
-                      </div>
-                      <div className="form-group col-md-6">
-                        <input type="text" className="form-control" placeholder="Phone" />
-                      </div>
-                    </div>
-                    <p>Create an account by entering the information below. If you are a returning customer please login at the top of the page.</p>
                   </div>
                   <div className="form-group">
                     <textarea type="textarea" rows="3" className="form-control" placeholder="Notes about your order, e.g. special notes for delivery" onChange={(e) => setNotes(e.target.value)}></textarea>
