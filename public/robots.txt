@@ -3,4 +3,7 @@ Allow: /contact
 Allow: /about
 Allow: /shop
 Allow: /our-services
+Allow: /hobby-classes
+Allow: /blog
+
 Sitemap: https://www.aadila.in/sitemap.txt
