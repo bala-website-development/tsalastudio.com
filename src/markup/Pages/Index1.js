@@ -79,7 +79,7 @@ const Index1 = () => {
                           <h2 className="dlab-tilte text-white">{cat.title}</h2>
                           <p>{cat.subtitle}</p>
                           <div className="dlab-separator style1 bg-primary"></div>
-                          {cat.category === "Course" ? (
+                          {cat.category === "course" ? (
                             <Link to="/our-services" className="btn btnhover">
                               More details <i className="fa fa-angle-double-right m-l5"></i>
                             </Link>
