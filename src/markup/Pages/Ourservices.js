@@ -36,7 +36,7 @@ const Ourservices = () => {
       .then((response) => response.json())
       .then((data) => {
         let active = data
-          .filter((filter) => filter.isactive === 1 && filter.published === 1 && filter.posttypevalue === "Course")
+          .filter((filter) => filter.isactive === 1 && filter.published === 1 && filter.posttypevalue === "course")
           .map((data) => {
             return data;
           });
