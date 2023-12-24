@@ -52,14 +52,31 @@ const blogNews = [
 
 const Index1 = () => {
   const [latestCat, setLatestCat] = useState([]);
+
   useEffect(() => {
+    const getCategories = async () => {
+      await fetch(config.service_url + "getuserscategory")
+        .then((response) => response.json())
+        .then((data) => {
+          if (data.status === 200) {
+            console.log("master category", data);
+            let _filter = data.data.filter((_d) => _d.type === "product" && _d.category !== "Products");
+            setLatestCat(_filter);
+          } else if (data.status === 400) {
+          }
+        })
+        .catch((err) => {
+          console.log("error");
+        });
+    };
     const fetchCategories = async () => {
       await fetch(config.service_url + "getHomePageCategory")
         .then((response) => response.json())
         .then((data) => setLatestCat(data));
       console.log("latestCat", latestCat);
     };
-    fetchCategories();
+    // fetchCategories();
+    getCategories();
   }, []);
   return (
     <div>
@@ -68,6 +85,7 @@ const Index1 = () => {
       <div className="page-content bg-white">
         <div className="content-block">
           <Slider />
+
           <div className="section-full mb-5" style={{ backgroundImage: "url(" + img1 + ")", backgroundSize: "100%" }}>
             <div className="container">
               <div className="row service-area1">
@@ -85,7 +103,7 @@ const Index1 = () => {
                             </Link>
                           ) : (
                             <Link to={{ pathname: "/shop", category: cat.category }} className="btn btnhover">
-                              More details <i className="fa fa-angle-double-right m-l5"></i>
+                              {cat.category.toUpperCase()} <i className="fa fa-angle-double-right m-l5"></i>
                             </Link>
                           )}
                         </div>
